@@ -109,7 +109,7 @@ Function 9:
 sqrt(5)*(75582*x**(1/10) - 388960*x**(1/9) + 850850*x**(1/8) - 1029600*x**(1/7) + 750750*x**(1/6) - 336336*x**(1/5) + 90090*x**(1/4) - 13200*x**(1/3) + 825*sqrt(x))/5
 ```
 
-* Displays readable coefficients, ![](./doc/images/alpha_j.svg) and ![](./doc/images/a_ij.svg) of the functions. For instance,
+* Displays readable coefficients, ![](./doc/images/alpha_i.svg) and ![](./doc/images/a_ij.svg) of the functions. For instance,
 
 ```
 i       alpha_i      a_[ij]
