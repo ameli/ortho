@@ -36,7 +36,7 @@ Optional arguments:
 | `-h`, `--help`                  | Prints a help message. |
 | `-v`, `--version`               | Prints version. |
 | `-l`, `--license`               | Prints author info, citation and license. |
-| `-n`, `--num-func[=int]`        | Number of orthogonal functions to generate. Positive integer. Default is 9. |
+| `-n`, `--num-func[=int]`        | Number of orthogonal functions to generate. Positive integer. Default is 8. |
 | `-s`, `--start-func[=int]`      | Starting function index. Non-negative integer. Default is 1. |
 | `-e`, `--end-interval[=float]`  | End of the interval of functions domains. Real number greater than zero. Default is 1. |
 | `-c`,`--check`                  | Checks orthogonality of generated functions. |
@@ -52,15 +52,15 @@ The variables ![](./doc/images/i_0.svg), ![](./doc/images/n.svg), and ![](./doc/
 
 ### Examples
 
-1. Generate nine orthogonal functions from function index 1 to 9
+1. Generate nine orthogonal functions from function index 1 to 8
 
        $ python GenerateOrthogonalFunctions.py
 
-2. Generate seven orthogonal functions from function index 1 to 7
+2. Generate seven orthogonal functions from function index 1 to 9
 
-       $ python GenerateOrthogonalFunctions.py -n 7
+       $ python GenerateOrthogonalFunctions.py -n 9
 
-3. Generate nine orthogonal functions from function index 0 to 8
+3. Generate nine orthogonal functions from function index 0 to 7
 
        $ python GenerateOrthogonalFunctions.py -s 0
 
@@ -74,7 +74,7 @@ The variables ![](./doc/images/i_0.svg), ![](./doc/images/n.svg), and ![](./doc/
 
 5. A complete example:
 
-       $ python GenerateOrthogonalFunctions.py -n 9 -s 1 -e 1 -c -p
+       $ python GenerateOrthogonalFunctions.py -n 8 -s 1 -e 1 -c -p
        
 ### Output
 
@@ -104,9 +104,6 @@ Function 7:
 
 Function 8:
 sqrt(2)*(19448*x**(1/9) - 90090*x**(1/8) + 173745*x**(1/7) - 180180*x**(1/6) + 108108*x**(1/5) - 37422*x**(1/4) + 6930*x**(1/3) - 540*sqrt(x))/3
-
-Function 9:
-sqrt(5)*(75582*x**(1/10) - 388960*x**(1/9) + 850850*x**(1/8) - 1029600*x**(1/7) + 750750*x**(1/6) - 336336*x**(1/5) + 90090*x**(1/4) - 13200*x**(1/3) + 825*sqrt(x))/5
 ```
 
 * Displays readable coefficients, ![](./doc/images/alpha_i.svg) and ![](./doc/images/a_ij.svg) of the functions. For instance,
@@ -122,20 +119,18 @@ i = 5:  +sqrt(2/6)   [105, -560, 1134, -1008, 330]
 i = 6:  -sqrt(2/7)   [196, -1470, 4410, -6468, 4620, -1287]
 i = 7:  +sqrt(2/8)   [336, -3360, 13860, -29568, 34320, -20592, 5005]
 i = 8:  -sqrt(2/9)   [540, -6930, 37422, -108108, 180180, -173745, 90090, -19448]
-i = 9:  +sqrt(2/10)  [825, 75582, -13200, 90090, -336336, 750750, -1029600, 850850, -388960]
 ```
 * Displays a matrix of mutual inner product of functions to check orthogonality (using option `-c`). An examle of generated matrix is shown below.
 
 ```
-[[1 0 0 0 0 0 0 0 0]
- [0 1 0 0 0 0 0 0 0]
- [0 0 1 0 0 0 0 0 0]
- [0 0 0 1 0 0 0 0 0]
- [0 0 0 0 1 0 0 0 0]
- [0 0 0 0 0 1 0 0 0]
- [0 0 0 0 0 0 1 0 0]
- [0 0 0 0 0 0 0 1 0]
- [0 0 0 0 0 0 0 0 1]]
+[[1 0 0 0 0 0 0 0]
+ [0 1 0 0 0 0 0 0]
+ [0 0 1 0 0 0 0 0]
+ [0 0 0 1 0 0 0 0]
+ [0 0 0 0 1 0 0 0]
+ [0 0 0 0 0 1 0 0]
+ [0 0 0 0 0 0 1 0]
+ [0 0 0 0 0 0 0 1]]
 ```
 
 *Plots the set of functions (using option `-p`) and saves the plot in the directory`./doc/images/OrthogonalFunctions.pdf`. An example of generated plot is shown below.
@@ -149,6 +144,7 @@ i = 9:  +sqrt(2/10)  [825, 75582, -13200, 90090, -336336, 750750, -1029600, 8508
 __Author:__
 
    Siavash Ameli
+   
    University of California, Berkeley
 
 __Citation:__

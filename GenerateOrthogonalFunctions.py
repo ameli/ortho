@@ -84,7 +84,7 @@ Optional arguments:
     -h --help                   Prints this help message.
     -v --version                Prints version
     -l --license                Prints author info, citation and license.
-    -n --num-func[=int]         Number of orthogonal functions to generate. Positive integer. Default is 9.
+    -n --num-func[=int]         Number of orthogonal functions to generate. Positive integer. Default is 8.
     -s --start-func[=int]       Starting function index. Non-negative integer. Default is 1.
     -e --end-interval[=float]   End of the interval of functions domains. Real number greater than zero. Default is 1.
     -c --check                  Checks orthogonality of generated functions.
@@ -127,13 +127,13 @@ Outpt:
 
 Examples:
 
-    1. Generate nine orthogonal functions from function index 1 to 9
+    1. Generate nine orthogonal functions from function index 1 to 8
         $ %s
 
-    2. Generate seven orthogonal functions from function index 1 to 7
-        $ %s -n 7
+    2. Generate seven orthogonal functions from function index 1 to 9
+        $ %s -n 9
 
-    3. Generate nine orthogonal functions from function index 0 to 8
+    3. Generate nine orthogonal functions from function index 0 to 7
         $ %s -s 0
 
     4. Generate nine set of orthogonal functions starting from function 1, that are orthonormal in the interval [0,10]
@@ -143,7 +143,7 @@ Examples:
         $ %s -c -p
 
     6. A complete example:
-        $ %s -n 9 -s 1 -e 1 -c -p
+        $ %s -n 8 -s 1 -e 1 -c -p
 
                 """%(ExecName,ExecName,ExecName,ExecName,ExecName,ExecName)
 
@@ -154,7 +154,7 @@ Examples:
     # -----------------
 
     # Initialize variables (defaults)
-    NumFunctions = 9
+    NumFunctions = 8
     StartFunctionIndex = 1
     EndInterval = 1
     CheckOrthogonality = False
@@ -391,7 +391,7 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex):
     plt.rcParams['svg.fonttype'] = 'none'  # text in svg file will be text not path.
 
     # Axis
-    eta = numpy.logspace(-5,numpy.log10(EndInterval),1000)
+    eta = numpy.logspace(-7,numpy.log10(EndInterval),1000)
 
     # Evaluate functions
     NumFunctions = len(phi_orthonormalized_list)
@@ -402,11 +402,11 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex):
         f[j,:] = f_lambdify(eta)
 
     # Plot
-    fig,ax = plt.subplots()
+    fig,ax = plt.subplots(figsize=(7,4.8))
     for j in range(NumFunctions):
         ax.semilogx(eta,f[j,:],label=r'$i = %d$'%(j+StartFunctionIndex))
 
-    ax.legend(ncol=3,loc='lower left',borderpad=0.5,frameon=False)
+    ax.legend(ncol=2,loc='lower left',borderpad=0.5,frameon=False)
     ax.set_xlim([eta[0],eta[-1]])
     ax.set_ylim([-1,1])
     ax.set_yticks([-1,0,1])
