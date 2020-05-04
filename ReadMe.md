@@ -140,7 +140,9 @@ i = 9:  +sqrt(2/10)  [825, 75582, -13200, 90090, -336336, 750750, -1029600, 8508
 
 *Plots the set of functions (using option `-p`) and saves the plot in the directory`./doc/images/OrthogonalFunctions.pdf`. An example of generated plot is shown below.
 
-![image](./doc/images/OrthogonalFunctions.svg)
+<p align="center">
+<img src="./doc/images/OrthogonalFunctions.svg">
+</p>
 
 ### Credits
 
@@ -151,6 +153,6 @@ __Author:__
 
 __Citation:__
 
-   Ameli, S. and Shadden. S. C., _Maximum Likelihood Estimation of Variance and Nugget in General Linear Model_.
+   Ameli, S. and Shadden. S. C. (2020). Maximum Likelihood Estimation of Variance and Nugget in General Linear Model.
 
 __License:__ [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
