@@ -1,12 +1,12 @@
 ### Description
 
-This script generates a set of orthonormal functions, called ![](./doc/images/phi_i_perp.svg), based on the set of non-orthonormal functions ![](./doc/images/phi_i.svg),
+This script generates a set of orthonormal functions, called ![](./doc/images/phi_i_perp.svg), based on the set of non-orthonormal functions ![](./doc/images/phi_i.svg) defined by
 
 <p align="center">
   <img src="./doc/images/Equation_phi_i.svg">
 </p>
 
-The orthonormalized functions ![](./doc/images/phi_i_perp.svg) are linear combination of the functions ![](./doc/images/phi_i.svg), as
+The orthonormalized functions ![](./doc/images/phi_i_perp.svg) are the linear combination of the functions ![](./doc/images/phi_i.svg) by
 
 <p align="center">
 	<img src="./doc/images/Equation_phi_i_perp.svg">
@@ -143,9 +143,7 @@ i = 8:  -sqrt(2/9)   [540, -6930, 37422, -108108, 180180, -173745, 90090, -19448
 
 __Author:__
 
-   Siavash Ameli
-   
-   University of California, Berkeley
+   Siavash Ameli (University of California, Berkeley)
 
 __Citation:__
 
