@@ -101,7 +101,7 @@ Description:
 
     The orthonormalized functions phi_perp_i are linear combination of the functions phi_i, as
 
-        phi_perp_j(x) = alpha_j * sum_{i=I}^{I+N} a_{ji} phi_i(x)
+        phi_perp_i(x) = alpha_i * sum_{j=I}^{I+N} a_{ij} phi_j(x)
 
     The functions phi_perp are orthonormal in the interval [0,L] with respect to weight w(x) = 1/x. That is
 
@@ -342,7 +342,7 @@ def PrintCoefficientsOfFunctions(phi_orthonormalized_list,StartFunctionIndex):
     print('Coefficient of functions:')
     print('-------------------------')
     print('')
-    print('j       alpha_[j]   a_[ji]')
+    print('i       alpha_[i]   a_[ij]')
     print('------  ----------  ---------')
 
     NumFunctions = len(phi_orthonormalized_list)
@@ -361,7 +361,7 @@ def PrintCoefficientsOfFunctions(phi_orthonormalized_list,StartFunctionIndex):
         SignAsString = '-'
         if Sign > 0: SignAsString = '+'
         AlphaAsString = SignAsString + 'sqrt(2/%d)'%(j+StartFunctionIndex+1)
-        print('j = %d:  %s  %s'%(j+StartFunctionIndex,AlphaAsString,Polynomial.coeffs()))
+        print('i = %d:  %s  %s'%(j+StartFunctionIndex,AlphaAsString,Polynomial.coeffs()))
 
     print('')
 
@@ -404,18 +404,18 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex):
     # Plot
     fig,ax = plt.subplots()
     for j in range(NumFunctions):
-        ax.semilogx(eta,f[j,:],label=r'$j = %d$'%(j+StartFunctionIndex))
+        ax.semilogx(eta,f[j,:],label=r'$i = %d$'%(j+StartFunctionIndex))
 
     ax.legend(ncol=3,loc='lower left',borderpad=0.5,frameon=False)
     ax.set_xlim([eta[0],eta[-1]])
     ax.set_ylim([-1,1])
     ax.set_yticks([-1,0,1])
     ax.set_xlabel(r'$\eta$')
-    ax.set_ylabel(r'$\phi_j^{\perp}(\eta)$')
+    ax.set_ylabel(r'$\phi_i^{\perp}(\eta)$')
     ax.set_title('Orthogonal functions')
     ax.grid(axis='y')
 
-    SaveDir = './'
+    SaveDir = './doc/images/'
     SaveFullname = SaveDir + 'OrthogonalFunctions.svg'
     plt.savefig(SaveFullname,transparent=True,bbox_inches='tight')
     print('')
