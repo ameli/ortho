@@ -416,7 +416,7 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex):
     ax.grid(axis='y')
 
     SaveDir = './doc/images/'
-    SaveFullname = SaveDir + 'OrthogonalFunctions.svg'
+    SaveFullname = SaveDir + 'OrthogonalFunctions.pdf'
     plt.savefig(SaveFullname,transparent=True,bbox_inches='tight')
     print('')
     print('Plot saved to "%s".'%(SaveFullname))
