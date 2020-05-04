@@ -144,4 +144,4 @@ __Citation:__
 
    Ameli, S. and Shadden. S. C., _Maximum Likelihood Estimation of Variance and Nugget in General Linear Model_.
 
-__License:__ [Creative Commons with Attribution (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
+__License:__ [GNU General Public License v3.0](https://raw.github.com/ameli/orthogonalfunctions/master/LISENSE.txt)
