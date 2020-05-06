@@ -52,23 +52,23 @@ The variables ![](./doc/images/i_0.svg), ![](./doc/images/n.svg), and ![](./doc/
 
 ### Examples
 
-1. Generate nine orthogonal functions from function index 1 to 9
+1. Generate nine orthogonal functions from index 1 to 9 (defaults)
 
        $ python GenerateOrthogonalFunctions.py
 
-2. Generate seven orthogonal functions from function index 1 to 8
+2. Generate eight orthogonal functions from index 1 to 8
 
        $ python GenerateOrthogonalFunctions.py -n 8
 
-3. Generate nine orthogonal functions from function index 0 to 8
+3. Generate nine orthogonal functions from index 0 to 8
 
        $ python GenerateOrthogonalFunctions.py -s 0
 
-4. Generate nine orthogonal functions starting from function 1, that are orthonormal in the interval [0,10]
+4. Generate nine orthogonal functions that are orthonormal in the interval [0,10]
 
        $ python GenerateOrthogonalFunctions.py -e 10
 
-4. Check orthogonality of each two functions, and plot the orthonormal functions and save the plot to pdf
+4. Check orthogonality of each two functions, plot the orthonormal functions and save the plot to pdf
 
        $ python GenerateOrthogonalFunctions.py -c -p
 
@@ -81,32 +81,15 @@ The variables ![](./doc/images/i_0.svg), ![](./doc/images/n.svg), and ![](./doc/
 * Displays the orthogonal functions as computer algebraic symbolic functions. An example a set of generated functions is shown below.
 
 ```
-Function 1:
-sqrt(x)
-
-Function 2:
-sqrt(6)*(5*x**(1/3) - 6*sqrt(x))/3
-
-Function 3:
-sqrt(2)*(21*x**(1/4) - 40*x**(1/3) + 20*sqrt(x))/2
-
-Function 4:
-sqrt(10)*(84*x**(1/5) - 210*x**(1/4) + 175*x**(1/3) - 50*sqrt(x))/5
-
-Function 5:
-sqrt(3)*(330*x**(1/6) - 1008*x**(1/5) + 1134*x**(1/4) - 560*x**(1/3) + 105*sqrt(x))/3
-
-Function 6:
-sqrt(14)*(1287*x**(1/7) - 4620*x**(1/6) + 6468*x**(1/5) - 4410*x**(1/4) + 1470*x**(1/3) - 196*sqrt(x))/7
-
-Function 7:
-5005*x**(1/8)/2 - 10296*x**(1/7) + 17160*x**(1/6) - 14784*x**(1/5) + 6930*x**(1/4) - 1680*x**(1/3) + 168*sqrt(x)
-
-Function 8:
-sqrt(2)*(19448*x**(1/9) - 90090*x**(1/8) + 173745*x**(1/7) - 180180*x**(1/6) + 108108*x**(1/5) - 37422*x**(1/4) + 6930*x**(1/3) - 540*sqrt(x))/3
-
-Function 9:
-sqrt(5)*(75582*x**(1/10) - 388960*x**(1/9) + 850850*x**(1/8) - 1029600*x**(1/7) + 750750*x**(1/6) - 336336*x**(1/5) + 90090*x**(1/4) - 13200*x**(1/3) + 825*sqrt(x))/5
+Function 1:  sqrt(x)
+Function 2:  sqrt(6)*(5*x**(1/3) - 6*sqrt(x))/3
+Function 3:  sqrt(2)*(21*x**(1/4) - 40*x**(1/3) + 20*sqrt(x))/2
+Function 4:  sqrt(10)*(84*x**(1/5) - 210*x**(1/4) + 175*x**(1/3) - 50*sqrt(x))/5
+Function 5:  sqrt(3)*(330*x**(1/6) - 1008*x**(1/5) + 1134*x**(1/4) - 560*x**(1/3) + 105*sqrt(x))/3
+Function 6:  sqrt(14)*(1287*x**(1/7) - 4620*x**(1/6) + 6468*x**(1/5) - 4410*x**(1/4) + 1470*x**(1/3) - 196*sqrt(x))/7
+Function 7:  5005*x**(1/8)/2 - 10296*x**(1/7) + 17160*x**(1/6) - 14784*x**(1/5) + 6930*x**(1/4) - 1680*x**(1/3) + 168*sqrt(x)
+Function 8:  sqrt(2)*(19448*x**(1/9) - 90090*x**(1/8) + 173745*x**(1/7) - 180180*x**(1/6) + 108108*x**(1/5) - 37422*x**(1/4) + 6930*x**(1/3) - 540*sqrt(x))/3
+Function 9:  sqrt(5)*(75582*x**(1/10) - 388960*x**(1/9) + 850850*x**(1/8) - 1029600*x**(1/7) + 750750*x**(1/6) - 336336*x**(1/5) + 90090*x**(1/4) - 13200*x**(1/3) + 825*sqrt(x))/5
 ```
 
 * Displays readable coefficients, ![](./doc/images/alpha_i.svg) and ![](./doc/images/a_ij.svg) of the functions. For instance,
