@@ -18,7 +18,10 @@ import numpy
 import matplotlib
 import matplotlib.pyplot as plt
 
+# ==========================
 # Declare symbolic variables
+# ==========================
+
 n = sympy.symbols('n',integer=True,positive=True)
 x = sympy.symbols('x',real=True,positive=True)
 
@@ -84,7 +87,7 @@ Optional arguments:
     -h --help                   Prints this help message.
     -v --version                Prints version
     -l --license                Prints author info, citation and license.
-    -n --num-func[=int]         Number of orthogonal functions to generate. Positive integer. Default is 8.
+    -n --num-func[=int]         Number of orthogonal functions to generate. Positive integer. Default is 9.
     -s --start-func[=int]       Starting function index. Non-negative integer. Default is 1.
     -e --end-interval[=float]   End of the interval of functions domains. Real number greater than zero. Default is 1.
     -c --check                  Checks orthogonality of generated functions.
@@ -127,13 +130,13 @@ Outpt:
 
 Examples:
 
-    1. Generate nine orthogonal functions from function index 1 to 8
+    1. Generate nine orthogonal functions from function index 1 to 9
         $ %s
 
-    2. Generate seven orthogonal functions from function index 1 to 9
-        $ %s -n 9
+    2. Generate seven orthogonal functions from function index 1 to 8
+        $ %s -n 8
 
-    3. Generate nine orthogonal functions from function index 0 to 7
+    3. Generate nine orthogonal functions from function index 0 to 8
         $ %s -s 0
 
     4. Generate nine set of orthogonal functions starting from function 1, that are orthonormal in the interval [0,10]
@@ -143,7 +146,7 @@ Examples:
         $ %s -c -p
 
     6. A complete example:
-        $ %s -n 8 -s 1 -e 1 -c -p
+        $ %s -n 9 -s 1 -e 1 -c -p
 
                 """%(ExecName,ExecName,ExecName,ExecName,ExecName,ExecName)
 
@@ -154,7 +157,7 @@ Examples:
     # -----------------
 
     # Initialize variables (defaults)
-    NumFunctions = 8
+    NumFunctions = 9
     StartFunctionIndex = 1
     EndInterval = 1
     CheckOrthogonality = False
@@ -356,12 +359,18 @@ def PrintCoefficientsOfFunctions(phi_orthonormalized_list,StartFunctionIndex):
         # Convert the function to a polynomial
         Polynomial = sympy.Poly(Function)
 
+        # Get the coefficient of each monomial
+        Coefficients = []
+        for i in range(j+1):
+            Coefficient = Polynomial.coeff_monomial(x**(sympy.Rational(1,i+1+StartFunctionIndex)))
+            Coefficients.append(Coefficient)
+
         # Print human friendly
         Sign = (-1)**(j)
         SignAsString = '-'
         if Sign > 0: SignAsString = '+'
         AlphaAsString = SignAsString + 'sqrt(2/%d)'%(j+StartFunctionIndex+1)
-        print('i = %d:  %s  %s'%(j+StartFunctionIndex,AlphaAsString,Polynomial.coeffs()))
+        print('i = %d:  %s  %s'%(j+StartFunctionIndex,AlphaAsString,Coefficients))
 
     print('')
 
@@ -406,7 +415,7 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex):
     for j in range(NumFunctions):
         ax.semilogx(eta,f[j,:],label=r'$i = %d$'%(j+StartFunctionIndex))
 
-    ax.legend(ncol=2,loc='lower left',borderpad=0.5,frameon=False)
+    ax.legend(ncol=3,loc='lower left',borderpad=0.5,frameon=False)
     ax.set_xlim([eta[0],eta[-1]])
     ax.set_ylim([-1,1])
     ax.set_yticks([-1,0,1])
@@ -416,7 +425,7 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex):
     ax.grid(axis='y')
 
     SaveDir = './doc/images/'
-    SaveFullname = SaveDir + 'OrthogonalFunctions.pdf'
+    SaveFullname = SaveDir + 'OrthogonalFunctions.svg'
     plt.savefig(SaveFullname,transparent=True,bbox_inches='tight')
     print('')
     print('Plot saved to "%s".'%(SaveFullname))
