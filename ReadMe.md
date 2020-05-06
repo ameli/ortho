@@ -64,11 +64,11 @@ The variables ![](./doc/images/i_0.svg), ![](./doc/images/n.svg), and ![](./doc/
 
        $ python GenerateOrthogonalFunctions.py -s 0
 
-4. Generate nine set of orthogonal functions starting from function 1, that are orthonormal in the interval [0,10]
+4. Generate nine orthogonal functions starting from function 1, that are orthonormal in the interval [0,10]
 
        $ python GenerateOrthogonalFunctions.py -e 10
 
-4. Check orthogonality of each two function, and plot the orthonormal functions and save the plot to pdf
+4. Check orthogonality of each two functions, and plot the orthonormal functions and save the plot to pdf
 
        $ python GenerateOrthogonalFunctions.py -c -p
 
@@ -78,7 +78,7 @@ The variables ![](./doc/images/i_0.svg), ![](./doc/images/n.svg), and ![](./doc/
        
 ### Output
 
-* Displays the orthogonal functions as computer algebraric symbolic functions. An example a set of of generated functions is shown below.
+* Displays the orthogonal functions as computer algebraic symbolic functions. An example a set of generated functions is shown below.
 
 ```
 Function 1:
@@ -138,7 +138,7 @@ i = 9:  +sqrt(2/10)  [825, -13200, 90090, -336336, 750750, -1029600, 850850, -38
  [0 0 0 0 0 0 0 0 1]]
 ```
 
-*Plots the set of functions (using option `-p`) and saves the plot in the directory`./doc/images/OrthogonalFunctions.pdf`. An example of generated plot is shown below.
+*Plots the set of functions (using option `-p`) and saves the plot in the directory`./doc/images/OrthogonalFunctions.pdf`. An example of a generated plot is shown below.
 
 <p align="center">
 <img src="./doc/images/OrthogonalFunctions.svg">
