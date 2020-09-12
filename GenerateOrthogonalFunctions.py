@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 # ==========================
 
 n = sympy.symbols('n',integer=True,positive=True)
-x = sympy.symbols('x',real=True,positive=True)
+t = sympy.symbols('t',real=True,positive=True)
 
 # ===============
 # Parse Arguments
@@ -91,7 +91,7 @@ Optional arguments:
     -s --start-func[=int]       Starting function index. Non-negative integer. Default is 1.
     -e --end-interval[=float]   End of the interval of functions domains. Real number greater than zero. Default is 1.
     -c --check                  Checks orthogonality of generated functions.
-    -p --plot                   Plots generated functions, also saves the plot as pdf file in the current directory.
+    -p --plot                   Plots generated functions, also saves the plot as pdf and svg file in the current directory.
                 """
 
         ExampleString = \
@@ -100,15 +100,15 @@ Description:
 
     This script generates a set of orthonormal functions, called phi_perp, based on the set of non-orthonormal functions
 
-        phi_i(x) = x**(1/(i+i)),      i = I, ... , I+N
+        phi_i(t) = t**(1/(i+i)),      i = I, ... , I+N
 
     The orthonormalized functions phi_perp_i are linear combination of the functions phi_i, as
 
-        phi_perp_i(x) = alpha_i * sum_{j=I}^{I+N} a_{ij} phi_j(x)
+        phi_perp_i(t) = alpha_i * sum_{j=I}^{I+N} a_{ij} phi_j(t)
 
-    The functions phi_perp are orthonormal in the interval [0,L] with respect to weight w(x) = 1/x. That is
+    The functions phi_perp are orthonormal in the interval [0,L] with respect to weight w(t) = 1/t. That is
 
-        int_0^L phi_perp_i(x) phi_perp_j(x) 1/x dx = delta_{ij}
+        int_0^L phi_perp_i(t) phi_perp_j(t) 1/t dt = delta_{ij}
 
     where delta_{ij} is the Kronecker delta function.
 
@@ -126,7 +126,7 @@ Outpt:
     2. Prints a human readable coefficients, "alpha" and "a" of the functions
     3. Prints a matrix of mutual inner product of functions to check orthogonality (with option "-c")
     4. Plots the set of functions (with option "-p")
-    5. Saves the plot as pdf in the current directory (with option "-p")
+    5. Saves the plot as pdf and svg in the current directory (with option "-p")
 
 Examples:
 
@@ -142,7 +142,7 @@ Examples:
     4. Generate nine set of orthogonal functions starting from function 1, that are orthonormal in the interval [0,10]
         $ %s -e 10
 
-    5. Check orthogonality of each two function, and plot the orthonormal functions and save the plot to pdf
+    5. Check orthogonality of each two function, and plot the orthonormal functions and save the plot to pdf and svg
         $ %s -c -p
 
     6. A complete example:
@@ -212,9 +212,9 @@ Examples:
 
 def phi(i):
     """
-    Generates a list of non-orthogonal functions defined by x**{1/n}
+    Generates a list of non-orthogonal functions defined by t**{1/n}
     """
-    return x**(sympy.Rational(sympy.S(1),sympy.S(i+1)))
+    return t**(sympy.Rational(sympy.S(1),sympy.S(i+1)))
 
 # =============
 # Inner Product
@@ -222,13 +222,13 @@ def phi(i):
 
 def InnerProduct(f,g):
     """
-    Inner product of two functions with weight 1/x
+    Inner product of two functions with weight 1/t
     """
     # The two stage sympy.expand below is needed so sympy.integrate can perform properly
-    h = sympy.expand(sympy.expand(f*g)/x)
+    h = sympy.expand(sympy.expand(f*g)/t)
 
     # Integrate function f between 0 and 1
-    return sympy.integrate(h,(x,sympy.S(0),sympy.S(EndInterval)))
+    return sympy.integrate(h,(t,sympy.S(0),sympy.S(EndInterval)))
 
 # =========
 # Normalize
@@ -280,7 +280,7 @@ def GramSchmidtProcess(NumFunctions,StartFunctionIndex):
         phi_orthonormalized_list.append(phi_orthonormalized)
 
         # Print progress
-        print('Function %d:'%(i+StartFunctionIndex))
+        print('phi_%d(t) = '%(i+StartFunctionIndex))
         print(phi_orthonormalized_list[i])
         print('')
 
@@ -336,7 +336,7 @@ def PrintCoefficientsOfFunctions(phi_orthonormalized_list,StartFunctionIndex):
     """
     Prints the coefficients of orthonormalized functions as
 
-        phi_j = alpha_j * \sum_{i=1}^n a_{ij} x^{1/i}
+        phi_j = alpha_j * \sum_{i=1}^n a_{ij} t^{1/i}
 
     where alpha_j = sqrt{2/j}, and a_{ij} are integers
     """
@@ -362,7 +362,7 @@ def PrintCoefficientsOfFunctions(phi_orthonormalized_list,StartFunctionIndex):
         # Get the coefficient of each monomial
         Coefficients = []
         for i in range(j+1):
-            Coefficient = Polynomial.coeff_monomial(x**(sympy.Rational(1,i+1+StartFunctionIndex)))
+            Coefficient = Polynomial.coeff_monomial(t**(sympy.Rational(1,i+1+StartFunctionIndex)))
             Coefficients.append(Coefficient)
 
         # Print human friendly
@@ -400,35 +400,38 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex):
     plt.rcParams['svg.fonttype'] = 'none'  # text in svg file will be text not path.
 
     # Axis
-    eta = numpy.logspace(-7,numpy.log10(EndInterval),1000)
+    t_array = numpy.logspace(-7,numpy.log10(EndInterval),1000)
 
     # Evaluate functions
     NumFunctions = len(phi_orthonormalized_list)
 
-    f = numpy.zeros((NumFunctions,eta.size),dtype=float)
+    f = numpy.zeros((NumFunctions,t_array.size),dtype=float)
     for j in range(NumFunctions):
-        f_lambdify = sympy.lambdify(x,phi_orthonormalized_list[j],'numpy')
-        f[j,:] = f_lambdify(eta)
+        f_lambdify = sympy.lambdify(t,phi_orthonormalized_list[j],'numpy')
+        f[j,:] = f_lambdify(t_array)
 
     # Plot
     fig,ax = plt.subplots(figsize=(7,4.8))
     for j in range(NumFunctions):
-        ax.semilogx(eta,f[j,:],label=r'$i = %d$'%(j+StartFunctionIndex))
+        ax.semilogx(t_array,f[j,:],label=r'$i = %d$'%(j+StartFunctionIndex))
 
     ax.legend(ncol=3,loc='lower left',borderpad=0.5,frameon=False)
-    ax.set_xlim([eta[0],eta[-1]])
+    ax.set_xlim([t_array[0],t_array[-1]])
     ax.set_ylim([-1,1])
     ax.set_yticks([-1,0,1])
-    ax.set_xlabel(r'$\eta$')
-    ax.set_ylabel(r'$\phi_i^{\perp}(\eta)$')
+    ax.set_xlabel(r'$t$')
+    ax.set_ylabel(r'$\phi_i^{\perp}(t)$')
     ax.set_title('Orthogonal functions')
     ax.grid(axis='y')
 
     SaveDir = './doc/images/'
-    SaveFullname = SaveDir + 'OrthogonalFunctions.svg'
-    plt.savefig(SaveFullname,transparent=True,bbox_inches='tight')
+    SaveFullname_SVG = SaveDir + 'OrthogonalFunctions.svg'
+    SaveFullname_PDF = SaveDir + 'OrthogonalFunctions.pdf'
+    plt.savefig(SaveFullname_SVG,transparent=True,bbox_inches='tight')
+    plt.savefig(SaveFullname_PDF,transparent=True,bbox_inches='tight')
     print('')
-    print('Plot saved to "%s".'%(SaveFullname))
+    print('Plot saved to "%s".'%(SaveFullname_SVG))
+    print('Plot saved to "%s".'%(SaveFullname_PDF))
     plt.show()
 
 # ====
