@@ -135,6 +135,6 @@ __Author:__
 
 __Citation:__
 
-   Ameli, S. and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of Matrix __A__ + t__B__.
+   Ameli, S. and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of Matrix __A__ + t __B__.
 
 __License:__ [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
