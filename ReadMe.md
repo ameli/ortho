@@ -121,7 +121,7 @@ i = 9:  +sqrt(2/10)  [825, -13200, 90090, -336336, 750750, -1029600, 850850, -38
  [0 0 0 0 0 0 0 0 1]]
 ```
 
-*Plots the set of functions (using option `-p`) and saves the plot in the directory`./doc/images/OrthogonalFunctions.pdf`. An example of a generated plot is shown below.
+* Plots the set of functions (using option `-p`) and saves the plot in the directory`./doc/images/OrthogonalFunctions.pdf`. An example of a generated plot is shown below.
 
 <p align="center">
 <img src="./doc/images/OrthogonalFunctions.svg">
@@ -131,10 +131,8 @@ i = 9:  +sqrt(2/10)  [825, -13200, 90090, -336336, 750750, -1029600, 850850, -38
 
 __Author:__
 
-   Siavash Ameli (University of California, Berkeley)
+   * Siavash Ameli (University of California, Berkeley)
 
 __Citation:__
 
-   Ameli, S. and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of Matrix __A__ + t __B__.
-
-__License:__ [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+   * Ameli, S. and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of Matrix __A__ + t __B__. [arXiv:2009.07385](https://arxiv.org/abs/2009.07385) [math.NA]
