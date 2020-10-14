@@ -1,7 +1,15 @@
+notifications:
+  email: false
+
+dist: xenial
+sudo: false
 language: python
 
 python:
-  - "3.6"      # current default Python on Travis CI
+  - 3.5
+  - 3.6
+  - 3.7
+  - 3.8
 
 install:
   - python --version
@@ -9,3 +17,6 @@ install:
 
 script:
   - python GenerateOrthogonalFunctions.py
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

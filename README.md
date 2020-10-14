@@ -1,4 +1,8 @@
-[![travis-devel](https://img.shields.io/travis/ameli/Orthogonal-Functions)](https://travis-ci.com/github/ameli/Orthogonal-Functions) [![licence](https://img.shields.io/github/license/ameli/Orthogonal-Functions)](https://opensource.org/licenses/MIT)
+[![travis-devel](https://img.shields.io/travis/com/ameli/Orthogonal-Functions)](https://travis-ci.com/github/ameli/Orthogonal-Functions)
+
+[![codecov-devel](https://img.shields.io/codecov/c/github/ameli/Orthogonal-Functions)](https://codecov.io/gh/ameli/Orthogonal-Functions)
+
+[![licence](https://img.shields.io/github/license/ameli/Orthogonal-Functions)](https://opensource.org/licenses/MIT)
 
 # Orthogonal Functions
 
@@ -131,12 +135,20 @@ i = 9:  +sqrt(2/10)  [825, -13200, 90090, -336336, 750750, -1029600, 850850, -38
 <img src="./doc/images/OrthogonalFunctions.svg">
 </p>
 
-### Credits
+### Citation
 
-__Author:__
+Ameli, S. and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of Matrix __A__ + t __B__. [arXiv:2009.07385](https://arxiv.org/abs/2009.07385) [math.NA]
 
-   * Siavash Ameli (University of California, Berkeley)
-
-__Citation:__
-
-   * Ameli, S. and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of Matrix __A__ + t __B__. [arXiv:2009.07385](https://arxiv.org/abs/2009.07385) [math.NA]
+```
+@misc{AMELI-2020,
+    title={Interpolating the Trace of the Inverse of Matrix $\mathbf{A} + t \mathbf{B}$},
+    author={Siavash Ameli and Shawn C. Shadden},
+    year={2020},
+    month = sep,
+    eid = {arXiv:2009.07385},
+    eprint={2009.07385},
+    archivePrefix={arXiv},
+    primaryClass={math.NA},
+    howpublished={\emph{arXiv}: 2009.07385 [math.NA]},
+}
+```
