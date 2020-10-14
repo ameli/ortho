@@ -1,3 +1,7 @@
+[![travis-devel](https://img.shields.io/travis/ameli/Orthogonal-Functions)](https://travis-ci.com/github/ameli/Orthogonal-Functions) [![licence](https://img.shields.io/github/license/ameli/Orthogonal-Functions)](https://opensource.org/licenses/MIT)
+
+# Orthogonal Functions
+
 ### Description
 
 This script generates a set of orthonormal functions, called ![](./doc/images/phi_i_perp.svg), based on the set of non-orthonormal functions ![](./doc/images/phi_i.svg) defined by
