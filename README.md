@@ -1,8 +1,4 @@
-[![travis-devel](https://img.shields.io/travis/com/ameli/Orthogonal-Functions)](https://travis-ci.com/github/ameli/Orthogonal-Functions)
-
-[![codecov-devel](https://img.shields.io/codecov/c/github/ameli/Orthogonal-Functions)](https://codecov.io/gh/ameli/Orthogonal-Functions)
-
-[![licence](https://img.shields.io/github/license/ameli/Orthogonal-Functions)](https://opensource.org/licenses/MIT)
+[![travis-devel](https://img.shields.io/travis/com/ameli/Orthogonal-Functions)](https://travis-ci.com/github/ameli/Orthogonal-Functions)  [![codecov-devel](https://img.shields.io/codecov/c/github/ameli/Orthogonal-Functions)](https://codecov.io/gh/ameli/Orthogonal-Functions)  [![licence](https://img.shields.io/github/license/ameli/Orthogonal-Functions)](https://opensource.org/licenses/MIT)
 
 # Orthogonal Functions
 

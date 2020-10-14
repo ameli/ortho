@@ -6,17 +6,18 @@ sudo: false
 language: python
 
 python:
-  - 3.5
-  - 3.6
-  - 3.7
-  - 3.8
+  - "3.6"
 
 install:
   - python --version
   - pip install -r requirements.txt
+  - pip install pytest-cov codecov
 
 script:
-  - python GenerateOrthogonalFunctions.py
+  - pytest -s GenerateOrthogonalFunctions.py
+
+env:
+    - CODECOV_TOKEN=83520502-cad9-475e-b4c8-8d120acc1243
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - codecov
