@@ -4,6 +4,7 @@
 
 import sympy
 import numpy
+from distutils.spawn import find_executable
 import matplotlib
 import matplotlib.pyplot as plt
 from .Declarations import n,t
@@ -25,8 +26,9 @@ def PlotSettings():
     sns.set(font_scale=1.2)
 
     # LaTeX
-    plt.rc('text',usetex=True)
-    matplotlib.font_manager._rebuild()
+    if find_executable('latex'):
+        plt.rc('text',usetex=True)
+        matplotlib.font_manager._rebuild()
 
     # Style sheet
     sns.set_style("white")
