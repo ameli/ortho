@@ -42,16 +42,16 @@ The required packages can be installed, for instance, by `conda` or `pip` as fol
 	$ python GenerateOrthogonalFunctions.py [options]
 Optional arguments:
 
-|          Option                 | Description                                                                            |
-| ------------------------------- | -------------------------------------------------------------------------------------- |
-| `-h`, `--help`                  | Prints a help message.                                                                 |
-| `-v`, `--version`               | Prints version.                                                                        |
-| `-l`, `--license`               | Prints author info, citation and license.                                              |
-| `-n`, `--num-func[=int]`        | Number of orthogonal functions to generate. Positive integer. Default is 9.            |
-| `-s`, `--start-func[=int]`      | Starting function index. Non-negative integer. Default is 1.                           |
-| `-e`, `--end-interval[=float]`  | End of the interval of functions domains. Real number greater than zero. Default is 1. |
-| `-c`,`--check`                  | Checks orthogonality of generated functions.                                           |
-| `-p`, `--plot`                  | Plots generated functions, also saves the plot as pdf file in the current directory.   |
+|          Option                | Description                                                                            |
+| ------------------------------ | -------------------------------------------------------------------------------------- |
+| `-h`, `--help`                 | Prints a help message.                                                                 |
+| `-v`, `--version`              | Prints version.                                                                        |
+| `-l`, `--license`              | Prints author info, citation and license.                                              |
+| `-n`, `--num-func[=int]`       | Number of orthogonal functions to generate. Positive integer. Default is 9.            |
+| `-s`, `--start-func[=int]`     | Starting function index. Non-negative integer. Default is 1.                           |
+| `-e`, `--end-interval[=float]` | End of the interval of functions domains. Real number greater than zero. Default is 1. |
+| `-c`,`--check`                 | Checks orthogonality of generated functions.                                           |
+| `-p`, `--plot`                 | Plots generated functions, also saves the plot as pdf file in the current directory.   |
 
 The variables ![](./doc/images/i_0.svg), ![](./doc/images/n.svg), and ![](./doc/images/L.svg) can be set in the script by the following arguments,
 

@@ -1,7 +1,6 @@
 notifications:
   email: false
 
-dist: xenial
 sudo: false
 language: python
 
