@@ -1,0 +1,13 @@
+README.md
+setup.py
+OrthogonalFunctions/Declarations.py
+OrthogonalFunctions/OrthogonalFunctions.py
+OrthogonalFunctions/OrthogonalizationUtilities.py
+OrthogonalFunctions/ParseUtilities.py
+OrthogonalFunctions/PlotUtilities.py
+OrthogonalFunctions/__init__.py
+OrthogonalFunctions/__version__.py
+OrthogonalFunctions.egg-info/PKG-INFO
+OrthogonalFunctions.egg-info/SOURCES.txt
+OrthogonalFunctions.egg-info/dependency_links.txt
+OrthogonalFunctions.egg-info/top_level.txt

@@ -32,7 +32,7 @@ def ReadFileToRST(Filename):
         return rststr
         #return read(rstname)
     except ImportError:
-        return read(Filename)
+        return ReadFile(Filename)
 
 # ====
 # Main
@@ -42,7 +42,7 @@ def main(argv):
 
     # Read version
     version_dummy = {}
-    exec(read('OrthogonalFunctions/__version__.py'),version_dummy)
+    exec(ReadFile('OrthogonalFunctions/__version__.py'),version_dummy)
     __version__ = version_dummy['__version__']
     del version_dummy
 
@@ -56,7 +56,7 @@ Please refer to the github homepage for detailed instructions on installation an
     setuptools.setup(
         name = 'OrthogonalFunctions',
         version = __version__,
-        author = ReadFileToRSF('AUTHORS.txt'),
+        author = ReadFileToRST('AUTHORS.txt'),
         author_email = 'sameli@berkeley.edu',
         description = 'Generate orthogonal set of functions',
         long_description = LongDescription,
