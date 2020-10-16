@@ -5,19 +5,24 @@
 # =======
 
 import sys
-from OrthogonalFunctions import ParseArguments
 from OrthogonalFunctions import OrthogonalFunctions
 
-# ====
-# Main
-# ====
+# matplotlib without display
+import matplotlib
+matplotlib.use('Agg')
 
-def main(argv):
+# =========================
+# Test Orthogonal Functions
+# =========================
 
-    print(argv)
+def test_OrthogonalFunctions():
 
-    # Parse arguments 
-    Arguments = ParseArguments(argv)
+    Arguments = \
+    {
+        'NumFunctions': 8,
+        'StartFunctionIndex': 1,
+        'EndInterval': 1
+    }
 
     # Create an object
     OF = OrthogonalFunctions(**Arguments)
@@ -29,16 +34,14 @@ def main(argv):
     OF.Print()
 
     # Check the orthogonality of the functions
-    if Arguments['CheckOrthogonality']:
-        OF.Check()
+    OF.Check()
 
     # Plot the results
-    if Arguments['PlotFlag']:
-        OF.Plot()
+    OF.Plot()
 
 # ===========
 # System Main
 # ===========
 
 if __name__ == "__main__":
-    main(sys.argv)
+    test_OrthogonalFunctions()

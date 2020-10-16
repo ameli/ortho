@@ -11,13 +11,11 @@ python:
 install:
   - python --version
   - pip install -r requirements.txt
-  - pip install pytest-cov codecov
+  - pip install pytest-cov
+  - pip install codecov
 
 script:
-  - pytest -s GenerateOrthogonalFunctions.py
-
-env:
-    - CODECOV_TOKEN=83520502-cad9-475e-b4c8-8d120acc1243
+  - pytest --cov-report=xml --cov=deeptabular tests/
 
 after_success:
   - codecov
