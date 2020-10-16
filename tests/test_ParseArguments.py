@@ -12,7 +12,7 @@ from OrthogonalFunctions import ParseArguments
 
 def test_ParseArguments():
 
-    # Fake user argument
+    # Mock user argument
     Argv = ['./GenerateOrthogonalFunctions.py', '-n', '8', '-s', '1', '-e', '1', '-c', '-p']
 
     # Parse arguments

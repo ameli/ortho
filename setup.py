@@ -64,7 +64,7 @@ Please refer to the github homepage for detailed instructions on installation an
         keywords = 'orthogonal-functions regression sympy computer-algebra gram-schmidt',
         url = 'https://github.com/ameli/Orthogonal-Functions',
         download_url = 'https://github.com/ameli/Orthogonal-Functions',
-        packages=setuptools.find_packages(),
+        packages=setuptools.find_packages(exclude=("tests",)),
         classifiers = [
             'Programming Language :: Python :: 3',
             'License :: OSI Approved :: MIT License',
@@ -76,6 +76,8 @@ Please refer to the github homepage for detailed instructions on installation an
             'Topic :: Software Development :: Libraries :: Python Modules',
         ],
         python_requires='>=3.6',
+        setup_requires=['pytest-runner'],
+        tests_require=['pytest'],
     )
 
 # ===========

@@ -32,7 +32,7 @@ def main(argv):
     if Arguments['CheckOrthogonality']:
         OF.Check()
 
-    # Plot the results
+    # Plot results
     if Arguments['PlotFlag']:
         OF.Plot()
 
