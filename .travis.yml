@@ -13,9 +13,10 @@ install:
   - pip install -r requirements.txt
   - pip install pytest-cov
   - pip install codecov
+  - pip install -e .
 
 script:
-  - pytest --cov-report=xml --cov=deeptabular tests/
+  - pytest --cov-report=xml --cov=tests/
 
 after_success:
   - codecov
