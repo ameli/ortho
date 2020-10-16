@@ -47,7 +47,7 @@ def main(argv):
     del version_dummy
 
     # Long description
-    LongDescription =
+    LongDescription = \
     """
 Please refer to the github homepage for detailed instructions on installation and usage.
     """
