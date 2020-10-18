@@ -32,12 +32,12 @@ The required packages can be installed, for instance, by `conda` or `pip` as fol
 
 1. Install the required packages with `pip` by
 
-    sudo pip install -r requirements.txt
+      sudo pip install -r requirements.txt
 
 2. Alternatively, install the required packages with  [anaconda](https://www.anaconda.com/) or [miniconda](https://docs.conda.io/en/latest/miniconda.html) by
 
-    sudo conda install pip
-    sudo conda pip install -r requirements.txt
+      sudo conda install pip
+      sudo conda pip install -r requirements.txt
 
 ### Usage
 
