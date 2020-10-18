@@ -52,6 +52,9 @@ def main(argv):
 Please refer to the github homepage for detailed instructions on installation and usage.
     """
 
+    # Requirements
+    Requirements = [i.strip() for i in open("requirements.txt").readlines()]
+
     # Setup
     setuptools.setup(
         name = 'OrthogonalFunctions',
@@ -65,6 +68,15 @@ Please refer to the github homepage for detailed instructions on installation an
         url = 'https://github.com/ameli/Orthogonal-Functions',
         download_url = 'https://github.com/ameli/Orthogonal-Functions',
         packages=setuptools.find_packages(exclude=("tests",)),
+        install_requires = Requirements,
+        python_requires='>=2.7',
+        setup_requires=['pytest-runner'],
+        tests_require=['pytest'],
+        entry_points = {
+            "console_scripts": [
+                "genorth = GenerateOrthogonalFunctions.__main__:main"
+            ]
+        },
         classifiers = [
             'Programming Language :: Python :: 3',
             'License :: OSI Approved :: MIT License',
@@ -75,9 +87,6 @@ Please refer to the github homepage for detailed instructions on installation an
             'Topic :: Software Development',
             'Topic :: Software Development :: Libraries :: Python Modules',
         ],
-        python_requires='>=3.6',
-        setup_requires=['pytest-runner'],
-        tests_require=['pytest'],
     )
 
 # ===========

@@ -12,12 +12,14 @@ from OrthogonalFunctions import OrthogonalFunctions
 # Main
 # ====
 
-def main(argv):
+def main(args=None):
 
-    print(argv)
+    # User arguments
+    if args is None:
+        args = sys.argv
 
     # Parse arguments 
-    Arguments = ParseArguments(argv)
+    Arguments = ParseArguments(args)
 
     # Create an object
     OF = OrthogonalFunctions(**Arguments)
@@ -41,4 +43,4 @@ def main(argv):
 # ===========
 
 if __name__ == "__main__":
-    main(sys.argv)
+    sys.exit(main())
