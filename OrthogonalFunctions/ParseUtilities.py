@@ -149,13 +149,13 @@ def ParseArguments(argv,Test=False):
         
         if opt in ('-h','--help'):
             PrintUsage(argv[0])
-            if !Test: sys.exit(0)
+            if not Test: sys.exit(0)
         elif opt in ('-v','--version'):
             PrintVersion()
-            if !Test: sys.exit(0)
+            if not Test: sys.exit(0)
         elif opt in ("-l","--license"):
             PrintLicense()
-            if !Test: sys.exit(0)
+            if not Test: sys.exit(0)
         elif opt in ("-n","--num-func"):
             Arguments['NumFunctions'] = int(arg)
         elif opt in ("-s","--start-func"):
