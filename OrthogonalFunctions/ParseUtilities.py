@@ -31,9 +31,6 @@ Siavash Ameli
 University of California, Berkeley
 April 27, 2020
 
-Citation:
-Ameli, S. and Shadden. S. C., "Maximum Likelihood Estimation of Variance and Nugget in General Linear Model"
-
 License: MIT
             """
 

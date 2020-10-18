@@ -13,12 +13,21 @@ from OrthogonalFunctions import ParseArguments
 def test_ParseArguments():
 
     # Mock user argument
-    Argv = ['./GenerateOrthogonalFunctions.py', '-n', '8', '-s', '1', '-e', '1', '-c', '-p']
+    Argv1 = ['./GenerateOrthogonalFunctions.py', '-n', '8', '-s', '1', '-e', '1', '-c', '-p']
+    Argv2 = ['./GenerateOrthogonalFunctions.py', '-h']
+    Argv3 = ['./GenerateOrthogonalFunctions.py', '-l']
+    Argv4 = ['./GenerateOrthogonalFunctions.py', '-v']
 
     # Parse arguments
-    Arguments = ParseArguments(Argv)
+    Arguments1 = ParseArguments(Argv1)
+    Arguments2 = ParseArguments(Argv2)
+    Arguments3 = ParseArguments(Argv3)
+    Arguments4 = ParseArguments(Argv4)
 
-    print(Arguments)
+    print(Arguments1)
+    print(Arguments2)
+    print(Arguments3)
+    print(Arguments4)
 
 # ===========
 # System Main
