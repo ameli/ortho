@@ -19,10 +19,11 @@ def test_ParseArguments():
     Argv4 = ['./GenerateOrthogonalFunctions.py', '-v']
 
     # Parse arguments
-    Arguments1 = ParseArguments(Argv1)
-    Arguments2 = ParseArguments(Argv2)
-    Arguments3 = ParseArguments(Argv3)
-    Arguments4 = ParseArguments(Argv4)
+    Test = True
+    Arguments1 = ParseArguments(Argv1,Test)
+    Arguments2 = ParseArguments(Argv2,Test)
+    Arguments3 = ParseArguments(Argv3,Test)
+    Arguments4 = ParseArguments(Argv4,Test)
 
     print(Arguments1)
     print(Arguments2)

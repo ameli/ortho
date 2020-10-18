@@ -125,7 +125,7 @@ Examples:
 # Parse Arguments
 # ===============
 
-def ParseArguments(argv):
+def ParseArguments(argv,Test=False):
     """
     Parses the argument of the executable and obtains the filename.
     """
@@ -149,13 +149,13 @@ def ParseArguments(argv):
         
         if opt in ('-h','--help'):
             PrintUsage(argv[0])
-            sys.exit(0)
+            if !Test: sys.exit(0)
         elif opt in ('-v','--version'):
             PrintVersion()
-            sys.exit(0)
+            if !Test: sys.exit(0)
         elif opt in ("-l","--license"):
             PrintLicense()
-            sys.exit(0)
+            if !Test: sys.exit(0)
         elif opt in ("-n","--num-func"):
             Arguments['NumFunctions'] = int(arg)
         elif opt in ("-s","--start-func"):

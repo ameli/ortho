@@ -22,18 +22,22 @@ matrix:
           language: shell
           before_install:
             - choco install python 
+            - python --version
             - python -m pip install --upgrade pip
           env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 
-before_install:
+# before_install:
+install:
   - python --version
   - pip install --upgrade pip
   - pip install --upgrade pytest-cov
   - pip install codecov
-
-install:
   - pip install -r requirements.txt
   - pip install -e .
+
+# install:
+#   - pip install -r requirements.txt
+#   - pip install -e .
 
 script:
   - pytest --cov-report=xml --cov=tests/
