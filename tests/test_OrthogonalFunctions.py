@@ -4,12 +4,12 @@
 # Imports
 # =======
 
-import sys
-from OrthogonalFunctions import OrthogonalFunctions
-
 # matplotlib without display
 import matplotlib
 matplotlib.use('Agg')
+
+import sys
+from OrthogonalFunctions import OrthogonalFunctions
 
 # =========================
 # Test Orthogonal Functions
@@ -19,7 +19,7 @@ def test_OrthogonalFunctions():
 
     Arguments = \
     {
-        'NumFunctions': 8,
+        'NumFunctions': 9,
         'StartFunctionIndex': 1,
         'EndInterval': 1
     }
