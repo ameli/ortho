@@ -24,21 +24,21 @@ matrix:
             - choco install python 
             - python --version
             - python -m pip install --upgrade pip
+            - python -m pip install wheel
           env: PATH=/c/Python39:/c/Python39/Scripts:$PATH
 
-# before_install:
-install:
+allow_failures:
+    - os: windows
+
+before_install:
   - python --version
   - pip install --upgrade pip
   - pip install --upgrade pytest-cov
   - pip install codecov
-  - pip install wheel
+
+install:
   - pip install -r requirements.txt
   - pip install -e .
-
-# install:
-#   - pip install -r requirements.txt
-#   - pip install -e .
 
 script:
   - pytest --cov-report=xml --cov=tests/
