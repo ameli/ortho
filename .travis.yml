@@ -12,7 +12,7 @@ python:
 # Include Other operating systems
 matrix:
     include:
-          - name: "Linux with Python: pypy"
+        - name: "Linux with Python: pypy"
           os: linux
           python: "pypy"
           before_install:
