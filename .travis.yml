@@ -9,31 +9,38 @@ python:
   - "2.7"
   - "3.6"
 
-# Include OSX
+# Include Other operating systems
 matrix:
     include:
-        - os: linux
+        - name: "Linux with Python: pypy3"
+          os: linux
           sudo: true
           python: "pypy3"
           before_install:
+            - sudo add-apt-repository universe
+            - sudo apt update
             - sudo apt install gfortran libopenblas-dev liblapack-dev python-dev
-        - os: linux
+            - name: "Linux with Python: pypy"
+          os: linux
           python: "pypy"
           before_install:
-            - pip install --upgrade pip
+            - python -m pip install --upgrade pip
             - wget https://download.lfd.uci.edu/pythonlibs/x2tqcw5k/numpy-1.19.2+mkl-cp39-cp39-win_amd64.whl
             - wget https://download.lfd.uci.edu/pythonlibs/x2tqcw5k/scipy-1.5.3-cp39-cp39-win_amd64.whl
-            - pip install numpy-1.19.2+mkl-cp39-cp39-win_amd64.whl
-            - pip install scipy-1.5.3-cp39-cp39-win_amd64.whl
-        - os: osx
+            - python -m pip install numpy-1.19.2+mkl-cp39-cp39-win_amd64.whl
+            - python -m pip install scipy-1.5.3-cp39-cp39-win_amd64.whl
+        - name: "macOSX with Python: 2.7"
+          os: osx
           osx_image: xcode11
           language: shell
           env: PYTHON_VERSION=2.7
-        - os: osx
+        - name: 'macOSX with Python: 3.6'
+          os: osx
           osx_image: xcode11
           language: shell
           env: PYTHON_VERSION=3.6
-        - os: windows
+        - name: "Windows with Python: 3.8"
+          os: windows
           language: shell
           before_install:
             - choco install python --version 3.8.0
@@ -44,16 +51,16 @@ matrix:
 
 before_install:
   - python --version
-  - pip install --upgrade pip
-  - pip install --upgrade pytest-cov
-  - pip install codecov
+  - python -m pip install --upgrade pip
+  - python -m pip install --upgrade pytest-cov
+  - python -m pip install codecov
 
 install:
-  - pip install -r requirements.txt
-  - pip install -e .
+  - python -m pip install -r requirements.txt
+  - python -m pip install -e .
 
 script:
-  - pytest --cov-report=xml --cov=tests/
+  - python -m pytest --cov-report=xml --cov=tests/
 
 after_success:
   - codecov
