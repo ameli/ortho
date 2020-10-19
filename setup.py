@@ -58,6 +58,7 @@ Please refer to the github homepage for detailed instructions on installation an
     # Setup
     setuptools.setup(
         name = 'OrthogonalFunctions',
+        packages = ['OrthogonalFunctions'],
         version = __version__,
         author = ReadFileToRST('AUTHORS.txt'),
         author_email = 'sameli@berkeley.edu',
@@ -65,7 +66,7 @@ Please refer to the github homepage for detailed instructions on installation an
         long_description = LongDescription,
         long_description_content_type = 'text/markdown',
         keywords = 'orthogonal-functions regression sympy computer-algebra gram-schmidt',
-        url = 'https://github.com/ameli/Orthogonal-Functions',
+        url = 'https://github.com/ameli/Orthogonal-Functions/archive/v0.0.1.tar.gz',
         download_url = 'https://github.com/ameli/Orthogonal-Functions',
         packages=setuptools.find_packages(exclude=("tests",)),
         install_requires = Requirements,

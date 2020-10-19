@@ -4,6 +4,12 @@ notifications:
 sudo: false
 language: python
 
+python:
+  - "2.7"
+  - "3.6"
+  - "pypy"
+  - "pypy3"
+
 matrix:
     include:
         - name: "Linux"
@@ -17,18 +23,6 @@ matrix:
           os: osx
           osx_image: xcode11
           language: shell
-        - name: "Windows"
-          os: windows
-          language: shell
-          before_install:
-            - choco install python 
-            - python --version
-            - python -m pip install --upgrade pip
-            - python -m pip install wheel
-          env: PATH=/c/Python39:/c/Python39/Scripts:$PATH
-
-allow_failures:
-    - os: windows
 
 before_install:
   - python --version
