@@ -16,13 +16,13 @@ matrix:
           os: linux
           python: "pypy"
           before_install:
-            - sudo add-apt-repository universe
-            - sudo apt update
-            - sudo apt install gfortran libopenblas-dev liblapack-dev python-dev
             - pypy --version
             - pypy -m pip install --upgrade pip
             - pypy -m pip install --upgrade pytest-cov
             - pypy -m pip install codecov
+          install:
+            - pypy -m pip install -r requirements.txt
+            - pypy -m pip install -e .
 
         - name: "Linux with Python: pypy3"
           os: linux
