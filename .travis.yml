@@ -33,10 +33,10 @@ matrix:
             - sudo add-apt-repository universe
             - sudo apt update
             - sudo apt install gfortran libopenblas-dev liblapack-dev python-dev
-            - python --version
-            - python -m pip install --upgrade pip
-            - python -m pip install --upgrade pytest-cov
-            - python -m pip install codecov
+            - pypy3 --version
+            - pypy3 -m pip install --upgrade pip
+            - pypy3 -m pip install --upgrade pytest-cov
+            - pypy3 -m pip install codecov
 
         - name: "macOSX with Python: 2.7"
           os: osx
@@ -50,16 +50,16 @@ matrix:
           language: shell
           env: PYTHON_VERSION=3.6
 
-        - name: "Windows with Python: 3.8"
+        - name: "Windows with Python: 3.9"
           os: windows
           language: shell
           before_install:
-            - choco install python --version 3.8.0
+            - choco install python --version 3.9.0
             - python --version
             - python -m pip install --upgrade pip
             - python -m pip install --upgrade pytest-cov
             - python -m pip install codecov
-          env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
+          env: PATH=/c/Python39:/c/Python39/Scripts:$PATH
 
 before_install:
   - python --version
