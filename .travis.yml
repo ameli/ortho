@@ -30,21 +30,6 @@ matrix:
             - pypy -m pip install -r requirements.txt
             - pypy -m pip install -e .
 
-        - name: "Linux with Python: pypy3"
-          os: linux
-          python: "pypy3"
-          before_install:
-            - sudo add-apt-repository universe
-            - sudo apt update
-            - sudo apt install gfortran libopenblas-dev liblapack-dev python-dev
-            - pypy3 --version
-            - pypy3 -m pip3 install --upgrade pip3
-            - pypy3 -m pip3 install --upgrade pytest-cov
-            - pypy3 -m pip3 install codecov
-          install:
-            - pypy3 -m pip3 install -r requirements.txt
-            - pypy3 -m pip3 install -e .
-
         - name: "macOSX with Python: 2.7"
           os: osx
           osx_image: xcode11
@@ -68,12 +53,14 @@ matrix:
             - python -m pip install codecov
           env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 
+# These only apply to the above jobs that before_install is not declared for them in the above.
 before_install:
   - python --version
   - python -m pip install --upgrade pip
   - python -m pip install --upgrade pytest-cov
   - python -m pip install codecov
 
+# These only apply to the above jobs that install is not declared for them in the above.
 install:
   - python -m pip install -r requirements.txt
   - python -m pip install -e .
