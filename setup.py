@@ -58,7 +58,6 @@ Please refer to the github homepage for detailed instructions on installation an
     # Setup
     setuptools.setup(
         name = 'OrthogonalFunctions',
-        packages = ['OrthogonalFunctions'],
         version = __version__,
         author = ReadFileToRST('AUTHORS.txt'),
         author_email = 'sameli@berkeley.edu',

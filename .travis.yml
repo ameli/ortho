@@ -4,25 +4,24 @@ notifications:
 sudo: false
 language: python
 
+# Linux with different python versions
 python:
   - "2.7"
   - "3.6"
   - "pypy"
   - "pypy3"
 
+# Include OSX
 matrix:
     include:
-        - name: "Linux"
-          os: linux
-          python:
-            - "2.7"
-            - "3.6"
-            - "pypy"
-            - "pypy3"
-        - name: "macOSX"
-          os: osx
+        - os: osx
           osx_image: xcode11
           language: shell
+          env: PYTHON_VERSION=2.7
+        - os: osx
+          osx_image: xcode11
+          language: shell
+          env: PYTHON_VERSION=3.6
 
 before_install:
   - python --version
