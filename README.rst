@@ -247,23 +247,22 @@ Inverse of Matrix **A** + t **B**.
 .. |travis-devel| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=windows&label=build&branch=master
    :target: https://travis-ci.com/github/ameli/Orthogonal-Functions
 
-ImageBaseDirectory="https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master"
-.. |image09| image:: {ImageBaseDirectory}/doc/images/phi_i_perp.svg
-.. |image10| image:: {ImageBaseDirectory}/doc/images/phi_i.svg
-.. |image11| image:: {ImageBaseDirectory}/doc/images/phi_i_perp.svg
-.. |image12| image:: {ImageBaseDirectory}/doc/images/phi_i.svg
-.. |image13| image:: {ImageBaseDirectory}/doc/images/phi_i_perp.svg
-.. |image14| image:: {ImageBaseDirectory}/doc/images/interval.svg
-.. |image15| image:: {ImageBaseDirectory}/doc/images/w.svg
-.. |image16| image:: {ImageBaseDirectory}/doc/images/delta.svg
-.. |image17| image:: {ImageBaseDirectory}/doc/images/i_0.svg
-.. |image18| image:: {ImageBaseDirectory}/doc/images/n.svg
-.. |image19| image:: {ImageBaseDirectory}/doc/images/L.svg
-.. |image20| image:: {ImageBaseDirectory}/doc/images/i_0.svg
-.. |image21| image:: {ImageBaseDirectory}/doc/images/n.svg
-.. |image22| image:: {ImageBaseDirectory}/doc/images/L.svg
-.. |image23| image:: {ImageBaseDirectory}/doc/images/i_0.svg
-.. |image24| image:: {ImageBaseDirectory}/doc/images/n.svg
-.. |image25| image:: {ImageBaseDirectory}/doc/images/L.svg
-.. |image26| image:: {ImageBaseDirectory}/doc/images/alpha_i.svg
-.. |image27| image:: {ImageBaseDirectory}/doc/images/a_ij.svg
+.. |image09| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/phi_i_perp.svg
+.. |image10| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/phi_i.svg
+.. |image11| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/phi_i_perp.svg
+.. |image12| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/phi_i.svg
+.. |image13| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/phi_i_perp.svg
+.. |image14| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/interval.svg
+.. |image15| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/w.svg
+.. |image16| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/delta.svg
+.. |image17| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/i_0.svg
+.. |image18| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/n.svg
+.. |image19| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/L.svg
+.. |image20| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/i_0.svg
+.. |image21| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/n.svg
+.. |image22| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/L.svg
+.. |image23| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/i_0.svg
+.. |image24| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/n.svg
+.. |image25| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/L.svg
+.. |image26| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/alpha_i.svg
+.. |image27| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/a_ij.svg
