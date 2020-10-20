@@ -81,7 +81,7 @@ def main(argv):
         python_requires = '>=2.7',
         setup_requires = ['pytest-runner'],
         tests_require = ['pytest'],
-        package_data={'': ['*.svg']},
+        include_package_data=True,
         entry_points = {
             "console_scripts": [
                 "genorth = GenerateOrthogonalFunctions.__main__:main"

@@ -1,0 +1,7 @@
+graft doc
+global-exclude *.py[cod] __pycache__ *.so
+
+include AUTHORS.txt
+include CHANGELOG.md
+include LICENSE
+include README.md

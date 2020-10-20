@@ -4,6 +4,8 @@
 
 # Orthogonal Functions
 
+A python package to generate a set of orthogonal functions.
+
 ### Status
 
 | Platform | CI Status |
