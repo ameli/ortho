@@ -15,7 +15,7 @@ import codecs
 # =========
 
 def ReadFile(Filename):
-    with codecs.open(Filename, 'r', 'latin') as File:
+    with codecs.open(Filename,'r','latin') as File:
         return File.read()
 
 # ================
@@ -25,8 +25,8 @@ def ReadFile(Filename):
 def ReadFileToRST(Filename):
     try:
         import pypandoc
-        rstname = "{}.{}".format(os.path.splitext(Filename)[0], 'rst')
-        pypandoc.convert(read(Filename), 'rst', format='md', outputfile=rstname)
+        rstname = "{}.{}".format(os.path.splitext(Filename)[0],'rst')
+        pypandoc.convert(read(Filename),'rst', format='md', outputfile=rstname)
         with open(rstname, 'r') as f:
             rststr = f.read()
         return rststr
@@ -40,26 +40,29 @@ def ReadFileToRST(Filename):
 
 def main(argv):
 
-    # Read version
+    Directory = os.path.dirname(__file__)
+    PackageName = "OrthogonalFunctions"
+
+    # Version
     version_dummy = {}
-    exec(ReadFile('OrthogonalFunctions/__version__.py'),version_dummy)
-    __version__ = version_dummy['__version__']
+    exec(open(os.path.join(Directory,PackageName,'__version__.py')).read(),version_dummy)
+    Version = version_dummy['__version__']
     del version_dummy
 
-    # Long description
-    LongDescription = \
-    """
-Please refer to the github homepage for detailed instructions on installation and usage.
-    """
+    # Author
+    Author = open(os.path.join(Directory,'AUTHORS.txt')).read().rstrip()
 
     # Requirements
-    Requirements = [i.strip() for i in open("requirements.txt").readlines()]
+    Requirements = [i.strip() for i in open(os.path.join(Directory,"requirements.txt")).readlines()]
+
+    # ReadMe
+    LongDescription = ReadFileToRST('README.md')
 
     # Setup
     setuptools.setup(
-        name = 'OrthogonalFunctions',
-        version = __version__,
-        author = ReadFileToRST('AUTHORS.txt'),
+        name = PackageName,
+        version = Version,
+        author = Author,
         author_email = 'sameli@berkeley.edu',
         description = 'Generate orthogonal set of functions',
         long_description = LongDescription,
@@ -67,18 +70,28 @@ Please refer to the github homepage for detailed instructions on installation an
         keywords = 'orthogonal-functions regression sympy computer-algebra gram-schmidt',
         url = 'https://github.com/ameli/Orthogonal-Functions/archive/v0.0.1.tar.gz',
         download_url = 'https://github.com/ameli/Orthogonal-Functions',
-        packages=setuptools.find_packages(exclude=("tests",)),
+        project_urls = {
+            "Documentation": "https://github.com/ameli/Orthogonal-Functions/blob/master/README.md",
+            "Source": "https://github.com/ameli/Orthogonal-Functions",
+            "Tracker": "https://github.com/ameli/Orthogonal-Functions/issues",
+        },
+        platforms = ['Linux','OSX','Windows'],
+        packages = setuptools.find_packages(exclude=("tests",)),
         install_requires = Requirements,
-        python_requires='>=2.7',
-        setup_requires=['pytest-runner'],
-        tests_require=['pytest'],
+        python_requires = '>=2.7',
+        setup_requires = ['pytest-runner'],
+        tests_require = ['pytest'],
+        package_data={'': ['*.svg']},
         entry_points = {
             "console_scripts": [
                 "genorth = GenerateOrthogonalFunctions.__main__:main"
             ]
         },
         classifiers = [
-            'Programming Language :: Python :: 3',
+            'Programming Language :: Python :: 2.7',
+            'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7',
+            'Programming Language :: Python :: 3.8',
             'License :: OSI Approved :: MIT License',
             'Operating System :: OS Independent',
             'Natural Language :: English',

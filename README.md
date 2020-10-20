@@ -2,6 +2,8 @@
 [![codecov-devel](https://img.shields.io/codecov/c/github/ameli/Orthogonal-Functions)](https://codecov.io/gh/ameli/Orthogonal-Functions)
 [![licence](https://img.shields.io/github/license/ameli/Orthogonal-Functions)](https://opensource.org/licenses/MIT)
 
+# Orthogonal Functions
+
 ### Status
 
 | Platform | CI Status |
@@ -9,11 +11,6 @@
 | Linux | [![travis-devel](https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=linux&label=build&branch=master)](https://travis-ci.com/github/ameli/Orthogonal-Functions) |
 | OSX | [![travis-devel](https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=osx&label=build&branch=master)](https://travis-ci.com/github/ameli/Orthogonal-Functions) |
 | Windows | [![travis-devel](https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=windows&label=build&branch=master)](https://travis-ci.com/github/ameli/Orthogonal-Functions) |
-
-* Code coverage: [![codecov-devel](https://img.shields.io/codecov/c/github/ameli/Orthogonal-Functions)](https://codecov.io/gh/ameli/Orthogonal-Functions)
-* License: [![licence](https://img.shields.io/github/license/ameli/Orthogonal-Functions)](https://opensource.org/licenses/MIT)
-
-# Orthogonal Functions
 
 ### Description
 
