@@ -1,6 +1,4 @@
-| |travis-devel|
-| |codecov-devel|
-| |licence|
+|travis-devel| |codecov-devel| |licence|
 
 Orthogonal Functions
 ====================
@@ -10,15 +8,15 @@ A python package to generate a set of orthogonal functions.
 Status
 ~~~~~~
 
-+------------+------------------+
-| Platform   | CI Status        |
-+============+==================+
-| Linux      | |travis-devel|   |
-+------------+------------------+
-| OSX        | |travis-devel|   |
-+------------+------------------+
-| Windows    | |travis-devel|   |
-+------------+------------------+
++------------+--------------------------+
+| Platform   | CI Status                |
++============+==========================+
+| Linux      | |travis-devel-linux|     |
++------------+--------------------------+
+| OSX        | |travis-devel-osx|       |
++------------+--------------------------+
+| Windows    | |travis-devel-windows|   |
++------------+--------------------------+
 
 Description
 ~~~~~~~~~~~
@@ -231,17 +229,11 @@ Ameli, S. and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of M
    :target: https://codecov.io/gh/ameli/Orthogonal-Functions
 .. |licence| image:: https://img.shields.io/github/license/ameli/Orthogonal-Functions
    :target: https://opensource.org/licenses/MIT
-.. |travis-devel| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=linux&label=build&branch=master
+.. |travis-devel-linux| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=linux&label=build&branch=master
    :target: https://travis-ci.com/github/ameli/Orthogonal-Functions
-.. |travis-devel| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=osx&label=build&branch=master
+.. |travis-devel-osx| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=osx&label=build&branch=master
    :target: https://travis-ci.com/github/ameli/Orthogonal-Functions
-.. |travis-devel| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=windows&label=build&branch=master
-   :target: https://travis-ci.com/github/ameli/Orthogonal-Functions
-.. |travis-devel| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=linux&label=build&branch=master
-   :target: https://travis-ci.com/github/ameli/Orthogonal-Functions
-.. |travis-devel| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=osx&label=build&branch=master
-   :target: https://travis-ci.com/github/ameli/Orthogonal-Functions
-.. |travis-devel| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=windows&label=build&branch=master
+.. |travis-devel-windows| image:: https://img.shields.io/travis/com/ameli/Orthogonal-Functions?env=BADGE=windows&label=build&branch=master
    :target: https://travis-ci.com/github/ameli/Orthogonal-Functions
 
 .. |image09| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/phi_i_perp.svg
