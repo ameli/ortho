@@ -45,18 +45,19 @@ def main(argv):
 
     # Version
     version_dummy = {}
-    exec(open(os.path.join(Directory,PackageName,'__version__.py')).read(),version_dummy)
+    exec(open(os.path.join(Directory,PackageName,'__version__.py'),'r').read(),version_dummy)
     Version = version_dummy['__version__']
     del version_dummy
 
     # Author
-    Author = open(os.path.join(Directory,'AUTHORS.txt')).read().rstrip()
+    Author = open(os.path.join(Directory,'AUTHORS.txt'),'r').read().rstrip()
 
     # Requirements
-    Requirements = [i.strip() for i in open(os.path.join(Directory,"requirements.txt")).readlines()]
+    Requirements = [i.strip() for i in open(os.path.join(Directory,"requirements.txt"),'r').readlines()]
 
     # ReadMe
-    LongDescription = ReadFileToRST('README.rst')
+    # LongDescription = ReadFileToRST('README.rst')
+    LongDescription = open(os.path.join(Directory,'README.rst'),'r').read()
 
     # Setup
     setuptools.setup(
