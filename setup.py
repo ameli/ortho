@@ -56,7 +56,7 @@ def main(argv):
     Requirements = [i.strip() for i in open(os.path.join(Directory,"requirements.txt")).readlines()]
 
     # ReadMe
-    LongDescription = ReadFileToRST('README.md')
+    LongDescription = ReadFileToRST('README.rst')
 
     # Setup
     setuptools.setup(
@@ -71,7 +71,7 @@ def main(argv):
         url = 'https://github.com/ameli/Orthogonal-Functions/archive/v0.0.1.tar.gz',
         download_url = 'https://github.com/ameli/Orthogonal-Functions',
         project_urls = {
-            "Documentation": "https://github.com/ameli/Orthogonal-Functions/blob/master/README.md",
+            "Documentation": "https://github.com/ameli/Orthogonal-Functions/blob/master/README.rst",
             "Source": "https://github.com/ameli/Orthogonal-Functions",
             "Tracker": "https://github.com/ameli/Orthogonal-Functions/issues",
         },
