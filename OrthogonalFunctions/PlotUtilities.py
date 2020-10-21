@@ -73,12 +73,13 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex,Interval):
     ax.set_title('Orthogonal functions')
     ax.grid(axis='y')
 
-    # Get the directory of this script file
+    # Get the root directory of the package (parent directory of this script)
     FileDirectory = os.path.dirname(__file__)
+    ParentDirectory = os.path.dirname(FileDirectory)
 
     # Try to save in the doc/images dirctory. Check if exists and writable
-    SaveDir = os.path.join(FileDirectory,'doc','images')
-    if (not os.path.isdir(SaveDir)) or (not os.access(SaveDir),os.W_OK):
+    SaveDir = os.path.join(ParentDirectory,'doc','images')
+    if (not os.path.isdir(SaveDir)) or (not os.access(SaveDir,os.W_OK)):
 
         # Write in the current working directory
         SaveDir = os.getcwd()

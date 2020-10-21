@@ -51,7 +51,7 @@ Install
 
   ::
 
-   git clone https://github.com/ameli/Orthogonal-Functions.git
+    git clone https://github.com/ameli/Orthogonal-Functions.git
     cd Orthogonal-Functions
     pip install -e .
 
@@ -60,9 +60,6 @@ Usage
 
 The package can be used in two ways:
 
-1. imported as a module in a python code,
-2.  or, as a standalone executable.
-
 1. Import as a Module
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -70,16 +67,8 @@ The package can be used in two ways:
 
     from OrthogonalFunctions import OrthogonalFunctions
 
-    # Specify user parameters in a dictionary
-    Parameters =
-    {
-        'NumFunctions': 9,
-        'StartFunctionIndex': 1,
-        'EndInterval': 1
-    }
-
     # Create an object
-    OF = OrthogonalFunctions(Parameters)
+    OF = OrthogonalFunctions()
 
     # Generate Functions
     OF.Process()
@@ -93,12 +82,35 @@ The package can be used in two ways:
     # Plot Functions
     OF.Plot()
 
+The ``OrthogonalFunctions`` also accepts some parameters:
+
+.. code-block:: python
+
+    # Specify user parameters in a dictionary
+    Parameters =
+    {
+        'NumFunctions': 9,
+        'StartFunctionIndex': 1,
+        'EndInterval': 1
+    }
+
+    # Create an object
+    OF = OrthogonalFunctions(**Parameters)
+
+    # The rest is the same as the above.
+
+The parameters are:
+
+- ``NumFunctions``: number of orthogonal functions to generate. Default is ``9``.
+- ``StartFunctionIndex``: the index of the starting function. Default is ``1``.
+- ``EndInterval``: the interval of orthogonality is from origin (zero) to this value. Default is ``1``.
+
 2. Use As Standalone Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The standalone application can be executed in terminal in two ways:
 
-1. Directly from the source code (without need to install the package) by
+1. Without installing the package, the main script of the package can be executed directly from the source code by
 
    ::
 
@@ -106,12 +118,11 @@ The standalone application can be executed in terminal in two ways:
        cd OrthogonalFunctions
        python -m OrthogonalFunctions [options]
 
-2. If you have installed the package, call `gen-ortho` executable as follows
+2. If you have installed the package, call ``gen-ortho`` executable in terminal:
 
    ::
 
        gen-ortho [options]
-
 
 Optional arguments
 ~~~~~~~~~~~~~~~~~~
@@ -157,37 +168,37 @@ Examples
 
    ::
 
-        $ gen-ortho
+        gen-ortho
 
 #. Generate eight orthogonal functions from index 1 to 8
 
    ::
 
-        $ gen-ortho -n 8
+        gen-ortho -n 8
 
 #. Generate nine orthogonal functions from index 0 to 8
 
    ::
 
-        $ gen-ortho -s 0
+        gen-ortho -s 0
 
 #. Generate nine orthogonal functions that are orthonormal in the interval [0,10]
 
    ::
 
-        $ gen-ortho -e 10
+        gen-ortho -e 10
 
 #. Check orthogonality of each two functions, plot the orthonormal functions and save the plot to pdf
 
    ::
 
-        $ gen-ortho -c -p
+        gen-ortho -c -p
 
 #. A complete example:
 
    ::
 
-        $ gen-ortho -n 9 -s 1 -e 1 -c -p
+        gen-ortho -n 9 -s 1 -e 1 -c -p
 
 Output
 ------
