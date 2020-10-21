@@ -1,4 +1,4 @@
-|travis-devel| |codecov-devel| |licence| |implementation| |pyversions| |format|
+|travis-devel| |codecov-devel| |licence| |format| |implementation| |pyversions|
 
 Orthogonal Functions
 ====================
@@ -86,8 +86,8 @@ The ``OrthogonalFunctions`` also accepts some parameters:
 
 .. code-block:: python
 
-    # Specify user parameters in a dictionary
-    Parameters =
+    # Specify any of the three parameters below in a dictionary
+    Parameters = \
     {
         'NumFunctions': 9,
         'StartFunctionIndex': 1,
@@ -97,7 +97,7 @@ The ``OrthogonalFunctions`` also accepts some parameters:
     # Create an object
     OF = OrthogonalFunctions(**Parameters)
 
-    # The rest is the same as the above.
+    # The rest is the same as before.
 
 The parameters are:
 
@@ -110,24 +110,32 @@ The parameters are:
 
 The standalone application can be executed in terminal in two ways:
 
-1. Without installing the package, the main script of the package can be executed directly from the source code by
-
-   ::
-
-       git clone https://github.com/ameli/Orthogonal-Functions.git
-       cd OrthogonalFunctions
-       python -m OrthogonalFunctions [options]
-
 2. If you have installed the package, call ``gen-ortho`` executable in terminal:
 
    ::
 
        gen-ortho [options]
 
+   The optional argument ``[options]`` will be explained in the next section. When the package *OrthogonalFunctions* is installed, the executable ``gen-ortho`` is located in the ``/bin`` directory of the python.
+
+2. Without installing the package, the main script of the package can be executed directly from the source code by
+
+   ::
+
+       # Download the package
+       git clone https://github.com/ameli/Orthogonal-Functions.git
+
+       # Go to the package source directory
+       cd OrthogonalFunctions
+
+       # Execute the main script of the package
+       python -m OrthogonalFunctions [options]
+
+
 Optional arguments
 ~~~~~~~~~~~~~~~~~~
 
-When the standalone application is called, the executable accepts some optional arguments as follows.
+When the *standalone application* (second method in the above) is called, the executable accepts some optional arguments as follows.
 
 +--------------------------------------+------------------------------------------------------------------------------------------+
 | Option                               | Description                                                                              |
@@ -249,7 +257,7 @@ Output
      [0 0 0 0 0 0 0 1 0]
      [0 0 0 0 0 0 0 0 1]]
 
--  Plots the set of functions (using option ``-p``) and saves the plot in the directory\ ``./doc/images/OrthogonalFunctions.pdf``. An example of a generated plot is shown below.
+-  Plots the set of functions (using option ``-p``) and saves the plot in the current directory. An example of a generated plot is shown below.
 
 .. image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/doc/images/OrthogonalFunctions.svg
     :align: center

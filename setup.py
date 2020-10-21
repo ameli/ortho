@@ -67,8 +67,8 @@ def main(argv):
         long_description = LongDescription,
         long_description_content_type = 'text/x-rst',
         keywords = 'orthogonal-functions regression sympy computer-algebra gram-schmidt',
-        url = 'https://github.com/ameli/Orthogonal-Functions/archive/v0.0.1.tar.gz',
-        download_url = 'https://github.com/ameli/Orthogonal-Functions',
+        url = 'https://github.com/ameli/Orthogonal-Functions',
+        download_url = 'https://github.com/ameli/Orthogonal-Functions/archive/master.zip',
         project_urls = {
             "Documentation": "https://github.com/ameli/Orthogonal-Functions/blob/master/README.rst",
             "Source": "https://github.com/ameli/Orthogonal-Functions",

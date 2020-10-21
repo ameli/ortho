@@ -85,13 +85,16 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex,Interval):
         SaveDir = os.getcwd()
 
     # Save plot in both svg and pdf format
-    SaveFullname_SVG = os.path.join(SaveDir,'OrthogonalFunctions.svg')
-    SaveFullname_PDF = os.path.join(SaveDir,'OrthogonalFunctions.pdf')
-    plt.savefig(SaveFullname_SVG,transparent=True,bbox_inches='tight')
-    plt.savefig(SaveFullname_PDF,transparent=True,bbox_inches='tight')
-    print('')
-    print('Plot saved to "%s".'%(SaveFullname_SVG))
-    print('Plot saved to "%s".'%(SaveFullname_PDF))
+    if os.access(SaveDir,os.W_OK):
+        SaveFullname_SVG = os.path.join(SaveDir,'OrthogonalFunctions.svg')
+        SaveFullname_PDF = os.path.join(SaveDir,'OrthogonalFunctions.pdf')
+        plt.savefig(SaveFullname_SVG,transparent=True,bbox_inches='tight')
+        plt.savefig(SaveFullname_PDF,transparent=True,bbox_inches='tight')
+        print('')
+        print('Plot saved to "%s".'%(SaveFullname_SVG))
+        print('Plot saved to "%s".'%(SaveFullname_PDF))
+    else:
+        print('Cannot save plot to %s. Directory is not writable.'%SaveDir)
 
     # If no display backend is enabled, do not plot in the interactive mode
     if matplotlib.get_backend() != 'agg':
