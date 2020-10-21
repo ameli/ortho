@@ -5,6 +5,11 @@ Orthogonal Functions
 
 A python package to generate a set of orthogonal functions.
 
+- `PyPi package <https://pypi.org/project/OrthogonalFunctions/>`_
+- `Github <https://github.com/ameli/Orthogonal-Functions>`_
+- `Travis-CI <https://travis-ci.com/github/ameli/Orthogonal-Functions>`_
+- `Codecov <https://codecov.io/gh/ameli/Orthogonal-Functions>`_
+
 Status
 ------
 
@@ -101,14 +106,14 @@ The ``OrthogonalFunctions`` also accepts some parameters:
 
 The parameters are:
 
-- ``NumFunctions``: number of orthogonal functions to generate. Default is ``9``.
-- ``StartFunctionIndex``: the index of the starting function. Default is ``1``.
-- ``EndInterval``: the interval of orthogonality is from origin (zero) to this value. Default is ``1``.
+- ``NumFunctions``: number of orthogonal functions to generate. The default is ``9``.
+- ``StartFunctionIndex``: the index of the starting function. The default is ``1``.
+- ``EndInterval``: the interval of orthogonality is from the origin (zero) to this value. The default is ``1``.
 
 2. Use As Standalone Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The standalone application can be executed in terminal in two ways:
+The standalone application can be executed in the terminal in two ways:
 
 2. If you have installed the package, call ``gen-ortho`` executable in terminal:
 
@@ -135,7 +140,7 @@ The standalone application can be executed in terminal in two ways:
 Optional arguments
 ~~~~~~~~~~~~~~~~~~
 
-When the *standalone application* (second method in the above) is called, the executable accepts some optional arguments as follows.
+When the *standalone application* (the second method in the above) is called, the executable accepts some optional arguments as follows.
 
 +--------------------------------------+------------------------------------------------------------------------------------------+
 | Option                               | Description                                                                              |
@@ -150,7 +155,7 @@ When the *standalone application* (second method in the above) is called, the ex
 +--------------------------------------+------------------------------------------------------------------------------------------+
 | ``-s``, ``--start-func[=int]``       | Starting function index. Non-negative integer. Default is 1.                             |
 +--------------------------------------+------------------------------------------------------------------------------------------+
-| ``-e``, ``--end-interval[=float]``   | End of the interval of functions domains. Real number greater than zero. Default is 1.   |
+| ``-e``, ``--end-interval[=float]``   | End of the interval of functions domains. A real number greater than zero. Default is 1. |
 +--------------------------------------+------------------------------------------------------------------------------------------+
 | ``-c``,\ ``--check``                 | Checks orthogonality of generated functions.                                             |
 +--------------------------------------+------------------------------------------------------------------------------------------+
@@ -241,9 +246,7 @@ Output
     i = 8:  -sqrt(2/9)   [540, -6930,  37422, -108108, 180180, -173745,  90090,  -19448        ]
     i = 9:  +sqrt(2/10)  [825, -13200, 90090, -336336, 750750, -1029600, 850850, -388960, 75582]
 
--  Displays a matrix of mutual inner product of functions to check
-   orthogonality (using option ``-c``). An example of generated matrix
-   is shown below.
+-  Displays the matrix of the mutual inner product of functions to check orthogonality (using option ``-c``). An example of the generated matrix of the mutual inner product of functions is shown below.
 
 ::
 
@@ -265,7 +268,7 @@ Output
 Citation
 --------
 
-Ameli, S. and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of Matrix **A** + t **B**. `arXiv:2009.07385 <https://arxiv.org/abs/2009.07385>`__ [math.NA]
+Ameli, S., and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of Matrix **A** + t **B**. `arXiv:2009.07385 <https://arxiv.org/abs/2009.07385>`__ [math.NA]
 
 ::
 
