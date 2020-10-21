@@ -30,7 +30,6 @@ def ReadFileToRST(Filename):
         with open(rstname, 'r') as f:
             rststr = f.read()
         return rststr
-        #return read(rstname)
     except ImportError:
         return ReadFile(Filename)
 
@@ -56,7 +55,6 @@ def main(argv):
     Requirements = [i.strip() for i in open(os.path.join(Directory,"requirements.txt"),'r').readlines()]
 
     # ReadMe
-    # LongDescription = ReadFileToRST('README.rst')
     LongDescription = open(os.path.join(Directory,'README.rst'),'r').read()
 
     # Setup
@@ -67,7 +65,7 @@ def main(argv):
         author_email = 'sameli@berkeley.edu',
         description = 'Generate orthogonal set of functions',
         long_description = LongDescription,
-        long_description_content_type = 'text/markdown',
+        long_description_content_type = 'text/x-rst',
         keywords = 'orthogonal-functions regression sympy computer-algebra gram-schmidt',
         url = 'https://github.com/ameli/Orthogonal-Functions/archive/v0.0.1.tar.gz',
         download_url = 'https://github.com/ameli/Orthogonal-Functions',
@@ -85,11 +83,13 @@ def main(argv):
         include_package_data=True,
         entry_points = {
             "console_scripts": [
-                "genorth = GenerateOrthogonalFunctions.__main__:main"
+                "gen-ortho = OrthogonalFunctions.__main__:main"
             ]
         },
         classifiers = [
             'Programming Language :: Python :: 2.7',
+            'Programming Language :: Python :: 3.4',
+            'Programming Language :: Python :: 3.5',
             'Programming Language :: Python :: 3.6',
             'Programming Language :: Python :: 3.7',
             'Programming Language :: Python :: 3.8',
