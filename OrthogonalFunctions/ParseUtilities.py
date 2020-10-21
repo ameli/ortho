@@ -99,7 +99,7 @@ The script can be configured as follows:
       N         "NumFunctions"          "-n", or "--num-func"
       L         "EndInterval"           "-e", or "--end-interval" 
 
-Outpt:
+Output:
 
 1. Prints the symbolic functions
 2. Prints a human readable coefficients, "alpha" and "a" of the functions

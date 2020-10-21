@@ -46,11 +46,11 @@ where |image16| is the Kronecker delta function. The orthogonal functions are ge
 Install
 -------
 
-- Method 1: Install using the package available on `PyPi <https://pypi.org/project/OrthogonalFunctions>`__ by
+- Method 1: install using the package available on `PyPi <https://pypi.org/project/OrthogonalFunctions>`__ by
 
   ::
 
-    pip install OrthogonalFunctions
+    python -m pip install OrthogonalFunctions
 
 - Method 2: install directly from the source code by
 
@@ -58,7 +58,7 @@ Install
 
     git clone https://github.com/ameli/Orthogonal-Functions.git
     cd Orthogonal-Functions
-    pip install -e .
+    python -m pip install -e .
 
 Usage
 -----
@@ -94,21 +94,21 @@ The ``OrthogonalFunctions`` also accepts some parameters:
     # Specify any of the three parameters below in a dictionary
     Parameters = \
     {
-        'NumFunctions': 9,
         'StartFunctionIndex': 1,
+        'NumFunctions': 9,
         'EndInterval': 1
     }
 
-    # Create an object
+    # Create an object and pass the parameters
     OF = OrthogonalFunctions(**Parameters)
 
     # The rest is the same as before.
 
 The parameters are:
 
-- ``NumFunctions``: number of orthogonal functions to generate. The default is ``9``.
-- ``StartFunctionIndex``: the index of the starting function. The default is ``1``.
-- ``EndInterval``: the interval of orthogonality is from the origin (zero) to this value. The default is ``1``.
+- ``StartFunctionIndex``: the index of the starting function, |image23|. The default is ``1``.
+- ``NumFunctions``: number of orthogonal functions to generate, |image24|. The default is ``9``.
+- ``EndInterval``: the right interval of orthogonality, |image25|. The default is ``1``.
 
 2. Use As Standalone Application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
