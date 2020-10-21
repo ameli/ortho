@@ -115,7 +115,7 @@ The parameters are:
 
 The standalone application can be executed in the terminal in two ways:
 
-2. If you have installed the package, call ``gen-ortho`` executable in terminal:
+#. If you have installed the package, call ``gen-ortho`` executable in terminal:
 
    ::
 
@@ -123,7 +123,7 @@ The standalone application can be executed in the terminal in two ways:
 
    The optional argument ``[options]`` will be explained in the next section. When the package *OrthogonalFunctions* is installed, the executable ``gen-ortho`` is located in the ``/bin`` directory of the python.
 
-2. Without installing the package, the main script of the package can be executed directly from the source code by
+#. Without installing the package, the main script of the package can be executed directly from the source code by
 
    ::
 
@@ -161,6 +161,9 @@ When the *standalone application* (the second method in the above) is called, th
 +--------------------------------------+------------------------------------------------------------------------------------------+
 | ``-p``, ``--plot``                   | Plots generated functions, also saves the plot as pdf file in the current directory.     |
 +--------------------------------------+------------------------------------------------------------------------------------------+
+
+Parameters
+~~~~~~~~~~
 
 The variables |image17|, |image18|, and |image19| can be set in the script by the following arguments,
 
