@@ -10,15 +10,12 @@ python:
   - "3.5"
   - "3.6"
   - "3.8"
-  - "nightly"
 
 # Badges for distinguishing operating systems in builds
 env: BADGE=linux
 
 # Include Other operating systems
 matrix:
-    allow_failures:
-        - python: "nightly"
     include:
         - name: "Linux with Python: pypy"
           os: linux
