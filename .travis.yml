@@ -36,7 +36,7 @@ matrix:
 
         - name: "macOSX with Python: 2.7"
           os: osx
-          osx_image: xcode9.3    # 9.3 uses python 2.7
+          osx_image: xcode11
           language: shell
           sudo: true
           env:
@@ -45,19 +45,19 @@ matrix:
 
         - name: 'macOSX with Python: 3.7'
           os: osx
-          osx_image: xcode11     # 11 uses python 3.7
+          osx_image: xcode11
           language: shell
           env:
             - PYTHON_VERSION=3.7
             - BADGE=osx
           before_install:
             - python3 --version
-            - python3 -m pip3 install --upgrade pip
-            - python3 -m pip3 install --upgrade pytest-cov
-            - python3 -m pip3 install codecov
+            - python3 -m pip install --upgrade pip
+            - python3 -m pip install --upgrade pytest-cov
+            - python3 -m pip install codecov
           install:
-            - python3 -m pip3 install -r requirements.txt
-            - python3 -m pip3 install -e .
+            - python3 -m pip install -r requirements.txt
+            - python3 -m pip install -e .
 
         - name: "Windows with Python: 3.8"
           os: windows
