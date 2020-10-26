@@ -12,13 +12,13 @@ import getopt
 
 def PrintVersion():
 
-    # Get the root directory of the package (parent directory of this script)
+    # Get the parent directory of this script
     FileDirectory = os.path.dirname(__file__)
     ParentDirectory = os.path.dirname(FileDirectory)
 
     # Find the version
     version_dummy = {}
-    exec(open(os.path.join(ParentDirectory,'OrthogonalFunctions','__version__.py'),'r').read(),version_dummy)
+    exec(open(os.path.join(ParentDirectory,'__version__.py'),'r').read(),version_dummy)
     Version = version_dummy['__version__']
     del version_dummy
    
