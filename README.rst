@@ -9,8 +9,6 @@ A python package to generate a set of orthogonal functions.
 - `Github <https://github.com/ameli/Orthogonal-Functions>`_
 - `Travis-CI <https://travis-ci.com/github/ameli/Orthogonal-Functions>`_
 - `Codecov <https://codecov.io/gh/ameli/Orthogonal-Functions>`_
-- `Documentation <https://github.com/ameli/Orthogonal-Functions/tree/master/docs/_build/html/index.html>`_
-- `API <https://github.com/ameli/Orthogonal-Functions/tree/master/docs/_build/html/_modules/modules.html>`_
 
 Status
 ------
