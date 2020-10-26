@@ -12,8 +12,15 @@ from .Declarations import n,t
 
 def phi(i):
     """
-    Generates a list of non-orthogonal functions defined by t**{1/n}
+    Generates a list of non-orthogonal functions defined by :math:`t^{\\frac{1}{n}}`.
+
+    :param i: The index of a basis function.
+    :type i: int
+
+    :return: A ``sympy`` object of the ``i``-th basis function.
+    :rtype: sympy object
     """
+
     return t**(sympy.Rational(sympy.S(1),sympy.S(i+1)))
 
 # =============
@@ -22,8 +29,21 @@ def phi(i):
 
 def InnerProduct(f,g,Interval):
     """
-    Inner product of two functions with weight 1/t
+    Inner product of two functions with weight :math:`t^{-1}`.
+
+    :param f: A ``sympy`` function.
+    :type f: sympy object
+
+    :param g: A ``sympy`` function.
+    :type g: sympy object
+
+    :param Interval: The interval of the domain of the functions in the form ``[Start,end]``.
+    :type Interval: list
+
+    :return: The inner product of the functions.
+    :rtype: float
     """
+
     # The two stage sympy.expand below is needed so sympy.integrate can perform properly
     h = sympy.expand(sympy.expand(f*g)/t)
 
@@ -36,8 +56,18 @@ def InnerProduct(f,g,Interval):
 
 def Normalize(f,Interval):
     """
-    Normalize a function with respect to inner product
+    Normalize a function with respect to inner product.
+
+    :param f: A sympy function.
+    :type f: sympy object
+
+    :param Interval: The interval of the domain of the functions in the form ``[Start,end]``.
+    :type Interval: list
+
+    :return: The normalized sympy function
+    :rtype: sympy object
     """
+
     return f/sympy.sqrt(InnerProduct(f,f,Interval))
 
 # ====================
@@ -46,7 +76,19 @@ def Normalize(f,Interval):
 
 def GramSchmidtProcess(NumFunctions,StartFunctionIndex,Interval):
     """
-    Generates a list of orthonormalized symbolic functions
+    Generates a list of orthonormalized symbolic functions.
+
+    :param NumFunctions: Number of functions to generate.
+    :type NumFunctions: int
+
+    :param StartFunctionIndex: The start index of the functions.
+    :type StartFunctionIndex: int
+
+    :param Interval: The interval of the domain of the functions in the form ``[Start,End]``.
+    :type Interval: list
+
+    :return: list of sympy functions.
+    :rtype: list
     """
 
     print('---------------------')
@@ -93,10 +135,21 @@ def GramSchmidtProcess(NumFunctions,StartFunctionIndex,Interval):
 def CheckMutualOrthonormality(phi_orthonormalized_list,Interval):
     """
     Checks the inner orthonormality of each of two fuctions froma list of symbolic functions.
-    It returns an array with elements -1,0,1.
-        -1: two functions are not orthogonal
-         0: two functions are orthogonal
-        +1: function is orthonormal
+
+    It returns an array with elements ``-1``, ``0``, or ``1``.
+
+        * ``-1``: two functions are not orthogonal.
+        *  ``0``: two functions are orthogonal.
+        * ``+1``: function is orthonormal.
+
+    :param phi_orthonormalized_list: The list of sympy functions that are orthonormalized.
+    :type phi_orthonormalized_list: list
+
+    :param Interval: The interval of the domain of the functions in the form ``[Start,End]``.
+    :type Interval: list
+
+    :return: The mutual orthogonality matrix.
+    :rtype: ndarray
     """
 
     # Initialize output
@@ -136,9 +189,17 @@ def PrintCoefficientsOfFunctions(phi_orthonormalized_list,StartFunctionIndex):
     """
     Prints the coefficients of orthonormalized functions as
 
-        phi_j = alpha_j * \sum_{i=1}^n a_{ij} t^{1/i}
+    .. math::
 
-    where alpha_j = sqrt{2/j}, and a_{ij} are integers
+        \phi_j(t) = \\alpha_j * \sum_{i=1}^n a_{ij} t^{\\frac{1}{i}}
+
+    where :math:`\\alpha_j = \sqrt{\\frac{2}{j}}`, and :math:`a_{ij}` are integers.
+
+    :param phi_orthonormalized_list: The list of sympy functions that are orthonormalized.
+    :type phi_orthonormalized_list: list
+
+    :param StartFunctionIndex: The start index of the functions.
+    :type StartFunctionIndex: int
     """
 
     print('-------------------------')

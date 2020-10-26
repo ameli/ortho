@@ -9,6 +9,7 @@ import os
 import sys
 import setuptools
 import codecs
+# from sphinx.setup_command import BuildDoc
 
 # =========
 # Read File
@@ -41,6 +42,7 @@ def main(argv):
 
     Directory = os.path.dirname(__file__)
     PackageName = "OrthogonalFunctions"
+    PackageNameForDoc = "Orthogonal Functions"
 
     # Version
     version_dummy = {}
@@ -56,6 +58,10 @@ def main(argv):
 
     # ReadMe
     LongDescription = open(os.path.join(Directory,'README.rst'),'r').read()
+
+    # Build documentation
+    # cmdclass = {'build_sphinx': BuildDoc}
+    cmdclass = {}
 
     # Setup
     setuptools.setup(
@@ -85,6 +91,14 @@ def main(argv):
             "console_scripts": [
                 "gen-ortho = OrthogonalFunctions.__main__:main"
             ]
+        },
+        cmdclass=cmdclass,
+        command_options = {
+            'build_sphinx': {
+                'project':    ('setup.py',PackageNameForDoc),
+                'version':    ('setup.py',Version),
+                'source_dir': ('setup.py','docs')
+            }
         },
         classifiers = [
             'Programming Language :: Python :: pypy',

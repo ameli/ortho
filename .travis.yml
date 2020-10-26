@@ -58,6 +58,8 @@ matrix:
           install:
             - python3 -m pip install -r requirements.txt
             - python3 -m pip install -e .
+          script:
+            - python3 -m pytest --cov-report=xml --cov=tests/
 
         - name: "Windows with Python: 3.8"
           os: windows
@@ -84,6 +86,7 @@ install:
   - python -m pip install -r requirements.txt
   - python -m pip install -e .
 
+# These only apply to the above jobs that script is not declared for them in the above.
 script:
   - python -m pytest --cov-report=xml --cov=tests/
 

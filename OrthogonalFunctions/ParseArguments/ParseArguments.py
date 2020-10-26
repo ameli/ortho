@@ -11,6 +11,9 @@ import getopt
 # =============
 
 def PrintVersion():
+    """
+    Prints the version of the code given in ``/OrthogonalFunctions/__version__.py``.
+    """
 
     # Get the parent directory of this script
     FileDirectory = os.path.dirname(__file__)
@@ -35,6 +38,9 @@ Version %s
 # =============
 
 def PrintLicense():
+    """
+    Prints the license and author info.
+    """
 
     LicenseString = \
             """
@@ -53,6 +59,10 @@ License: MIT
 # ===========
 
 def PrintUsage(ExecName):
+    """
+    Prints the usage for the stand-alone application.
+    """
+
     UsageString = \
     """
 Usage:
@@ -139,7 +149,14 @@ Examples:
 
 def ParseArguments(argv,Test=False):
     """
-    Parses the argument of the executable and obtains the filename.
+    Parses the argument of the executable.
+
+    :param argv: list of keys and user inputs.
+    :type: list
+
+    :param Test: If ``True``, the program is not exited after options ``-h``, ``-v``, and ``-l``. 
+        If ``False``, the program is exited by the above options.
+    :type Test: bool
     """
 
     # Initialize variables (defaults)

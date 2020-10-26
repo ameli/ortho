@@ -12,6 +12,9 @@ from .PlotUtilities import PlotFunctions
 # ====================
 
 class OrthogonalFunctions():
+    """
+    The main class of the package, which wraps the functions.
+    """
 
     # ----
     # Init
@@ -20,6 +23,14 @@ class OrthogonalFunctions():
     def __init__(self,**kwargs):
         """
         Parses the user inputs and sets the member data of the object.
+
+        Keyword arguments
+            * ``NumFunctions``
+            * ``StartFunctionIndex``
+            * ``EndInterval``
+
+        :param **kwargs: Variable keyword arguments.
+        :type: ``**kwargs``
         """
 
         # Default settings
@@ -103,7 +114,7 @@ class OrthogonalFunctions():
 
     def Print(self):
         """
-        Print Coefficients of Functions
+        Print Coefficients of Functions.
         """
 
         if self.phi_orthonormalized_list is None:
@@ -119,7 +130,7 @@ class OrthogonalFunctions():
 
     def Plot(self):
         """
-        Plot the generated functions
+        Plot the generated functions.
         """
 
         if self.phi_orthonormalized_list is None:

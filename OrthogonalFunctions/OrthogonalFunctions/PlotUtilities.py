@@ -44,6 +44,18 @@ def PlotSettings():
 # ==============
 
 def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex,Interval):
+    """
+    Plots the geenrated functions, also saves the plots as both ``svg`` and ``pdf`` format.
+
+    :param phi_orthonormalized_list: The list of generated functions. Each entry is a ``sympy`` object.
+    :param: list
+
+    :param StartFunctionIndex: The indet of the first function.
+    :type StartFunctionIndex: int
+
+    :param Interval: The right side of the interval of the domain of the functions.
+    :param Interval: float
+    """
 
     # Run plot settings
     PlotSettings()
