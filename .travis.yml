@@ -27,12 +27,12 @@ matrix:
             - sudo apt update
             - sudo apt install gfortran libopenblas-dev liblapack-dev python-dev
             - pypy --version
-            - pypy -m pip install --upgrade pip
-            - pypy -m pip install --upgrade pytest-cov
-            - pypy -m pip install codecov
+            - pypy -m pip install --user --upgrade pip
+            - pypy -m pip install --user --upgrade pytest-cov
+            - pypy -m pip install --user codecov
           install:
-            - pypy -m pip install -r requirements.txt
-            - pypy -m pip install -e .
+            - pypy -m pip install --user -r requirements.txt
+            - pypy -m pip install --user -e .
 
         - name: "macOSX with Python: 2.7"
           os: osx
@@ -51,12 +51,12 @@ matrix:
             - BADGE=osx
           before_install:
             - python3 --version
-            - python3 -m pip install --upgrade pip
-            - python3 -m pip install --upgrade pytest-cov
-            - python3 -m pip install codecov
+            - python3 -m pip3 install --user --upgrade pip3
+            - python3 -m pip3 install --user --upgrade pytest-cov
+            - python3 -m pip3 install --user codecov
           install:
-            - python3 -m pip install -r requirements.txt
-            - python3 -m pip install -e .
+            - python3 -m pip3 install --user -r requirements.txt
+            - python3 -m pip3 install --user -e .
 
         - name: "Windows with Python: 3.8"
           os: windows
@@ -64,9 +64,9 @@ matrix:
           before_install:
             - choco install python --version 3.8.0
             - python --version
-            - python -m pip install --upgrade pip
-            - python -m pip install --upgrade pytest-cov
-            - python -m pip install codecov
+            - python -m pip install --user --upgrade pip
+            - python -m pip install --user --upgrade pytest-cov
+            - python -m pip install --user codecov
           env:
             - PATH=/c/Python38:/c/Python38/Scripts:$PATH
             - BADGE=windows
@@ -74,14 +74,14 @@ matrix:
 # These only apply to the above jobs that before_install is not declared for them in the above.
 before_install:
   - python --version
-  - python -m pip install --upgrade pip
-  - python -m pip install --upgrade pytest-cov
-  - python -m pip install codecov
+  - python -m pip install --user --upgrade pip
+  - python -m pip install --user --upgrade pytest-cov
+  - python -m pip install --user codecov
 
 # These only apply to the above jobs that install is not declared for them in the above.
 install:
-  - python -m pip install -r requirements.txt
-  - python -m pip install -e .
+  - python -m pip install --user -r requirements.txt
+  - python -m pip install ---user e .
 
 script:
   - python -m pytest --cov-report=xml --cov=tests/
