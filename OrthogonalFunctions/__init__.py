@@ -1,3 +1,3 @@
-from .ParseUtilities import ParseArguments
-from .OrthogonalFunctions import OrthogonalFunctions
+from OrthogonalFunctions.ParseArguments import ParseArguments
+from OrthogonalFunctions.OrthogonalFunctions import OrthogonalFunctions
 from .__version__ import __version__

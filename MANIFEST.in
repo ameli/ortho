@@ -1,4 +1,4 @@
-graft doc
+graft docs
 global-exclude *.py[cod] __pycache__ *.so
 
 include AUTHORS.txt

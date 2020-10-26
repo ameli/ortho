@@ -77,8 +77,8 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex,Interval):
     FileDirectory = os.path.dirname(__file__)
     ParentDirectory = os.path.dirname(FileDirectory)
 
-    # Try to save in the doc/images dirctory. Check if exists and writable
-    SaveDir = os.path.join(ParentDirectory,'doc','images')
+    # Try to save in the docs/images dirctory. Check if exists and writable
+    SaveDir = os.path.join(ParentDirectory,'docs','images')
     if (not os.path.isdir(SaveDir)) or (not os.access(SaveDir,os.W_OK)):
 
         # Write in the current working directory

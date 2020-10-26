@@ -2,7 +2,6 @@
 # Imports
 # =======
 
-from .ParseUtilities import ParseArguments
 from .OrthogonalizationUtilities import GramSchmidtProcess
 from .OrthogonalizationUtilities import PrintCoefficientsOfFunctions
 from .OrthogonalizationUtilities import CheckMutualOrthonormality
@@ -64,7 +63,7 @@ class OrthogonalFunctions():
         self.Interval = [0,EndInterval]
 
         # Initialize output variable
-        self.phi_orthonormlized_list = None
+        self.phi_orthonormalized_list = None
 
     # -------
     # Process
@@ -90,6 +89,9 @@ class OrthogonalFunctions():
         Check the mutual orthogonality of the functions.
         """
 
+        if self.phi_orthonormalized_list is None:
+            raise RuntimeError('Call Process() first.')
+
         # Check orthonormality of functions
         CheckMutualOrthonormality(
                 self.phi_orthonormalized_list,
@@ -104,6 +106,9 @@ class OrthogonalFunctions():
         Print Coefficients of Functions
         """
 
+        if self.phi_orthonormalized_list is None:
+            raise RuntimeError('Call Process() first.')
+
         PrintCoefficientsOfFunctions(
                 self.phi_orthonormalized_list,
                 self.StartFunctionIndex)
@@ -116,6 +121,9 @@ class OrthogonalFunctions():
         """
         Plot the generated functions
         """
+
+        if self.phi_orthonormalized_list is None:
+            raise RuntimeError('Call Process() first.')
 
         # Plot Functions
         PlotFunctions(
