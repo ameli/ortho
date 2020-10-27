@@ -22,5 +22,10 @@ jobs:
                   BASE_BRANCH: master
                   BRANCH: gh-pages
                   FOLDER: docs/_build/html
-                  BUILD_SCRIPT: pip install .[docs] && sphinx-apidoc -f -o docs/_modules/ ./OrthogonalFunctions && make -C docs/ html && touch docs/_build/html/.nojekyll
+                  BUILD_SCRIPT: |
+                      pip install .[docs]
+                      sphinx-apidoc -f -o docs/_modules/ ./OrthogonalFunctions
+                      make -C docs/ html
+                      touch docs/_build/html/.nojekyll
+                      echo 'Visit `Documentation <https://ameli.github.io/Orthogonal-Functions/index.html>`_.' > docs/_build/html/README.rst
 
