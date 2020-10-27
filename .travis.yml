@@ -77,13 +77,7 @@ matrix:
         - stage: deploy
           python: 3.8
           before_install:
-            - ruby --version
-            - travis --version
-            - sudo gem uninstall travis
-            - sudo apt install ruby
-            - ruby --version
-            - sudo gem install travis  --no-rdoc --no-ri
-            - travis --version
+            - gem install travis -v 1.8.8 --no-rdoc --no-ri
             - python -m pip install --upgrade pip
           install:
             - python -m pip install -r requirements.txt
