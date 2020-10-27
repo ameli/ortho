@@ -83,7 +83,7 @@ matrix:
             - sudo apt install ruby
             - ruby --version
             - sudo gem install travis  --no-rdoc --no-ri
-            - sudo travis -version
+            - sudo travis --version
             - python -m pip install --upgrade pip
           install:
             - python -m pip install -r requirements.txt
