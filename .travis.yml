@@ -90,12 +90,14 @@ matrix:
           after_success:
             - codecov
           deploy:
-              - provider: pages:git
+              - provider: pages
                 verbose: true
-                token: $GITHUB_TOKEN
-                # edge: true
+                skip_cleanup: true
+                github_token: $GITHUB_TOKEN
                 local_dir: ./docs/_build/html
                 keep_history: true
+                on:
+                    branch: master
 
 # These only apply to the above jobs that before_install is not declared for them in the above.
 before_install:
