@@ -71,19 +71,19 @@ The package can be used in two ways:
 .. code-block:: python
 
     from OrthogonalFunctions import OrthogonalFunctions
-
+    
     # Create an object
     OF = OrthogonalFunctions()
-
+    
     # Generate Functions
     OF.Process()
-
+    
     # Print Functions
     OF.Print()
-
+    
     # Check mutual orthogonality of Functions
     OF.Check()
-
+    
     # Plot Functions
     OF.Plot()
 
@@ -91,17 +91,12 @@ The ``OrthogonalFunctions`` also accepts some parameters:
 
 .. code-block:: python
 
-    # Specify any of the three parameters below in a dictionary
-    Parameters = \
-    {
-        'StartFunctionIndex': 1,
-        'NumFunctions': 9,
-        'EndInterval': 1
-    }
-
-    # Create an object and pass the parameters
-    OF = OrthogonalFunctions(**Parameters)
-
+    # Specify any or all of the three parameters below
+    OF = OrthogonalFunctions(
+            StartFunctionIndex=1,
+            NumFunctions=9,
+            EndInterval=1)
+    
     # The rest is the same as before.
 
 The parameters are:
