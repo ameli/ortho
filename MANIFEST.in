@@ -1,7 +1,7 @@
-graft docs
+graft docs/images
 global-exclude *.py[cod] __pycache__ *.so
 
+include CHANGELOG.rst
+include README.rst
 include AUTHORS.txt
-include CHANGELOG.md
-include LICENSE
-include README.md
+include LICENSE.txt

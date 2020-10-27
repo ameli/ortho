@@ -10,18 +10,18 @@ A python package to generate a set of orthogonal functions.
 - `Travis-CI <https://travis-ci.com/github/ameli/Orthogonal-Functions>`_
 - `Codecov <https://codecov.io/gh/ameli/Orthogonal-Functions>`_
 
-Status
-------
-
-+------------+--------------------------+
-| Platform   | CI Status                |
-+============+==========================+
-| Linux      | |travis-devel-linux|     |
-+------------+--------------------------+
-| OSX        | |travis-devel-osx|       |
-+------------+--------------------------+
-| Windows    | |travis-devel-windows|   |
-+------------+--------------------------+
+.. Status
+.. ------
+..
+.. +------------+--------------------------+
+.. | Platform   | CI Status                |
+.. +============+==========================+
+.. | Linux      | |travis-devel-linux|     |
+.. +------------+--------------------------+
+.. | OSX        | |travis-devel-osx|       |
+.. +------------+--------------------------+
+.. | Windows    | |travis-devel-windows|   |
+.. +------------+--------------------------+
 
 Description
 -----------

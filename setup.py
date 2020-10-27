@@ -61,7 +61,6 @@ def main(argv):
 
     # Build documentation
     # cmdclass = {'build_sphinx': BuildDoc}
-    cmdclass = {}
 
     # Setup
     setuptools.setup(
@@ -92,13 +91,22 @@ def main(argv):
                 "gen-ortho = OrthogonalFunctions.__main__:main"
             ]
         },
-        cmdclass=cmdclass,
-        command_options = {
-            'build_sphinx': {
-                'project':    ('setup.py',PackageNameForDoc),
-                'version':    ('setup.py',Version),
-                'source_dir': ('setup.py','docs')
-            }
+        # cmdclass=cmdclass,
+        # command_options = {
+        #     'build_sphinx': {
+        #         'project':    ('setup.py',PackageNameForDoc),
+        #         'version':    ('setup.py',Version),
+        #         'source_dir': ('setup.py','docs')
+        #     }
+        # },
+        extras_require = {
+            'dev': [
+                'pytest-cov',
+                'codecov'
+            ],
+            'docs': [
+                'sphinx',
+            ]
         },
         classifiers = [
             'Programming Language :: Python :: 2.7',

@@ -92,3 +92,29 @@ script:
 
 after_success:
   - codecov
+
+# Job specifically for deployment
+jobs:
+    include:
+        - stage: deploy
+          python 3.8
+          before_install:
+            - python -m pip install --upgrade pip
+          install:
+            - python -m pip install -r requirements.txt
+            - python -m pip install -e .[dev]
+            - python -m pip install -e .[docs]
+          script:
+            - python -m pytest --cov-report=xml --cov=tests/
+            - make -C docs/ html
+            - touch docs/_build/html/.nojekyll
+          after_success:
+            - codecov
+          deploy:
+              - provider: pages:git
+                verbose: true
+                token: $GITHUB_TOKEN
+                edge: true
+                local_dir: ./docs/_build/html
+                keep_history: true
+
