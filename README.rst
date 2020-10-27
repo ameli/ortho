@@ -1,14 +1,20 @@
-|travis-devel| |codecov-devel| |licence| |format| |implementation| |pyversions|
+|travis-devel| |codecov-devel| |licence| |format| |pypi|
+|implementation| |pyversions|
 
 Orthogonal Functions
 ====================
 
 A python package to generate a set of orthogonal functions.
 
-- `PyPi package <https://pypi.org/project/OrthogonalFunctions/>`_
-- `Github <https://github.com/ameli/Orthogonal-Functions>`_
-- `Travis-CI <https://travis-ci.com/github/ameli/Orthogonal-Functions>`_
-- `Codecov <https://codecov.io/gh/ameli/Orthogonal-Functions>`_
+For users
+    * `PyPi package <https://pypi.org/project/OrthogonalFunctions/>`_
+    * `Source code <https://github.com/ameli/Orthogonal-Functions>`_
+    * `Documentation <https://ameli.github.io/Orthogonal-Functions/>`_
+
+For developers
+    * `API <https://ameli.github.io/Orthogonal-Functions/_modules/modules.html>`_
+    * `Travis-CI <https://travis-ci.com/github/ameli/Orthogonal-Functions>`_
+    * `Codecov <https://codecov.io/gh/ameli/Orthogonal-Functions>`_
 
 .. Status
 .. ------
@@ -297,6 +303,7 @@ Ameli, S., and Shadden. S. C. (2020). Interpolating the Trace of the Inverse of 
 .. |implementation| image:: https://img.shields.io/pypi/implementation/OrthogonalFunctions
 .. |pyversions| image:: https://img.shields.io/pypi/pyversions/OrthogonalFunctions
 .. |format| image:: https://img.shields.io/pypi/format/OrthogonalFunctions
+.. |pypi| image:: https://img.shields.io/pypi/v/OrthogonalFunctions
 
 .. |image09| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/docs/images/phi_i_perp.svg
 .. |image10| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/master/docs/images/phi_i.svg
