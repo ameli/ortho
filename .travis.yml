@@ -78,7 +78,7 @@ matrix:
           python: 3.8
           before_install:
             - ruby --version
-            - sudo travis version
+            - sudo travis --version
             - sudo gem uninstall travis
             - sudo apt install ruby
             - ruby --version
