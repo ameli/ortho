@@ -78,9 +78,12 @@ matrix:
           python: 3.8
           before_install:
             - ruby --version
-            - sudo apt update
-            - sudo apt install ruby-full
+            - sudo travis version
+            - sudo gem uninstall travis
+            - sudo apt install ruby
             - ruby --version
+            - sudo gem install travis  --no-rdoc --no-ri
+            - sudo travis version
             - python -m pip install --upgrade pip
           install:
             - python -m pip install -r requirements.txt
@@ -96,7 +99,7 @@ matrix:
               - provider: pages:git
                 verbose: true
                 token: $GITHUB_TOKEN
-                edge: true
+                # edge: true
                 local_dir: ./docs/_build/html
                 keep_history: true
 
