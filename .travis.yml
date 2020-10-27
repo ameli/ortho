@@ -74,28 +74,6 @@ matrix:
             - PATH=/c/Python38:/c/Python38/Scripts:$PATH
             - BADGE=windows
 
-# These only apply to the above jobs that before_install is not declared for them in the above.
-before_install:
-  - python --version
-  - python -m pip install --upgrade pip
-  - python -m pip install --upgrade pytest-cov
-  - python -m pip install codecov
-
-# These only apply to the above jobs that install is not declared for them in the above.
-install:
-  - python -m pip install -r requirements.txt
-  - python -m pip install -e .
-
-# These only apply to the above jobs that script is not declared for them in the above.
-script:
-  - python -m pytest --cov-report=xml --cov=tests/
-
-after_success:
-  - codecov
-
-# Job specifically for deployment
-jobs:
-    include:
         - stage: deploy
           python 3.8
           before_install:
@@ -118,3 +96,21 @@ jobs:
                 local_dir: ./docs/_build/html
                 keep_history: true
 
+# These only apply to the above jobs that before_install is not declared for them in the above.
+before_install:
+  - python --version
+  - python -m pip install --upgrade pip
+  - python -m pip install --upgrade pytest-cov
+  - python -m pip install codecov
+
+# These only apply to the above jobs that install is not declared for them in the above.
+install:
+  - python -m pip install -r requirements.txt
+  - python -m pip install -e .
+
+# These only apply to the above jobs that script is not declared for them in the above.
+script:
+  - python -m pytest --cov-report=xml --cov=tests/
+
+after_success:
+  - codecov
