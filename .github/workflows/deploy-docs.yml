@@ -27,5 +27,5 @@ jobs:
                       sphinx-apidoc -f -o docs/_modules/ ./OrthogonalFunctions
                       make -C docs/ html
                       touch docs/_build/html/.nojekyll
-                      echo 'Visit `Documentation <https://ameli.github.io/Orthogonal-Functions/index.html>`_.' > docs/_build/html/README.rst
+                      echo 'Visit [Documentation](https://ameli.github.io/Orthogonal-Functions/index.html).' > docs/_build/html/README.md
 
