@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions &#8212; Orthogonal Functions  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/nature.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/toggleprompt.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Orthogonal Functions  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions</h1><div class="highlight"><pre>
+<span></span><span class="c1"># =======</span>
+<span class="c1"># Imports</span>
+<span class="c1"># =======</span>
+
+<span class="kn">from</span> <span class="nn">.OrthogonalizationUtilities</span> <span class="kn">import</span> <span class="n">GramSchmidtProcess</span>
+<span class="kn">from</span> <span class="nn">.OrthogonalizationUtilities</span> <span class="kn">import</span> <span class="n">PrintCoefficientsOfFunctions</span>
+<span class="kn">from</span> <span class="nn">.OrthogonalizationUtilities</span> <span class="kn">import</span> <span class="n">CheckMutualOrthonormality</span>
+<span class="kn">from</span> <span class="nn">.PlotUtilities</span> <span class="kn">import</span> <span class="n">PlotFunctions</span>
+
+<span class="c1"># ====================</span>
+<span class="c1"># Orthogonal Functions</span>
+<span class="c1"># ====================</span>
+
+<div class="viewcode-block" id="OrthogonalFunctions"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions">[docs]</a><span class="k">class</span> <span class="nc">OrthogonalFunctions</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The main class of the package, which wraps the functions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># ----</span>
+    <span class="c1"># Init</span>
+    <span class="c1"># ----</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parses the user inputs and sets the member data of the object.</span>
+
+<span class="sd">        Keyword arguments</span>
+<span class="sd">            * ``NumFunctions``</span>
+<span class="sd">            * ``StartFunctionIndex``</span>
+<span class="sd">            * ``EndInterval``</span>
+
+<span class="sd">        :param **kwargs: Variable keyword arguments.</span>
+<span class="sd">        :type: ``**kwargs``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Default settings</span>
+        <span class="n">Defaults</span> <span class="o">=</span> \
+        <span class="p">{</span>
+            <span class="s1">&#39;NumFunctions&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+            <span class="s1">&#39;StartFunctionIndex&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;EndInterval&#39;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Number of functions</span>
+        <span class="k">if</span> <span class="s1">&#39;NumFunctions&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">NumFunctions</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;NumFunctions&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">NumFunctions</span> <span class="o">=</span> <span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;NumFunctions&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Start function index</span>
+        <span class="k">if</span> <span class="s1">&#39;StartFunctionIndex&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">StartFunctionIndex</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;StartFunctionIndex&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">StartFunctionIndex</span> <span class="o">=</span> <span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;StartFunctionIndex&#39;</span><span class="p">]</span>
+
+        <span class="c1"># End interval</span>
+        <span class="k">if</span> <span class="s1">&#39;EndIntrval&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">EndInterval</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;EndInterval&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">EndInterval</span> <span class="o">=</span> <span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;EndInterval&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Check arguments</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">NumFunctions</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The option &quot;NumFunctions&quot; should be at least 1.&#39;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">StartFunctionIndex</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&quot;StartFunctionIndex&quot; should be at least 1.&#39;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">EndInterval</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&quot;EndInterval&quot; should be greater than zero.&#39;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Intrval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Interval</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">EndInterval</span><span class="p">]</span>
+
+        <span class="c1"># Initialize output variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_orthonormalized_list</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># -------</span>
+    <span class="c1"># Process</span>
+    <span class="c1"># -------</span>
+
+<div class="viewcode-block" id="OrthogonalFunctions.Process"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions.Process">[docs]</a>    <span class="k">def</span> <span class="nf">Process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the set of orthonormalized functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Generate alist of symbolic orthonormal functions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_orthonormalized_list</span> <span class="o">=</span> <span class="n">GramSchmidtProcess</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">NumFunctions</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">StartFunctionIndex</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Interval</span><span class="p">)</span></div>
+
+    <span class="c1"># -----</span>
+    <span class="c1"># Check</span>
+    <span class="c1"># -----</span>
+
+<div class="viewcode-block" id="OrthogonalFunctions.Check"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions.Check">[docs]</a>    <span class="k">def</span> <span class="nf">Check</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check the mutual orthogonality of the functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_orthonormalized_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Call Process() first.&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check orthonormality of functions</span>
+        <span class="n">CheckMutualOrthonormality</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">phi_orthonormalized_list</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Interval</span><span class="p">)</span></div>
+
+    <span class="c1"># -----</span>
+    <span class="c1"># Print</span>
+    <span class="c1"># -----</span>
+
+<div class="viewcode-block" id="OrthogonalFunctions.Print"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions.Print">[docs]</a>    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print Coefficients of Functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_orthonormalized_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Call Process() first.&#39;</span><span class="p">)</span>
+
+        <span class="n">PrintCoefficientsOfFunctions</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">phi_orthonormalized_list</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">StartFunctionIndex</span><span class="p">)</span></div>
+
+    <span class="c1"># ----</span>
+    <span class="c1"># Plot</span>
+    <span class="c1"># ----</span>
+
+<div class="viewcode-block" id="OrthogonalFunctions.Plot"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions.Plot">[docs]</a>    <span class="k">def</span> <span class="nf">Plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot the generated functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi_orthonormalized_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Call Process() first.&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Plot Functions</span>
+        <span class="n">PlotFunctions</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">phi_orthonormalized_list</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">StartFunctionIndex</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Interval</span><span class="p">)</span></div></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Orthogonal Functions  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">OrthogonalFunctions.OrthogonalFunctions.OrthogonalFunctions</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Siavash Ameli.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+    </div>
+  </body>
+</html>

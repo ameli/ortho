@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities &#8212; Orthogonal Functions  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/nature.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/toggleprompt.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Orthogonal Functions  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities</h1><div class="highlight"><pre>
+<span></span><span class="c1"># =======</span>
+<span class="c1"># Imports</span>
+<span class="c1"># =======</span>
+
+<span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">.Declarations</span> <span class="kn">import</span> <span class="n">n</span><span class="p">,</span><span class="n">t</span>
+
+<span class="c1"># ===</span>
+<span class="c1"># phi</span>
+<span class="c1"># ===</span>
+
+<div class="viewcode-block" id="phi"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities.phi">[docs]</a><span class="k">def</span> <span class="nf">phi</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates a list of non-orthogonal functions defined by :math:`t^{\\frac{1}{n}}`.</span>
+
+<span class="sd">    :param i: The index of a basis function.</span>
+<span class="sd">    :type i: int</span>
+
+<span class="sd">    :return: A ``sympy`` object of the ``i``-th basis function.</span>
+<span class="sd">    :rtype: sympy object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">t</span><span class="o">**</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span></div>
+
+<span class="c1"># =============</span>
+<span class="c1"># Inner Product</span>
+<span class="c1"># =============</span>
+
+<div class="viewcode-block" id="InnerProduct"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities.InnerProduct">[docs]</a><span class="k">def</span> <span class="nf">InnerProduct</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">Interval</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inner product of two functions with weight :math:`t^{-1}`.</span>
+
+<span class="sd">    :param f: A ``sympy`` function.</span>
+<span class="sd">    :type f: sympy object</span>
+
+<span class="sd">    :param g: A ``sympy`` function.</span>
+<span class="sd">    :type g: sympy object</span>
+
+<span class="sd">    :param Interval: The interval of the domain of the functions in the form ``[Start,end]``.</span>
+<span class="sd">    :type Interval: list</span>
+
+<span class="sd">    :return: The inner product of the functions.</span>
+<span class="sd">    :rtype: float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># The two stage sympy.expand below is needed so sympy.integrate can perform properly</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">f</span><span class="o">*</span><span class="n">g</span><span class="p">)</span><span class="o">/</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="c1"># Integrate function f between 0 and 1</span>
+    <span class="k">return</span> <span class="n">sympy</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">h</span><span class="p">,(</span><span class="n">t</span><span class="p">,</span><span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="n">Interval</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="n">Interval</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span></div>
+
+<span class="c1"># =========</span>
+<span class="c1"># Normalize</span>
+<span class="c1"># =========</span>
+
+<div class="viewcode-block" id="Normalize"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities.Normalize">[docs]</a><span class="k">def</span> <span class="nf">Normalize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Interval</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Normalize a function with respect to inner product.</span>
+
+<span class="sd">    :param f: A sympy function.</span>
+<span class="sd">    :type f: sympy object</span>
+
+<span class="sd">    :param Interval: The interval of the domain of the functions in the form ``[Start,end]``.</span>
+<span class="sd">    :type Interval: list</span>
+
+<span class="sd">    :return: The normalized sympy function</span>
+<span class="sd">    :rtype: sympy object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">f</span><span class="o">/</span><span class="n">sympy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">InnerProduct</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">Interval</span><span class="p">))</span></div>
+
+<span class="c1"># ====================</span>
+<span class="c1"># Gram-Schmidt Process</span>
+<span class="c1"># ====================</span>
+
+<div class="viewcode-block" id="GramSchmidtProcess"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities.GramSchmidtProcess">[docs]</a><span class="k">def</span> <span class="nf">GramSchmidtProcess</span><span class="p">(</span><span class="n">NumFunctions</span><span class="p">,</span><span class="n">StartFunctionIndex</span><span class="p">,</span><span class="n">Interval</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates a list of orthonormalized symbolic functions.</span>
+
+<span class="sd">    :param NumFunctions: Number of functions to generate.</span>
+<span class="sd">    :type NumFunctions: int</span>
+
+<span class="sd">    :param StartFunctionIndex: The start index of the functions.</span>
+<span class="sd">    :type StartFunctionIndex: int</span>
+
+<span class="sd">    :param Interval: The interval of the domain of the functions in the form ``[Start,End]``.</span>
+<span class="sd">    :type Interval: list</span>
+
+<span class="sd">    :return: list of sympy functions.</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Orthogonal Functions:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create an empty list of orthnormalized functions</span>
+    <span class="n">phi_orthonormalized_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Gram-Schmidt orthogonalization process</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NumFunctions</span><span class="p">):</span>
+
+        <span class="c1"># Initialize Gram-Schmidt process</span>
+        <span class="n">phi_non_orthogonal</span> <span class="o">=</span> <span class="n">phi</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="n">StartFunctionIndex</span><span class="p">))</span>
+        <span class="n">phi_orthogonalized</span> <span class="o">=</span> <span class="n">phi_non_orthogonal</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+
+            <span class="c1"># Subtract a new function from each of previous orthonormalized functions</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+
+                <span class="c1"># Subtract new non-orthogomal function from the projection of the previous orthonormalized function</span>
+                <span class="n">phi_orthogonalized</span> <span class="o">-=</span> <span class="n">InnerProduct</span><span class="p">(</span><span class="n">phi_non_orthogonal</span><span class="p">,</span><span class="n">phi_orthonormalized_list</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">Interval</span><span class="p">)</span><span class="o">*</span><span class="n">phi_orthonormalized_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+        <span class="c1"># Normalize an orthogonalized funcction</span>
+        <span class="n">phi_orthogonalized</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">phi_orthogonalized</span><span class="p">)</span>
+        <span class="n">phi_orthonormalized</span> <span class="o">=</span> <span class="n">Normalize</span><span class="p">(</span><span class="n">phi_orthogonalized</span><span class="p">,</span><span class="n">Interval</span><span class="p">)</span>
+        <span class="n">phi_orthonormalized</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">phi_orthonormalized</span><span class="p">)</span>
+
+        <span class="c1"># Store result to the list</span>
+        <span class="n">phi_orthonormalized_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">phi_orthonormalized</span><span class="p">)</span>
+
+        <span class="c1"># Print progress</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;phi_</span><span class="si">%d</span><span class="s1">(t) = &#39;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">StartFunctionIndex</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">phi_orthonormalized_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">phi_orthonormalized_list</span></div>
+
+<span class="c1"># ===========================</span>
+<span class="c1"># Check Mutual Orthonormality</span>
+<span class="c1"># ===========================</span>
+
+<div class="viewcode-block" id="CheckMutualOrthonormality"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities.CheckMutualOrthonormality">[docs]</a><span class="k">def</span> <span class="nf">CheckMutualOrthonormality</span><span class="p">(</span><span class="n">phi_orthonormalized_list</span><span class="p">,</span><span class="n">Interval</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks the inner orthonormality of each of two fuctions froma list of symbolic functions.</span>
+
+<span class="sd">    It returns an array with elements ``-1``, ``0``, or ``1``.</span>
+
+<span class="sd">        * ``-1``: two functions are not orthogonal.</span>
+<span class="sd">        *  ``0``: two functions are orthogonal.</span>
+<span class="sd">        * ``+1``: function is orthonormal.</span>
+
+<span class="sd">    :param phi_orthonormalized_list: The list of sympy functions that are orthonormalized.</span>
+<span class="sd">    :type phi_orthonormalized_list: list</span>
+
+<span class="sd">    :param Interval: The interval of the domain of the functions in the form ``[Start,End]``.</span>
+<span class="sd">    :type Interval: list</span>
+
+<span class="sd">    :return: The mutual orthogonality matrix.</span>
+<span class="sd">    :rtype: ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Initialize output</span>
+    <span class="n">NumFunctions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">phi_orthonormalized_list</span><span class="p">)</span>
+    <span class="n">MutualInnerProducts</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">NumFunctions</span><span class="p">,</span><span class="n">NumFunctions</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="c1"># Mutual inner products</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NumFunctions</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+
+            <span class="c1"># Inner product as symbolic number</span>
+            <span class="n">InnerProd</span> <span class="o">=</span> <span class="n">InnerProduct</span><span class="p">(</span><span class="n">phi_orthonormalized_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">phi_orthonormalized_list</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">Interval</span><span class="p">)</span>
+
+            <span class="c1"># Convert symbolic number to -1,0,1 numpy integer</span>
+            <span class="k">if</span> <span class="n">InnerProd</span> <span class="o">==</span> <span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">MutualInnerProducts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">InnerProd</span> <span class="o">==</span> <span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+                <span class="n">MutualInnerProducts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># Symmetric matrix</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">MutualInnerProducts</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">MutualInnerProducts</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="c1"># Print results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------------------------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mutual inner product of functions:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------------------------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">MutualInnerProducts</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span></div>
+
+<span class="c1"># ===============================</span>
+<span class="c1"># Print Coefficients of Functions</span>
+<span class="c1"># ===============================</span>
+
+<div class="viewcode-block" id="PrintCoefficientsOfFunctions"><a class="viewcode-back" href="../../OrthogonalFunctions.OrthogonalFunctions.html#OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities.PrintCoefficientsOfFunctions">[docs]</a><span class="k">def</span> <span class="nf">PrintCoefficientsOfFunctions</span><span class="p">(</span><span class="n">phi_orthonormalized_list</span><span class="p">,</span><span class="n">StartFunctionIndex</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prints the coefficients of orthonormalized functions as</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \phi_j(t) = \\alpha_j * \sum_{i=1}^n a_{ij} t^{\\frac{1}{i}}</span>
+
+<span class="sd">    where :math:`\\alpha_j = \sqrt{\\frac{2}{j}}`, and :math:`a_{ij}` are integers.</span>
+
+<span class="sd">    :param phi_orthonormalized_list: The list of sympy functions that are orthonormalized.</span>
+<span class="sd">    :type phi_orthonormalized_list: list</span>
+
+<span class="sd">    :param StartFunctionIndex: The start index of the functions.</span>
+<span class="sd">    :type StartFunctionIndex: int</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-------------------------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficient of functions:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-------------------------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;i       alpha_[i]   a_[ij]&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------  ----------  ---------&#39;</span><span class="p">)</span>
+
+    <span class="n">NumFunctions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">phi_orthonormalized_list</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NumFunctions</span><span class="p">):</span>
+
+        <span class="c1"># Multiply each function with sqrt(2/i+1) to have integer coefficients</span>
+        <span class="n">Alpha</span> <span class="o">=</span> <span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="n">j</span><span class="p">)))</span> <span class="o">*</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="n">StartFunctionIndex</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">Function</span> <span class="o">=</span> <span class="n">phi_orthonormalized_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">Alpha</span>
+        <span class="n">Function</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">Function</span><span class="p">)</span>
+
+        <span class="c1"># Convert the function to a polynomial</span>
+        <span class="n">Polynomial</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">Function</span><span class="p">)</span>
+
+        <span class="c1"># Get the coefficient of each monomial</span>
+        <span class="n">Coefficients</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">Coefficient</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">coeff_monomial</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">StartFunctionIndex</span><span class="p">)))</span>
+            <span class="n">Coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Coefficient</span><span class="p">)</span>
+
+        <span class="c1"># Print human friendly</span>
+        <span class="n">Sign</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="n">SignAsString</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span>
+        <span class="k">if</span> <span class="n">Sign</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">SignAsString</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span>
+        <span class="n">AlphaAsString</span> <span class="o">=</span> <span class="n">SignAsString</span> <span class="o">+</span> <span class="s1">&#39;sqrt(2/</span><span class="si">%d</span><span class="s1">)&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="n">StartFunctionIndex</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;i = </span><span class="si">%d</span><span class="s1">:  </span><span class="si">%s</span><span class="s1">  </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="n">StartFunctionIndex</span><span class="p">,</span><span class="n">AlphaAsString</span><span class="p">,</span><span class="n">Coefficients</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Orthogonal Functions  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">OrthogonalFunctions.OrthogonalFunctions.OrthogonalizationUtilities</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Siavash Ameli.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+    </div>
+  </body>
+</html>
