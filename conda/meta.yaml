@@ -24,7 +24,7 @@ requirements:
     run:
         - python {{ python }}
         - numpy
-        - scipy
+        - sympy
         - matplotlib
         - seaborn
 

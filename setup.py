@@ -123,6 +123,7 @@ def main(argv):
             ],
             'docs': [
                 'sphinx',
+                'sphinx-toggleprompt',
             ]
         },
         classifiers = [

@@ -77,6 +77,26 @@ Install
     cd Orthogonal-Functions
     python -m pip install .
 
+-------
+Testing
+-------
+
+To test the package, download the source code and use one of the following methods in the directory of the source code:
+
+- Method 1: Using ``pytest``:
+
+  ::
+      
+      python -m pip install pytest
+      python -m pytest
+
+- Method 2: Using ``tox``:
+
+  ::
+
+      python -m pip install tox
+      tox
+
 -----
 Usage
 -----
@@ -89,34 +109,34 @@ The package can be used in two ways:
 
 .. code-block:: python
 
-    from OrthogonalFunctions import OrthogonalFunctions
+    >>> from OrthogonalFunctions import OrthogonalFunctions
     
-    # Create an object
-    OF = OrthogonalFunctions()
+    >>> # Create an object
+    >>> OF = OrthogonalFunctions()
     
-    # Generate Functions
-    OF.Process()
+    >>> # Generate Functions
+    >>> OF.Process()
     
-    # Print Functions
-    OF.Print()
+    >>> # Print Functions
+    >>> OF.Print()
     
-    # Check mutual orthogonality of Functions
-    OF.Check()
+    >>> # Check mutual orthogonality of Functions
+    >>> OF.Check()
     
-    # Plot Functions
-    OF.Plot()
+    >>> # Plot Functions
+    >>> OF.Plot()
 
 The ``OrthogonalFunctions`` also accepts some parameters:
 
 .. code-block:: python
 
-    # Specify any or all of the three parameters below
-    OF = OrthogonalFunctions(
-            StartFunctionIndex=1,
-            NumFunctions=9,
-            EndInterval=1)
+    >>> # Specify any or all of the three parameters below
+    >>> OF = OrthogonalFunctions(
+    ...        StartFunctionIndex=1,
+    ...        NumFunctions=9,
+    ...        EndInterval=1)
     
-    # The rest is the same as before.
+    >>> # The rest is the same as before.
 
 The parameters are:
 
