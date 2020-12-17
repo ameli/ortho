@@ -13,11 +13,8 @@ Orthogonal Functions
 .. |image09| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/main/docs/images/alpha_i.svg
 .. |image10| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/main/docs/images/a_ij.svg
 .. |image11| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/main/docs/images/Equation_phi_i.svg
-    :align: center
 .. |image12| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/main/docs/images/Equation_phi_i_perp.svg
-    :align: center
 .. |image13| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/main/docs/images/Equation_orthogonality.svg
-    :align: center
 
 .. include_after_this_line
 
@@ -75,9 +72,9 @@ Install using either of the following three methods.
 
 Install using `Anaconda cloud <https://anaconda.org/s-ameli/traceinv>`_ by
 
-  ::
+::
 
-      conda install -c s-ameli orthogonalfunctions
+    conda install -c s-ameli orthogonalfunctions
 
 ~~~~~~~~~~~~~~~~~~~~
 2. Install from PyPi
@@ -87,9 +84,9 @@ Install using `Anaconda cloud <https://anaconda.org/s-ameli/traceinv>`_ by
 
 Install using the package available on `PyPi <https://pypi.org/project/OrthogonalFunctions>`__ by
 
-  ::
+::
 
-    python -m pip install OrtthogonalFunctions
+  python -m pip install OrtthogonalFunctions
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 3. Install from Source Code
@@ -99,11 +96,11 @@ Install using the package available on `PyPi <https://pypi.org/project/Orthogona
 
 Install directly from the source code by
 
-  ::
+::
 
-    git clone https://github.com/ameli/Orthogonal-Functions.git
-    cd Orthogonal-Functions
-    python -m pip install .
+  git clone https://github.com/ameli/Orthogonal-Functions.git
+  cd Orthogonal-Functions
+  python -m pip install .
 
 -------
 Testing
