@@ -32,6 +32,7 @@ author = 'Siavash Ameli'
     # 'sphinx_rtd_theme',
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx_math_dollar','sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx_toggleprompt',
 ]
@@ -51,9 +52,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 # Good themes
-html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_rtd_theme'
 # html_theme = 'pydata_sphinx_theme'
-# html_theme = 'nature'
+html_theme = 'nature'
 # html_theme = 'bizstyle'
 # html_theme = 'classic'
 # html_theme = 'haiku'
