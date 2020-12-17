@@ -2,7 +2,7 @@
 Orthogonal Functions
 ====================
 
-.. include:: docs/documentation.rst
+.. include:: ./docs/documentation.rst
 
 .. |image01| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/main/docs/images/phi_i_perp.svg
 .. |image02| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/main/docs/images/phi_i.svg
