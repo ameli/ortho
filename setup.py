@@ -7,9 +7,23 @@
 from __future__ import print_function
 import os
 import sys
-import setuptools
 import codecs
 # from sphinx.setup_command import BuildDoc
+
+# Import setuptools
+try:
+    import setuptools
+    from setuptools.extension import Extension
+except ImportError:
+    # Install setuptools
+    try:
+        import pip
+        from pip import main
+        pip.main(['install','setuptools'])
+        import setuptools
+        from setuptools.extension import Extension
+    except:
+        raise ImportError('Cannot import setuptools.')
 
 # =========
 # Read File
@@ -40,7 +54,7 @@ def ReadFileToRST(Filename):
 
 def main(argv):
 
-    Directory = os.path.dirname(__file__)
+    Directory = os.path.dirname(os.path.realpath(__file__))
     PackageName = "OrthogonalFunctions"
     PackageNameForDoc = "Orthogonal Functions"
 
@@ -73,19 +87,22 @@ def main(argv):
         long_description_content_type = 'text/x-rst',
         keywords = 'orthogonal-functions regression sympy computer-algebra gram-schmidt',
         url = 'https://github.com/ameli/Orthogonal-Functions',
-        download_url = 'https://github.com/ameli/Orthogonal-Functions/archive/master.zip',
+        download_url = 'https://github.com/ameli/Orthogonal-Functions/archive/main.zip',
         project_urls = {
-            "Documentation": "https://github.com/ameli/Orthogonal-Functions/blob/master/README.rst",
+            "Documentation": "https://github.com/ameli/Orthogonal-Functions/blob/main/README.rst",
             "Source": "https://github.com/ameli/Orthogonal-Functions",
             "Tracker": "https://github.com/ameli/Orthogonal-Functions/issues",
         },
         platforms = ['Linux','OSX','Windows'],
-        packages = setuptools.find_packages(exclude=("tests",)),
+        packages = setuptools.find_packages(exclude=['tests.*','tests']),
         install_requires = Requirements,
         python_requires = '>=2.7',
-        setup_requires = ['pytest-runner'],
+        setup_requires = [
+            'setuptools',
+            'pytest-runner'],
         tests_require = ['pytest'],
         include_package_data=True,
+        zip_safe=False,
         entry_points = {
             "console_scripts": [
                 "gen-ortho = OrthogonalFunctions.__main__:main"

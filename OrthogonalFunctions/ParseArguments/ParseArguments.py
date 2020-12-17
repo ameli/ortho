@@ -16,7 +16,7 @@ def PrintVersion():
     """
 
     # Get the parent directory of this script
-    FileDirectory = os.path.dirname(__file__)
+    FileDirectory = os.path.dirname(os.path.realpath(__file__))
     ParentDirectory = os.path.dirname(FileDirectory)
 
     # Find the version

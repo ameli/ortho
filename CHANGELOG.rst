@@ -9,6 +9,14 @@ and this project adheres to `Semantic Versioning <https://semver.org/spec/v2.0.0
 [Unreleased]
 ------------
 
+[0.0.26] - 2020-10-28
+---------------------
+
+Added
+~~~~~
+
+* First complete state of the package.
+
 [0.0.1] - 2020-10-11
 --------------------
 
@@ -16,4 +24,3 @@ Added
 ~~~~~
 
 * Initial working code.
-* README is added.

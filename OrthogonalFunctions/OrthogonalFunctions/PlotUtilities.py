@@ -36,7 +36,7 @@ def PlotSettings():
     sns.set_style("ticks")
 
     # Font (Note: this should be AFTER the plt.style.use)
-    plt.rc('font', family='serif')
+    plt.rc('font',family='serif')
     plt.rcParams['svg.fonttype'] = 'none'  # text in svg file will be text not path.
 
 # ==============
@@ -86,7 +86,7 @@ def PlotFunctions(phi_orthonormalized_list,StartFunctionIndex,Interval):
     ax.grid(axis='y')
 
     # Get the root directory of the package (parent directory of this script)
-    FileDirectory = os.path.dirname(__file__)
+    FileDirectory = os.path.dirname(os.path.realpath(__file__))
     ParentDirectory = os.path.dirname(FileDirectory)
     SecondParentDirectory = os.path.dirname(ParentDirectory)
 
