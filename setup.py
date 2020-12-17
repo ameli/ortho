@@ -100,7 +100,9 @@ def main(argv):
         setup_requires = [
             'setuptools',
             'pytest-runner'],
-        tests_require = ['pytest'],
+        tests_require = [
+            'pytest',
+            'pytest-cov'],
         include_package_data=True,
         zip_safe=False,
         entry_points = {

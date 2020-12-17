@@ -42,8 +42,8 @@ about:
     license_file: LICENSE.txt
     summary: {{ data['description'] }}
     description: {{ data['description'] }}
-    doc_url: https://ameli.github.io/OrthogonalFunctions/index.html
-    dev_url: https://github.com/ameli/OrthogonalFunctions
+    doc_url: https://ameli.github.io/Orthogonal-Functions/index.html
+    dev_url: https://github.com/ameli/Orthogonal-Functions
 
 extra:
     recipe-maintainers:

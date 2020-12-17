@@ -1,4 +1,4 @@
-|travis-devel| |codecov-devel| |licence| |format| |pypi| |implementation| |pyversions|
+|licence|
 
 ====================
 Orthogonal Functions
@@ -7,7 +7,7 @@ Orthogonal Functions
 A python package to generate a set of orthogonal functions.
 
 For users
-    * `Anaconda package <https://pypi.org/project/OrthogonalFunctions/>`_
+    * `Anaconda package <https://anaconda.org/s-ameli/orthogonalfunctions>`_
     * `PyPi package <https://pypi.org/project/OrthogonalFunctions/>`_
     * `Source code <https://github.com/ameli/Orthogonal-Functions>`_
     * `Documentation <https://ameli.github.io/Orthogonal-Functions/index.html>`_
@@ -17,18 +17,19 @@ For developers
     * `Travis-CI <https://travis-ci.com/github/ameli/Orthogonal-Functions>`_
     * `Codecov <https://codecov.io/gh/ameli/Orthogonal-Functions>`_
 
-.. Status
-.. ------
-..
-.. +------------+--------------------------+
-.. | Platform   | CI Status                |
-.. +============+==========================+
-.. | Linux      | |travis-devel-linux|     |
-.. +------------+--------------------------+
-.. | OSX        | |travis-devel-osx|       |
-.. +------------+--------------------------+
-.. | Windows    | |travis-devel-windows|   |
-.. +------------+--------------------------+
+------
+Status
+------
+
+Coverage: |codecov-devel| 
+
+==============  =======================  ===============
+Platform        Python versions          Build status
+==============  =======================  ===============
+Linux (Ubuntu)  2.7, 3.5, 3.6, 3.7, 3.8  |build-linux|
+macOS           2.7, 3.5, 3.6, 3.7, 3.8  |build-macos|
+Windows         2.7, 3.5, 3.6, 3.7, 3.8  |build-windows|
+==============  =======================  ===============
 
 -----------
 Description
@@ -55,21 +56,39 @@ where |image16| is the Kronecker delta function. The orthogonal functions are ge
 Install
 -------
 
-- Method 1: install using the package available on `PyPi <https://pypi.org/project/OrthogonalFunctions>`__ by
+Install using one of the following three methods.
+
+~~~~~~~~~~~~~~
+Anaconda Cloud
+~~~~~~~~~~~~~~
+
+|conda| |conda-version| |conda-platform|
+
+Install using `Anaconda cloud <https://anaconda.org/s-ameli/traceinv>`_ by
+
+  ::
+
+      conda install -c s-ameli orthogonalfunctions
+
+~~~~
+PyPi
+~~~~
+
+|format| |pypi| |implementation| |pyversions|
+
+Install using the package available on `PyPi <https://pypi.org/project/OrthogonalFunctions>`__ by
 
   ::
 
     python -m pip install OrthogonalFunctions
 
-|conda| |conda-version| |conda-platform|
+~~~~~~~~~~~~~~~~~
+Build Source Code
+~~~~~~~~~~~~~~~~~
 
-- Method 2: install using `Anaconda cloud <https://anaconda.org/s-ameli/traceinv>`_ by
+|release|
 
-  ::
-
-      conda install -c s-ameli OrthogonalFunctions
-
-- Method 3: install directly from the source code by
+Install directly from the source code by
 
   ::
 
@@ -83,14 +102,13 @@ Testing
 
 To test the package, download the source code and use one of the following methods in the directory of the source code:
 
-- Method 1: Using ``pytest``:
+- Method 1: test locally by (this will use ``pytest``):
 
   ::
       
-      python -m pip install pytest
-      python -m pytest
+      python setup.py test
 
-- Method 2: Using ``tox``:
+- Method 2: test in a virtual environment using ``tox``:
 
   ::
 
@@ -342,6 +360,22 @@ Citation
 .. |pyversions| image:: https://img.shields.io/pypi/pyversions/OrthogonalFunctions
 .. |format| image:: https://img.shields.io/pypi/format/OrthogonalFunctions
 .. |pypi| image:: https://img.shields.io/pypi/v/OrthogonalFunctions
+.. |build-linux| image:: https://github.com/ameli/Orthogonal-Functions/workflows/build-linux/badge.svg
+   :target: https://github.com/ameli/Orthogonal-Functions/actions?query=workflow%3Abuild-linux 
+.. |build-macos| image:: https://github.com/ameli/Orthogonal-Functions/workflows/build-macos/badge.svg
+   :target: https://github.com/ameli/Orthogonal-Functions/actions?query=workflow%3Abuild-macos
+.. |build-windows| image:: https://github.com/ameli/Orthogonal-Functions/workflows/build-windows/badge.svg
+   :target: https://github.com/ameli/Orthogonal-Functions/actions?query=workflow%3Abuild-windows
+.. |conda| image:: https://anaconda.org/s-ameli/orthogonalfunctions/badges/installer/conda.svg
+   :target: https://anaconda.org/s-ameli/orthogonalfunctions
+.. |platforms| image:: https://img.shields.io/conda/pn/s-ameli/orthogonalfunctions?color=orange?label=platforms
+   :target: https://anaconda.org/s-ameli/orthogonalfunctions
+.. |conda-version| image:: https://img.shields.io/conda/v/s-ameli/orthogonalfunctions
+   :target: https://anaconda.org/s-ameli/orthogonalfunctions
+.. |release| image:: https://img.shields.io/github/v/tag/ameli/Orthogonal-Functions
+   :target: https://github.com/ameli/Orthogonal-Functions/releases/
+.. |conda-platform| image:: https://anaconda.org/s-ameli/orthogonalfunctions/badges/platforms.svg
+   :target: https://anaconda.org/s-ameli/orthogonalfunctions
 
 .. |image09| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/main/docs/images/phi_i_perp.svg
 .. |image10| image:: https://raw.githubusercontent.com/ameli/Orthogonal-Functions/main/docs/images/phi_i.svg
