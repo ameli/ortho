@@ -125,7 +125,9 @@ def main(argv):
             ],
             'docs': [
                 'sphinx',
+                'sphinx-math-dollar',
                 'sphinx-toggleprompt',
+                'sphinxcontrib-apidoc'
             ]
         },
         classifiers = [
