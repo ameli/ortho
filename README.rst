@@ -86,7 +86,7 @@ Install using the package available on `PyPi <https://pypi.org/project/Orthogona
 
 ::
 
-  python -m pip install OrtthogonalFunctions
+  pip install OrtthogonalFunctions
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 3. Install from Source Code
@@ -100,7 +100,7 @@ Install directly from the source code by
 
   git clone https://github.com/ameli/Orthogonal-Functions.git
   cd Orthogonal-Functions
-  python -m pip install .
+  pip install .
 
 -------
 Testing
@@ -118,7 +118,7 @@ To test the package, download the source code and use one of the following metho
 
   ::
 
-      python -m pip install tox
+      pip install tox
       tox
 
 -----

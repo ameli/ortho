@@ -8,7 +8,6 @@ from __future__ import print_function
 import os
 import sys
 import codecs
-# from sphinx.setup_command import BuildDoc
 
 # Import setuptools
 try:
@@ -73,9 +72,6 @@ def main(argv):
     # ReadMe
     LongDescription = open(os.path.join(Directory,'README.rst'),'r').read()
 
-    # Build documentation
-    # cmdclass = {'build_sphinx': BuildDoc}
-
     # Setup
     setuptools.setup(
         name = PackageName,
@@ -110,14 +106,6 @@ def main(argv):
                 "gen-ortho = OrthogonalFunctions.__main__:main"
             ]
         },
-        # cmdclass=cmdclass,
-        # command_options = {
-        #     'build_sphinx': {
-        #         'project':    ('setup.py',PackageNameForDoc),
-        #         'version':    ('setup.py',Version),
-        #         'source_dir': ('setup.py','docs')
-        #     }
-        # },
         extras_require = {
             'dev': [
                 'pytest-cov',
@@ -127,7 +115,6 @@ def main(argv):
                 'sphinx',
                 'sphinx-math-dollar',
                 'sphinx-toggleprompt',
-                'sphinxcontrib-apidoc'
             ]
         },
         classifiers = [
