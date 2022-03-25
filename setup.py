@@ -155,7 +155,7 @@ def main(argv):
             'examples']
         ),
         install_requires=requirements,
-        python_requires='>=2.7',
+        python_requires='>=3.6',
         setup_requires=[
             'setuptools',
             'pytest-runner'],
@@ -174,7 +174,6 @@ def main(argv):
             'docs': docs_requirements,
         },
         classifiers=[
-            'Programming Language :: Python :: 2.7',
             'Programming Language :: Python :: 3.6',
             'Programming Language :: Python :: 3.7',
             'Programming Language :: Python :: 3.8',
