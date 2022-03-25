@@ -8,9 +8,9 @@ recursive-include docs *.py
 recursive-include docs *.rst
 recursive-include docs *.svg
 recursive-include docs Makefile
+recursive-include _modules *.rst
 recursive-exclude docs/images *.pdf
 
-recursive-include OrthogonalFunctions *.rst
 recursive-include tests *.py
 recursive-include tests *.rst
 
@@ -32,4 +32,3 @@ prune tmp
 prune .tox
 prune .github
 prune conda
-

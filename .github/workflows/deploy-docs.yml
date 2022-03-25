@@ -13,19 +13,23 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@master
+              uses: actions/checkout@v2
 
             - name: Build and Deploy
               uses: JacksonMaxfield/github-pages-deploy-action-python@master
               env:
-                  ACCESS_TOKEN: ${{ secrets.ORTHOGONALFUNCTIONS_DOCS_WORKFLOW }}
+                  ACCESS_TOKEN: ${{ secrets.ORTHO_DOCS }}
                   BASE_BRANCH: main
                   BRANCH: gh-pages
-                  FOLDER: docs/_build/html
+                  FOLDER: docs/build/html
                   BUILD_SCRIPT: |
+                      apt-get update
+                      apt-get install graphviz -y
+                      pip install --upgrade pip
                       pip install .[docs]
-                      sphinx-apidoc -f -o docs/_modules/ ./OrthogonalFunctions
-                      make -C docs/ html
-                      touch docs/_build/html/.nojekyll
-                      echo 'Visit [Documentation](https://ameli.github.io/Orthogonal-Functions/index.html).' > docs/_build/html/README.md
+                      export PATH=$HOME/.local/bin:$PATH
+                      make html --directory=docs
+                      touch docs/build/html/.nojekyll
+                      echo 'Visit [Documentation](https://ameli.github.io/ortho/index.html).' > docs/build/html/README.md
+
 

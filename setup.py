@@ -1,129 +1,185 @@
 #!/usr/bin/env python
 
+# SPDX-FileCopyrightText: Copyright 2021, Siavash Ameli <sameli@berkeley.edu>
+# SPDX-License-Identifier: BSD-3-Clause
+# SPDX-FileType: SOURCE
+#
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the license found in the LICENSE.txt file in the root
+# directory of this source tree.
+
 # =======
 # Imports
 # =======
 
 from __future__ import print_function
 import os
+from os.path import join
 import sys
 import codecs
+import subprocess
+
+
+# ===============
+# install package
+# ===============
+
+def install_package(package):
+    """
+    Installs packages using pip.
+
+    Example:
+
+    .. code-block:: python
+
+        >>> install_package('numpy>1.11')
+
+    :param package: Name of package with or without its version pin.
+    :type package: string
+    """
+
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+
+# =====================
+# Import Setup Packages
+# =====================
 
 # Import setuptools
 try:
     import setuptools
-    from setuptools.extension import Extension
 except ImportError:
     # Install setuptools
-    try:
-        import pip
-        from pip import main
-        pip.main(['install','setuptools'])
-        import setuptools
-        from setuptools.extension import Extension
-    except:
-        raise ImportError('Cannot import setuptools.')
+    install_package('setuptools')
+    import setuptools
+
 
 # =========
-# Read File
+# read file
 # =========
 
-def ReadFile(Filename):
-    with codecs.open(Filename,'r','latin') as File:
+def read_file(Filename):
+    with codecs.open(Filename, 'r', 'latin') as File:
         return File.read()
 
+
 # ================
-# Read File to RST
+# read file to rst
 # ================
 
-def ReadFileToRST(Filename):
+def read_file_to_rst(Filename):
     try:
         import pypandoc
-        rstname = "{}.{}".format(os.path.splitext(Filename)[0],'rst')
-        pypandoc.convert(read(Filename),'rst', format='md', outputfile=rstname)
+        rstname = "{}.{}".format(os.path.splitext(Filename)[0], 'rst')
+        pypandoc.convert(read_file(Filename), 'rst', format='md',
+                         outputfile=rstname)
         with open(rstname, 'r') as f:
             rststr = f.read()
         return rststr
     except ImportError:
-        return ReadFile(Filename)
+        return read_file(Filename)
+
+
+# ================
+# get requirements
+# ================
+
+def get_requirements(directory, subdirectory=""):
+    """
+    Returns a list containing the package requirements given in a file named
+    "requirements.txt" in a subdirectory.
+    """
+
+    requirements_filename = join(directory, subdirectory, "requirements.txt")
+    requirements_file = open(requirements_filename, 'r')
+    requirements = [i.strip() for i in requirements_file.readlines()]
+
+    return requirements
+
 
 # ====
-# Main
+# main
 # ====
 
 def main(argv):
 
-    Directory = os.path.dirname(os.path.realpath(__file__))
-    PackageName = "OrthogonalFunctions"
-    PackageNameForDoc = "Orthogonal Functions"
+    directory = os.path.dirname(os.path.realpath(__file__))
+    package_name = "ortho"
 
     # Version
     version_dummy = {}
-    exec(open(os.path.join(Directory,PackageName,'__version__.py'),'r').read(),version_dummy)
-    Version = version_dummy['__version__']
+    version_file = join(directory, package_name, '__version__.py')
+    exec(open(version_file, 'r').read(), version_dummy)
+    version = version_dummy['__version__']
     del version_dummy
 
-    # Author
-    Author = open(os.path.join(Directory,'AUTHORS.txt'),'r').read().rstrip()
+    # author
+    author = open(os.path.join(directory, 'AUTHORS.txt'), 'r').read().rstrip()
 
     # Requirements
-    Requirements = [i.strip() for i in open(os.path.join(Directory,"requirements.txt"),'r').readlines()]
+    requirements = get_requirements(directory)
+    test_requirements = get_requirements(directory, subdirectory="tests")
+    docs_requirements = get_requirements(directory, subdirectory="docs")
 
     # ReadMe
-    LongDescription = open(os.path.join(Directory,'README.rst'),'r').read()
+    long_description = open(os.path.join(directory, 'README.rst'), 'r').read()
+
+    url = 'https://github.com/ameli/ortho'
+    download_url = url + '/archive/main.zip'
+    documentation_url = url + '/blob/main/README.rst'
+    tracker_url = url + '/issues'
 
     # Setup
     setuptools.setup(
-        name = PackageName,
-        version = Version,
-        author = Author,
-        author_email = 'sameli@berkeley.edu',
-        description = 'Generate orthogonal set of functions',
-        long_description = LongDescription,
-        long_description_content_type = 'text/x-rst',
-        keywords = 'orthogonal-functions regression sympy computer-algebra gram-schmidt',
-        url = 'https://github.com/ameli/Orthogonal-Functions',
-        download_url = 'https://github.com/ameli/Orthogonal-Functions/archive/main.zip',
-        project_urls = {
-            "Documentation": "https://github.com/ameli/Orthogonal-Functions/blob/main/README.rst",
-            "Source": "https://github.com/ameli/Orthogonal-Functions",
-            "Tracker": "https://github.com/ameli/Orthogonal-Functions/issues",
+        name=package_name,
+        version=version,
+        author=author,
+        author_email='sameli@berkeley.edu',
+        description='Generate orthogonal set of functions',
+        long_description=long_description,
+        long_description_content_type='text/x-rst',
+        keywords='orthogonal-functions regression sympy computer-algebra' +
+                 'gram-schmidt',
+        url=url,
+        download_url=download_url,
+        project_urls={
+            "Documentation": documentation_url,
+            "Source": url,
+            "Tracker": tracker_url,
         },
-        platforms = ['Linux','OSX','Windows'],
-        packages = setuptools.find_packages(exclude=['tests.*','tests']),
-        install_requires = Requirements,
-        python_requires = '>=2.7',
-        setup_requires = [
+        platforms=['Linux', 'OSX', 'Windows'],
+        packages=setuptools.find_packages(exclude=[
+            'tests.*',
+            'tests',
+            'examples.*',
+            'examples']
+        ),
+        install_requires=requirements,
+        python_requires='>=2.7',
+        setup_requires=[
             'setuptools',
             'pytest-runner'],
-        tests_require = [
+        tests_require=[
             'pytest',
             'pytest-cov'],
         include_package_data=True,
         zip_safe=False,
-        entry_points = {
+        entry_points={
             "console_scripts": [
-                "gen-ortho = OrthogonalFunctions.__main__:main"
+                "ortho=ortho.__main__:main"
             ]
         },
-        extras_require = {
-            'dev': [
-                'pytest-cov',
-                'codecov'
-            ],
-            'docs': [
-                'sphinx',
-                'sphinx-math-dollar',
-                'sphinx-toggleprompt',
-            ]
+        extras_require={
+            'test': test_requirements,
+            'docs': docs_requirements,
         },
-        classifiers = [
+        classifiers=[
             'Programming Language :: Python :: 2.7',
-            'Programming Language :: Python :: 3.5',
             'Programming Language :: Python :: 3.6',
             'Programming Language :: Python :: 3.7',
             'Programming Language :: Python :: 3.8',
-            'License :: OSI Approved :: MIT License',
+            'Programming Language :: Python :: 3.9',
+            'License :: OSI Approved :: BSD License',
             'Operating System :: OS Independent',
             'Natural Language :: English',
             'Intended Audience :: Science/Research',
@@ -133,8 +189,9 @@ def main(argv):
         ],
     )
 
+
 # ===========
-# System Main
+# script main
 # ===========
 
 if __name__ == "__main__":

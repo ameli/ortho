@@ -1,0 +1,50 @@
+{% set name = "ortho" %}
+{% set data = load_setup_py_data() %}
+
+package:
+    name: "{{ name|lower }}"
+    version: "{{ data['version'] }}"
+
+source:
+    path: ..
+
+# source:
+#   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+
+build:
+    number: 0
+    script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+    host:
+        - python {{ python }}
+        - setuptools
+        - pip
+        - pytest-runner
+    run:
+        - python {{ python }}
+        - numpy
+        - sympy
+        - matplotlib
+        - seaborn
+
+test:
+    imports:
+        - ortho
+        - ortho.OrthogonalFunctions
+    requires:
+        - pytest
+
+about:
+    home: {{ data['url'] }}
+    license: MIT
+    license_family: MIT
+    license_file: LICENSE.txt
+    summary: {{ data['description'] }}
+    description: {{ data['description'] }}
+    doc_url: https://ameli.github.io/ortho/index.html
+    dev_url: https://github.com/ameli/ortho
+
+extra:
+    recipe-maintainers:
+        - ameli
