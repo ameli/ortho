@@ -1,0 +1,344 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ortho._orthogonal_functions.orthogonal_functions &#8212; ortho Manual</title>
+    
+    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
+    
+    <link rel="stylesheet"
+      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+    
+      
+  
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
+    
+    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/toggleprompt.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <script defer data-domain="docs.scipy.org" src="https://views.scientific-python.org/js/script.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../../../index.html">
+<p class="title">ortho</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../index.html">
+  Home
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../api.html">
+  API Reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ameli/ortho" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+    
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for ortho._orthogonal_functions.orthogonal_functions</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-FileCopyrightText: Copyright 2021, Siavash Ameli &lt;sameli@berkeley.edu&gt;</span>
+<span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
+<span class="c1"># SPDX-FileType: SOURCE</span>
+<span class="c1">#</span>
+<span class="c1"># This program is free software: you can redistribute it and/or modify it under</span>
+<span class="c1"># the terms of the license found in the LICENSE.txt file in the root directory</span>
+<span class="c1"># of this source tree.</span>
+
+
+<span class="c1"># =======</span>
+<span class="c1"># Imports</span>
+<span class="c1"># =======</span>
+
+<span class="kn">from</span> <span class="nn">.orthogonalization_utilities</span> <span class="kn">import</span> <span class="n">gram_schmidt_process</span>
+<span class="kn">from</span> <span class="nn">.orthogonalization_utilities</span> <span class="kn">import</span> <span class="n">print_coeffs_of_functions</span>
+<span class="kn">from</span> <span class="nn">.orthogonalization_utilities</span> <span class="kn">import</span> <span class="n">check_mutual_orthonormality</span>
+<span class="kn">from</span> <span class="nn">.orthogonalization_utilities</span> <span class="kn">import</span> <span class="n">get_symbolic_coeffs</span>
+<span class="kn">from</span> <span class="nn">.orthogonalization_utilities</span> <span class="kn">import</span> <span class="n">get_numeric_coeffs</span>
+<span class="kn">from</span> <span class="nn">.plot_utilities</span> <span class="kn">import</span> <span class="n">plot_functions</span>
+
+
+<span class="c1"># ====================</span>
+<span class="c1"># Orthogonal Functions</span>
+<span class="c1"># ====================</span>
+
+<div class="viewcode-block" id="OrthogonalFunctions"><a class="viewcode-back" href="../../../generated/ortho.OrthogonalFunctions.html#ortho.OrthogonalFunctions">[docs]</a><span class="k">class</span> <span class="nc">OrthogonalFunctions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The main class of the package, which wraps the functions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># ----</span>
+    <span class="c1"># Init</span>
+    <span class="c1"># ----</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">start_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">num_func</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+            <span class="n">end_interval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parses the user inputs and sets the member data of the object.</span>
+
+<span class="sd">        Keyword arguments</span>
+<span class="sd">            * ``num_func``</span>
+<span class="sd">            * ``start_index``</span>
+<span class="sd">            * ``end_interval``</span>
+
+<span class="sd">        :param **kwargs: Variable keyword arguments.</span>
+<span class="sd">        :type: ``**kwargs``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Number of functions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_func</span> <span class="o">=</span> <span class="n">num_func</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span> <span class="o">=</span> <span class="n">start_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_interval</span> <span class="o">=</span> <span class="n">end_interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+
+        <span class="c1"># Check arguments</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_func</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The option &quot;num_func&quot; should be at least 1.&#39;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&quot;start_index&quot; should be at least 1.&#39;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">end_interval</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&quot;end_interval&quot; should be greater than zero.&#39;</span><span class="p">)</span>
+            <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_interval</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">end_interval</span><span class="p">]</span>
+
+        <span class="c1"># Generate list of functions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sym_phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span>
+
+        <span class="c1"># Get coeffs of symbolic functions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sym_alpha</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sym_coeffs</span> <span class="o">=</span> <span class="n">get_symbolic_coeffs</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span><span class="p">)</span>
+
+        <span class="c1"># Get numeric values of coefficients</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coeffs</span> <span class="o">=</span> <span class="n">get_numeric_coeffs</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sym_alpha</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sym_coeffs</span><span class="p">)</span>
+
+    <span class="c1"># -------</span>
+    <span class="c1"># Process</span>
+    <span class="c1"># -------</span>
+
+    <span class="k">def</span> <span class="nf">_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the set of orthonormalized functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Generate a list of symbolic orthonormal functions</span>
+        <span class="n">phi_orthonormalized_list</span> <span class="o">=</span> <span class="n">gram_schmidt_process</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">num_func</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_interval</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">phi_orthonormalized_list</span>
+
+    <span class="c1"># -----</span>
+    <span class="c1"># Check</span>
+    <span class="c1"># -----</span>
+
+    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check the mutual orthogonality of the functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Call Process() first.&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check orthonormality of functions</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">check_mutual_orthonormality</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_interval</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">status</span>
+
+    <span class="c1"># -----</span>
+    <span class="c1"># Print</span>
+    <span class="c1"># -----</span>
+
+    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print coeffs of Functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Call Process() first.&#39;</span><span class="p">)</span>
+
+        <span class="n">print_coeffs_of_functions</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sym_coeffs</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span><span class="p">)</span>
+
+    <span class="c1"># ----</span>
+    <span class="c1"># Plot</span>
+    <span class="c1"># ----</span>
+
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot the generated functions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Call Process() first.&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Plot Functions</span>
+        <span class="n">plot_functions</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_interval</span><span class="p">)</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Siavash Ameli.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

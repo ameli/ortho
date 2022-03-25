@@ -1,1 +1,1 @@
-Visit [Documentation](https://ameli.github.io/Orthogonal-Functions/index.html).
+Visit [Documentation](https://ameli.github.io/ortho/index.html).
