@@ -31,7 +31,6 @@ requirements:
 test:
     imports:
         - ortho
-        - ortho.OrthogonalFunctions
     requires:
         - pytest
 

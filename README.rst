@@ -29,13 +29,13 @@ Build and Test Status
 
 |codecov-devel| 
 
-==============  =======================  ===============
-Platform        Python versions          Build status
-==============  =======================  ===============
-Linux (Ubuntu)  2.7, 3.6, 3.7, 3.8, 3.9  |build-linux|
-macOS           2.7, 3.6, 3.7, 3.8, 3.9  |build-macos|
-Windows         2.7, 3.6, 3.7, 3.8, 3.9  |build-windows|
-==============  =======================  ===============
+==============  ==================  ===============
+Platform        Python versions     Build status
+==============  ==================  ===============
+Linux (Ubuntu)  3.6, 3.7, 3.8, 3.9  |build-linux|
+macOS           3.6, 3.7, 3.8, 3.9  |build-macos|
+Windows         3.6, 3.7, 3.8, 3.9  |build-windows|
+==============  ==================  ===============
 
 -----------
 Description
