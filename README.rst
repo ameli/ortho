@@ -22,6 +22,7 @@ A python package to generate a set of orthogonal functions.
 
 * `Documentation <https://ameli.github.io/ortho/index.html>`_
 * `API Reference <https://ameli.github.io/ortho/api.html>`_
+* `Github <https://ameli.github.io/ortho>`_
 
 ---------------------
 Build and Test Status

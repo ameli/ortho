@@ -28,10 +28,6 @@ jobs:
                       pip install --upgrade pip
                       pip install .[docs]
                       export PATH=$HOME/.local/bin:$PATH
-                      pwd
-                      ls
-                      which sphinx-apidoc
-                      sphinx-apidoc -f -o docs/source/_modules ortho
                       make html --directory=docs
                       touch docs/build/html/.nojekyll
                       echo 'Visit [Documentation](https://ameli.github.io/ortho/index.html).' > docs/build/html/README.md
