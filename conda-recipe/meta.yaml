@@ -36,8 +36,8 @@ test:
 
 about:
     home: {{ data['url'] }}
-    license: MIT
-    license_family: MIT
+    license: BSD
+    license_family: BSD
     license_file: LICENSE.txt
     summary: {{ data['description'] }}
     description: {{ data['description'] }}

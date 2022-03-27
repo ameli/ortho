@@ -85,7 +85,7 @@ author = 'Siavash Ameli'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx_math_dollar',
+    # 'sphinx_math_dollar',
     'sphinx.ext.mathjax',
     'sphinx.ext.graphviz', 'sphinx.ext.inheritance_diagram',
     'sphinx.ext.viewcode',
@@ -99,6 +99,7 @@ extensions = [
 
 # Automatically generate autosummary after each build
 autosummary_generate = True
+autosummary_imported_members = True
 
 # automodapi
 numpydoc_show_class_members = False

@@ -8,16 +8,46 @@ on:
         types: [published]
     
 jobs:
-    publish:
+    # publish:
+    #     runs-on: ubuntu-latest
+    #     name: Publish to Conda
+    #     steps:
+    #         - name: Checkout
+    #           uses: actions/checkout@v2
+    #
+    #         - name: publish-to-conda
+    #           uses: fcakyon/conda-publish-action@v1.3
+    #           with:
+    #               subdir: 'conda-recipe'
+    #               anacondatoken: ${{ secrets.ANACONDA_TOKEN }}
+    #               platforms: 'win osx linux'
+
+    build_conda:
         runs-on: ubuntu-latest
         name: Publish to Conda
+        strategy:
+            fail-fast: false
+        
+        # To upload to PyPI on every tag starting with 'v', use the following:
+        # if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/v')
+        # To publish to pypi on each GitHub Release, use the following:
+        # if: github.event_name == 'release' && github.event.action == 'published'
         steps:
             - name: Checkout
               uses: actions/checkout@v2
 
-            - name: publish-to-conda
-              uses: fcakyon/conda-publish-action@v1.3
+            - name: Setup Miniconda
+              uses: conda-incubator/setup-miniconda@v2
               with:
-                  subdir: 'conda-recipe'
-                  anacondatoken: ${{ secrets.ANACONDA_TOKEN }}
-                  platforms: 'win osx linux'
+                  auto-update-conda: true
+
+            - name: Build and upload package
+              shell: bash -l {0}
+              run: |
+                  conda install -y conda-build anaconda-client
+                  conda config --set anaconda_upload yes
+                  export PATH=$(conda info --root):$PATH
+                  export PATH=$(conda info --root)/bin:$PATH
+                  conda-build --output-folder . .
+              env:
+                  ANACONDA_API_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
