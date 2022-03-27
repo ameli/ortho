@@ -12,6 +12,6 @@ Classes
     :toctree: generated
     :caption: Functions
     :recursive:
-    :template: autosummary/member.rst
+    :template: autosummary/class.rst
     
     ortho.OrthogonalFunctions
