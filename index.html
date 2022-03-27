@@ -10,35 +10,30 @@
 
     <title>ortho’s documentation &#8212; ortho Manual</title>
     
-    <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/toggleprompt.js"></script>
-    <script>window.MathJax = {"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="API Reference" href="api.html" />
@@ -52,7 +47,7 @@
     
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -147,7 +142,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -254,7 +249,7 @@
               <div>
                 
   <section id="ortho-s-documentation">
-<h1>ortho’s documentation<a class="headerlink" href="#ortho-s-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>ortho’s documentation<a class="headerlink" href="#ortho-s-documentation" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <p>A python package to generate a set of orthogonal functions.</p>
@@ -263,7 +258,7 @@
 <li><p><a class="reference external" href="https://ameli.github.io/ortho/api.html">API Reference</a></p></li>
 </ul>
 <section id="build-and-test-status">
-<h2>Build and Test Status<a class="headerlink" href="#build-and-test-status" title="Permalink to this headline">¶</a></h2>
+<h2>Build and Test Status<a class="headerlink" href="#build-and-test-status" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://codecov.io/gh/ameli/ortho"><img alt="codecov-devel" src="https://img.shields.io/codecov/c/github/ameli/ortho" /></a></p>
 <table class="table">
 <colgroup>
@@ -294,26 +289,20 @@
 </table>
 </section>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>This package generates a set of orthonormal functions, called <span class="math notranslate nohighlight">\(\phi_i^{\perp}\)</span>, based on the set of non-orthonormal functions <span class="math notranslate nohighlight">\(\phi_i\)</span> defined by</p>
-<p><div class="math notranslate nohighlight">
-\[\phi_i(t) = t^{\frac{1}{i+1}}, \qquad i = i_0,\dots,i_0+n.\]</div>
-</p>
-<p>The orthonormalized functions <span class="math notranslate nohighlight">\(\phi_i^{\perp}\)</span> are the linear combination of the functions <span class="math notranslate nohighlight">\(\phi_i\)</span> by</p>
-<p><div class="math notranslate nohighlight">
-\[\phi_i^{\perp}(t) = \alpha_i \sum_{j = i_0}^{i_0+n} a_{ij} \phi_j(t), \qquad i = i_0,\dots,i_0+n.\]</div>
-</p>
-<p>The functions <span class="math notranslate nohighlight">\(\phi_i^{\perp}\)</span> are orthonormal in the interval <span class="math notranslate nohighlight">\(t \in [0,L]\)</span> with respect to the weight function <span class="math notranslate nohighlight">\(w(t) = t^{-1}\)</span>. That is,</p>
-<p><div class="math notranslate nohighlight">
-\[\langle \phi_i^{\perp},\phi_j^{\perp} \rangle_{L^2([0,L],\mathrm{d}t/t)} = \int_0^L \phi_i^{\perp}(t) \phi_j^{\perp}(t) \frac{\mathrm{d}t}{t} = \delta_{ij},\]</div>
-</p>
-<p>where <span class="math notranslate nohighlight">\(\delta_{ij}\)</span> is the Kronecker delta function. The orthogonal functions are generated by <a class="reference external" href="https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process">Gram-Schmidt orthogonalization process</a>. This script produces the symbolic functions using <a class="reference external" href="https://www.sympy.org">Sympy</a>, a Python computer algebraic package. An application of these orthogonal functions can be found in <a class="reference internal" href="#ameli-2022" id="id1"><span>[Ameli-2022]</span></a>.</p>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h2>
+<p>This package generates a set of orthonormal functions, called $phi_i^{perp}$, based on the set of non-orthonormal functions $phi_i$ defined by</p>
+<p>$$phi_i(t) = t^{frac{1}{i+1}}, qquad i = i_0,dots,i_0+n.$$</p>
+<p>The orthonormalized functions $phi_i^{perp}$ are the linear combination of the functions $phi_i$ by</p>
+<p>$$phi_i^{perp}(t) = alpha_i sum_{j = i_0}^{i_0+n} a_{ij} phi_j(t), qquad i = i_0,dots,i_0+n.$$</p>
+<p>The functions $phi_i^{perp}$ are orthonormal in the interval $t in [0,L]$ with respect to the weight function $w(t) = t^{-1}$. That is,</p>
+<p>$$langle phi_i^{perp},phi_j^{perp} rangle_{L^2([0,L],mathrm{d}t/t)} = int_0^L phi_i^{perp}(t) phi_j^{perp}(t) frac{mathrm{d}t}{t} = delta_{ij},$$</p>
+<p>where $delta_{ij}$ is the Kronecker delta function. The orthogonal functions are generated by <a class="reference external" href="https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process">Gram-Schmidt orthogonalization process</a>. This script produces the symbolic functions using <a class="reference external" href="https://www.sympy.org">Sympy</a>, a Python computer algebraic package. An application of these orthogonal functions can be found in <a class="reference internal" href="#ameli-2022" id="id1"><span>[Ameli-2022]</span></a>.</p>
 </section>
 <section id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">#</a></h2>
 <p>Install using either of the following three methods.</p>
 <section id="install-from-pypi">
-<h3>1. Install from PyPi<a class="headerlink" href="#install-from-pypi" title="Permalink to this headline">¶</a></h3>
+<h3>1. Install from PyPi<a class="headerlink" href="#install-from-pypi" title="Permalink to this headline">#</a></h3>
 <p><img alt="pypi" src="https://img.shields.io/pypi/v/ortho" /> <img alt="pyversions" src="https://img.shields.io/pypi/pyversions/ortho" /> <img alt="format" src="https://img.shields.io/pypi/format/ortho" /></p>
 <p>Install using the package available on <a class="reference external" href="https://pypi.org/project/ortho">PyPi</a> by</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ortho</span>
@@ -321,7 +310,7 @@
 </div>
 </section>
 <section id="install-from-anaconda-cloud">
-<h3>2. Install from Anaconda Cloud<a class="headerlink" href="#install-from-anaconda-cloud" title="Permalink to this headline">¶</a></h3>
+<h3>2. Install from Anaconda Cloud<a class="headerlink" href="#install-from-anaconda-cloud" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://anaconda.org/s-ameli/ortho"><img alt="conda-version" src="https://img.shields.io/conda/v/s-ameli/ortho" /></a> <a class="reference external" href="https://anaconda.org/s-ameli/ortho"><img alt="conda-platform" src="https://anaconda.org/s-ameli/ortho/badges/platforms.svg" /></a></p>
 <p>Install using <a class="reference external" href="https://anaconda.org/s-ameli/traceinv">Anaconda cloud</a> by</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">s</span><span class="o">-</span><span class="n">ameli</span> <span class="n">ortho</span>
@@ -329,7 +318,7 @@
 </div>
 </section>
 <section id="install-from-source-code">
-<h3>3. Install from Source Code<a class="headerlink" href="#install-from-source-code" title="Permalink to this headline">¶</a></h3>
+<h3>3. Install from Source Code<a class="headerlink" href="#install-from-source-code" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://github.com/ameli/ortho/releases/"><img alt="release" src="https://img.shields.io/github/v/tag/ameli/ortho" /></a> <a class="reference external" href="https://opensource.org/licenses/BSD-3-Clause"><img alt="licence" src="https://img.shields.io/github/license/ameli/ortho" /></a> <img alt="implementation" src="https://img.shields.io/pypi/implementation/ortho" /></p>
 <p>Install directly from the source code by</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ameli</span><span class="o">/</span><span class="n">ortho</span><span class="o">.</span><span class="n">git</span>
@@ -340,7 +329,7 @@
 </section>
 </section>
 <section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">#</a></h2>
 <p>To test the package, download the source code and use one of the following methods in the directory of the source code:</p>
 <ul>
 <li><p><em>Method 1</em>: test locally by:</p>
@@ -357,10 +346,10 @@
 </ul>
 </section>
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">#</a></h2>
 <p>The package can be used in two ways:</p>
 <section id="import-as-a-module">
-<h3>1. Import as a Module<a class="headerlink" href="#import-as-a-module" title="Permalink to this headline">¶</a></h3>
+<h3>1. Import as a Module<a class="headerlink" href="#import-as-a-module" title="Permalink to this headline">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ortho</span> <span class="kn">import</span> <span class="n">OrthogonalFunctions</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generate object of orthogonal functions</span>
@@ -393,13 +382,13 @@
 </div>
 <p>The parameters are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">start_index</span></code>: the index of the starting function, <span class="math notranslate nohighlight">\(i_0\)</span>. Default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">num_func</span></code>: number of orthogonal functions to generate, <span class="math notranslate nohighlight">\(n\)</span>. Default is <code class="docutils literal notranslate"><span class="pre">9</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">end_interval</span></code>: the right interval of orthogonality, <span class="math notranslate nohighlight">\(L\)</span>. Default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_index</span></code>: the index of the starting function, $i_0$. Default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_func</span></code>: number of orthogonal functions to generate, $n$. Default is <code class="docutils literal notranslate"><span class="pre">9</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_interval</span></code>: the right interval of orthogonality, $L$. Default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
 </ul>
 </section>
 <section id="use-as-standalone-application">
-<h3>2. Use As Standalone Application<a class="headerlink" href="#use-as-standalone-application" title="Permalink to this headline">¶</a></h3>
+<h3>2. Use As Standalone Application<a class="headerlink" href="#use-as-standalone-application" title="Permalink to this headline">#</a></h3>
 <p>The standalone application can be executed in the terminal in two ways:</p>
 <ol class="arabic">
 <li><p>If you have installed the package, call <code class="docutils literal notranslate"><span class="pre">ortho</span></code> executable in terminal:</p>
@@ -423,7 +412,7 @@
 </ol>
 </section>
 <section id="optional-arguments">
-<h3>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">¶</a></h3>
+<h3>Optional arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this headline">#</a></h3>
 <p>When the <em>standalone application</em> (the second method in the above) is called, the executable accepts some optional arguments as follows.</p>
 <table class="table">
 <colgroup>
@@ -464,8 +453,8 @@
 </table>
 </section>
 <section id="parameters">
-<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
-<p>The variables <span class="math notranslate nohighlight">\(i_0\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, and <span class="math notranslate nohighlight">\(L\)</span> can be set in the script by the following arguments,</p>
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">#</a></h3>
+<p>The variables $i_0$, $n$, and $L$ can be set in the script by the following arguments,</p>
 <table class="table">
 <colgroup>
 <col style="width: 19%" />
@@ -479,15 +468,15 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(i_0\)</span></p></td>
+<tr class="row-even"><td><p>$i_0$</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">start_index</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">-s</span></code>, or <code class="docutils literal notranslate"><span class="pre">--start-func</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<tr class="row-odd"><td><p>$n$</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">num_func</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">-n</span></code>, or <code class="docutils literal notranslate"><span class="pre">--num-func</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(L\)</span></p></td>
+<tr class="row-even"><td><p>$L$</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">end_interval</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">-e</span></code>, or <code class="docutils literal notranslate"><span class="pre">--end-interval</span></code></p></td>
 </tr>
@@ -495,7 +484,7 @@
 </table>
 </section>
 <section id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h3>
 <ol class="arabic">
 <li><p>Generate nine orthogonal functions from index 1 to 9 (defaults)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ortho</span>
@@ -531,7 +520,7 @@
 </section>
 </section>
 <section id="output">
-<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Displays the orthogonal functions as computer algebraic symbolic functions. An example a set of generated functions is shown below.</p></li>
 </ul>
@@ -547,7 +536,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Displays readable coefficients, <span class="math notranslate nohighlight">\(\alpha_i\)</span> and <span class="math notranslate nohighlight">\(a_{ij}\)</span> of the functions. For instance,</p></li>
+<li><p>Displays readable coefficients, $alpha_i$ and $a_{ij}$ of the functions. For instance,</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">i</span>      <span class="n">alpha_i</span>                                    <span class="n">a_</span><span class="p">[</span><span class="n">ij</span><span class="p">]</span>
 <span class="o">------</span>  <span class="o">----------</span>   <span class="o">-----------------------------------------------------------------------</span>
@@ -581,7 +570,7 @@
 </ul>
 <img alt="https://raw.githubusercontent.com/ameli/ortho/main/docs/source/images/ortho.svg" class="align-center" src="https://raw.githubusercontent.com/ameli/ortho/main/docs/source/images/ortho.svg" /></section>
 <section id="citation">
-<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h2>
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">#</a></h2>
 <dl class="citation">
 <dt class="label" id="ameli-2022"><span class="brackets"><a class="fn-backref" href="#id1">Ameli-2022</a></span></dt>
 <dd><p>Ameli, S., and Shadden. S. C. (2022). Interpolating the Trace of the Inverse of Matrix <strong>A</strong> + t <strong>B</strong>. <a class="reference external" href="https://arxiv.org/abs/2009.07385">arXiv:2009.07385</a> [math.NA]</p>
@@ -624,8 +613,9 @@
       </div>
     </div>
   
-    <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

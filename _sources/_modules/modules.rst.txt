@@ -1,7 +1,7 @@
-OrthogonalFunctions
-===================
+ortho
+=====
 
 .. toctree::
    :maxdepth: 4
 
-   OrthogonalFunctions
+   ortho

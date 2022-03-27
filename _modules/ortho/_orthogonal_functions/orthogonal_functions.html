@@ -9,28 +9,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ortho._orthogonal_functions.orthogonal_functions &#8212; ortho Manual</title>
     
-    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
     
-    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
@@ -48,7 +45,7 @@
     
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -179,7 +176,84 @@
 
 <div class="viewcode-block" id="OrthogonalFunctions"><a class="viewcode-back" href="../../../generated/ortho.OrthogonalFunctions.html#ortho.OrthogonalFunctions">[docs]</a><span class="k">class</span> <span class="nc">OrthogonalFunctions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The main class of the package, which wraps the functions.</span>
+<span class="sd">    Generates a set of orthonormal functions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">        start_index : int, default=1</span>
+<span class="sd">            The index of the starting function, :math:`i_0`.</span>
+
+<span class="sd">        num_func : int, default=9</span>
+<span class="sd">            Number of orthogonal functions to generate</span>
+
+<span class="sd">        end_interval : float, default=1</span>
+<span class="sd">            The right interval of orthogonality, :math:`L`.</span>
+
+<span class="sd">        vebose : boolean, default=False</span>
+<span class="sd">            Prints the generated functions. An example of output is</span>
+
+<span class="sd">            ::</span>
+
+<span class="sd">                phi_1(t) =  sqrt(x)</span>
+<span class="sd">                phi_2(t) =  sqrt(6)*(5*x**(1/3) - 6*sqrt(x))/3</span>
+<span class="sd">                phi_3(t) =  sqrt(2)*(21*x**(1/4) - 40*x**(1/3) + 20*sqrt(x))/2</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">        sym_phi : sympy obj</span>
+<span class="sd">            Orthogonal functions :math:`\\phi_i^{\\perp}`</span>
+
+<span class="sd">        sym_alpha : sympy obj</span>
+<span class="sd">            Coefficients :math:`\\alpha_i`</span>
+
+<span class="sd">        sym_coeffs : sympy obj</span>
+<span class="sd">            Coefficients :math:`a_{i,j}`</span>
+
+<span class="sd">        alpha : list</span>
+<span class="sd">            Coefficients :math:`\\alpha_i`</span>
+
+<span class="sd">        coeffs : list of lists</span>
+<span class="sd">            Coefficients :math:`a_{i,j}`</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+
+<span class="sd">    The orthogonal functions, :math:`\\phi_i^{\\perp}`, are generated based on</span>
+<span class="sd">    the set of non-orthonormal functions :math:`\\phi_i` defined by</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \\phi_i(t) = t^{\\frac{1}{i+1}}, \\qquad i = i_0,\\dots,i_0+n.</span>
+
+<span class="sd">    The orthonormalized functions :math:`\\phi_i^{\\perp}` are the linear</span>
+<span class="sd">    combination of the functions :math:`\\phi_i` by</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \\phi_i^{\\perp}(t) = \\alpha_i \\sum_{j = i_0}^{i_0+n} a_{ij}</span>
+<span class="sd">        \\phi_j(t), \\qquad i = i_0,\\dots,i_0+n.</span>
+
+<span class="sd">    The functions :math:`\\phi_i^{\\perp}` are orthonormal in the interval</span>
+<span class="sd">    :math:`t \\in [0,L]` with respect to the weight function</span>
+<span class="sd">    :math:`w(t) = t^{-1}`. That is,</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \\langle \\phi_i^{\\perp},\\phi_j^{\\perp} \\rangle_{L^2([0,L],</span>
+<span class="sd">        \\mathrm{d}t/t)} = \\int_0^L \\phi_i^{\\perp}(t) \\phi_j^{\\perp}(t)</span>
+<span class="sd">        \\frac{\\mathrm{d}t}{t} = \\delta_{ij},</span>
+
+<span class="sd">    where :math:`\\delta_{ij}` is the Kronecker delta function. The orthogonal</span>
+<span class="sd">    functions are generated by `Gram-Schmidt orthogonalization process</span>
+<span class="sd">    &lt;https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process&gt;`__.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    check</span>
+<span class="sd">    print</span>
+<span class="sd">    plot</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># ----</span>
@@ -194,14 +268,6 @@
             <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parses the user inputs and sets the member data of the object.</span>
-
-<span class="sd">        Keyword arguments</span>
-<span class="sd">            * ``num_func``</span>
-<span class="sd">            * ``start_index``</span>
-<span class="sd">            * ``end_interval``</span>
-
-<span class="sd">        :param **kwargs: Variable keyword arguments.</span>
-<span class="sd">        :type: ``**kwargs``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># Number of functions</span>
@@ -258,9 +324,35 @@
     <span class="c1"># Check</span>
     <span class="c1"># -----</span>
 
-    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="OrthogonalFunctions.check"><a class="viewcode-back" href="../../ortho.html#ortho.OrthogonalFunctions.check">[docs]</a>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check the mutual orthogonality of the functions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">            verbose : boolean, default=False</span>
+<span class="sd">                If `True`, prints the matrix of mutual inner product of</span>
+<span class="sd">                functions. An example of the output is</span>
+
+<span class="sd">                ::</span>
+
+<span class="sd">                    [[1 0 0 0 0 0 0 0 0]</span>
+<span class="sd">                     [0 1 0 0 0 0 0 0 0]</span>
+<span class="sd">                     [0 0 1 0 0 0 0 0 0]</span>
+<span class="sd">                     [0 0 0 1 0 0 0 0 0]</span>
+<span class="sd">                     [0 0 0 0 1 0 0 0 0]</span>
+<span class="sd">                     [0 0 0 0 0 1 0 0 0]</span>
+<span class="sd">                     [0 0 0 0 0 0 1 0 0]</span>
+<span class="sd">                     [0 0 0 0 0 0 0 1 0]</span>
+<span class="sd">                     [0 0 0 0 0 0 0 0 1]]</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+
+<span class="sd">            status : boolean</span>
+<span class="sd">                If `True`, the generated functions are all mutually</span>
+<span class="sd">                orthonormal. Otherwise returns `False`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -272,15 +364,28 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_interval</span><span class="p">,</span>
                 <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">status</span>
+        <span class="k">return</span> <span class="n">status</span></div>
 
     <span class="c1"># -----</span>
     <span class="c1"># Print</span>
     <span class="c1"># -----</span>
 
-    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="OrthogonalFunctions.print"><a class="viewcode-back" href="../../ortho.html#ortho.OrthogonalFunctions.print">[docs]</a>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Print coeffs of Functions.</span>
+
+<span class="sd">        An Example of output is</span>
+
+<span class="sd">        ::</span>
+
+<span class="sd">              i      alpha_i                                    a_[ij]</span>
+<span class="sd">            ------  ----------   ---------------------------------------------</span>
+<span class="sd">            i = 1:  +sqrt(2/2)   [1                                          ]</span>
+<span class="sd">            i = 2:  -sqrt(2/3)   [6,   -5                                    ]</span>
+<span class="sd">            i = 3:  +sqrt(2/4)   [20,  -40,    21                            ]</span>
+<span class="sd">            i = 4:  -sqrt(2/5)   [50,  -175,   210,   -84                    ]</span>
+<span class="sd">            i = 5:  +sqrt(2/6)   [105, -560,   1134,  -1008,   330           ]</span>
+<span class="sd">            i = 6:  -sqrt(2/7)   [196, -1470,  4410,  -6468,   4620,   -1287 ]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -288,13 +393,13 @@
 
         <span class="n">print_coeffs_of_functions</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">sym_coeffs</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span><span class="p">)</span></div>
 
     <span class="c1"># ----</span>
     <span class="c1"># Plot</span>
     <span class="c1"># ----</span>
 
-    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="OrthogonalFunctions.plot"><a class="viewcode-back" href="../../ortho.html#ortho.OrthogonalFunctions.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot the generated functions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -306,7 +411,7 @@
         <span class="n">plot_functions</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_phi_orthonormalized_list</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">start_index</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_interval</span><span class="p">)</span></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_interval</span><span class="p">)</span></div></div>
 </pre></div>
 
               </div>
@@ -322,8 +427,9 @@
       </div>
     </div>
   
-    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">

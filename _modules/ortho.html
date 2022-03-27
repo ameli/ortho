@@ -1,0 +1,354 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>ortho package &#8212; ortho Manual</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/toggleprompt.js"></script>
+    <script>window.MathJax = {"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <script defer data-domain="docs.scipy.org" src="https://views.scientific-python.org/js/script.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">ortho</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Home
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api.html">
+  API Reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ameli/ortho" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+    
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-ortho">
+   Module contents
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section id="ortho-package">
+<h1>ortho package<a class="headerlink" href="#ortho-package" title="Permalink to this headline">#</a></h1>
+<section id="module-ortho">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ortho" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="ortho.OrthogonalFunctions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ortho.</span></span><span class="sig-name descname"><span class="pre">OrthogonalFunctions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="ortho/_orthogonal_functions/orthogonal_functions.html#OrthogonalFunctions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ortho.OrthogonalFunctions" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Generates a set of orthonormal functions.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>start_index</strong><span class="classifier">int, default=1</span></dt><dd><p>The index of the starting function, <span class="math notranslate nohighlight">\(i_0\)</span>.</p>
+</dd>
+<dt><strong>num_func</strong><span class="classifier">int, default=9</span></dt><dd><p>Number of orthogonal functions to generate</p>
+</dd>
+<dt><strong>end_interval</strong><span class="classifier">float, default=1</span></dt><dd><p>The right interval of orthogonality, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</dd>
+<dt><strong>vebose</strong><span class="classifier">boolean, default=False</span></dt><dd><p>Prints the generated functions. An example of output is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">phi_1</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span>  <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">phi_2</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span>  <span class="n">sqrt</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">phi_3</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span>  <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">21</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="mi">40</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">20</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The orthogonal functions, <span class="math notranslate nohighlight">\(\phi_i^{\perp}\)</span>, are generated based on
+the set of non-orthonormal functions <span class="math notranslate nohighlight">\(\phi_i\)</span> defined by</p>
+<div class="math notranslate nohighlight">
+\[\phi_i(t) = t^{\frac{1}{i+1}}, \qquad i = i_0,\dots,i_0+n.\]</div>
+<p>The orthonormalized functions <span class="math notranslate nohighlight">\(\phi_i^{\perp}\)</span> are the linear
+combination of the functions <span class="math notranslate nohighlight">\(\phi_i\)</span> by</p>
+<div class="math notranslate nohighlight">
+\[\phi_i^{\perp}(t) = \alpha_i \sum_{j = i_0}^{i_0+n} a_{ij}
+\phi_j(t), \qquad i = i_0,\dots,i_0+n.\]</div>
+<p>The functions <span class="math notranslate nohighlight">\(\phi_i^{\perp}\)</span> are orthonormal in the interval
+<span class="math notranslate nohighlight">\(t \in [0,L]\)</span> with respect to the weight function
+<span class="math notranslate nohighlight">\(w(t) = t^{-1}\)</span>. That is,</p>
+<div class="math notranslate nohighlight">
+\[\langle \phi_i^{\perp},\phi_j^{\perp} \rangle_{L^2([0,L],
+\mathrm{d}t/t)} = \int_0^L \phi_i^{\perp}(t) \phi_j^{\perp}(t)
+\frac{\mathrm{d}t}{t} = \delta_{ij},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta_{ij}\)</span> is the Kronecker delta function. The orthogonal
+functions are generated by <a class="reference external" href="https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process">Gram-Schmidt orthogonalization process</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sym_phi</strong><span class="classifier">sympy obj</span></dt><dd><p>Orthogonal functions <span class="math notranslate nohighlight">\(\phi_i^{\perp}\)</span></p>
+</dd>
+<dt><strong>sym_alpha</strong><span class="classifier">sympy obj</span></dt><dd><p>Coefficients <span class="math notranslate nohighlight">\(\alpha_i\)</span></p>
+</dd>
+<dt><strong>sym_coeffs</strong><span class="classifier">sympy obj</span></dt><dd><p>Coefficients <span class="math notranslate nohighlight">\(a_{i,j}\)</span></p>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">list</span></dt><dd><p>Coefficients <span class="math notranslate nohighlight">\(\alpha_i\)</span></p>
+</dd>
+<dt><strong>coeffs</strong><span class="classifier">list of lists</span></dt><dd><p>Coefficients <span class="math notranslate nohighlight">\(a_{i,j}\)</span></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ortho.OrthogonalFunctions.check" title="ortho.OrthogonalFunctions.check"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check</span></code></a>([verbose])</p></td>
+<td><p>Check the mutual orthogonality of the functions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ortho.OrthogonalFunctions.print" title="ortho.OrthogonalFunctions.print"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code></a>()</p></td>
+<td><p>Print coeffs of Functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ortho.OrthogonalFunctions.plot" title="ortho.OrthogonalFunctions.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>()</p></td>
+<td><p>Plot the generated functions.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="ortho.OrthogonalFunctions.check">
+<span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="ortho/_orthogonal_functions/orthogonal_functions.html#OrthogonalFunctions.check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ortho.OrthogonalFunctions.check" title="Permalink to this definition">#</a></dt>
+<dd><p>Check the mutual orthogonality of the functions.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>verbose</strong><span class="classifier">boolean, default=False</span></dt><dd><p>If <cite>True</cite>, prints the matrix of mutual inner product of
+functions. An example of the output is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>status</strong><span class="classifier">boolean</span></dt><dd><p>If <cite>True</cite>, the generated functions are all mutually
+orthonormal. Otherwise returns <cite>False</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ortho.OrthogonalFunctions.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="ortho/_orthogonal_functions/orthogonal_functions.html#OrthogonalFunctions.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ortho.OrthogonalFunctions.plot" title="Permalink to this definition">#</a></dt>
+<dd><p>Plot the generated functions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ortho.OrthogonalFunctions.print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="ortho/_orthogonal_functions/orthogonal_functions.html#OrthogonalFunctions.print"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ortho.OrthogonalFunctions.print" title="Permalink to this definition">#</a></dt>
+<dd><p>Print coeffs of Functions.</p>
+<p>An Example of output is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">i</span>      <span class="n">alpha_i</span>                                    <span class="n">a_</span><span class="p">[</span><span class="n">ij</span><span class="p">]</span>
+<span class="o">------</span>  <span class="o">----------</span>   <span class="o">---------------------------------------------</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span>  <span class="o">+</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>   <span class="p">[</span><span class="mi">1</span>                                          <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">:</span>  <span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>   <span class="p">[</span><span class="mi">6</span><span class="p">,</span>   <span class="o">-</span><span class="mi">5</span>                                    <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">:</span>  <span class="o">+</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>   <span class="p">[</span><span class="mi">20</span><span class="p">,</span>  <span class="o">-</span><span class="mi">40</span><span class="p">,</span>    <span class="mi">21</span>                            <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">4</span><span class="p">:</span>  <span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>   <span class="p">[</span><span class="mi">50</span><span class="p">,</span>  <span class="o">-</span><span class="mi">175</span><span class="p">,</span>   <span class="mi">210</span><span class="p">,</span>   <span class="o">-</span><span class="mi">84</span>                    <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">:</span>  <span class="o">+</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>   <span class="p">[</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">560</span><span class="p">,</span>   <span class="mi">1134</span><span class="p">,</span>  <span class="o">-</span><span class="mi">1008</span><span class="p">,</span>   <span class="mi">330</span>           <span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">6</span><span class="p">:</span>  <span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>   <span class="p">[</span><span class="mi">196</span><span class="p">,</span> <span class="o">-</span><span class="mi">1470</span><span class="p">,</span>  <span class="mi">4410</span><span class="p">,</span>  <span class="o">-</span><span class="mi">6468</span><span class="p">,</span>   <span class="mi">4620</span><span class="p">,</span>   <span class="o">-</span><span class="mi">1287</span> <span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Siavash Ameli.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
