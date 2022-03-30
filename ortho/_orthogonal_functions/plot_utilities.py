@@ -96,7 +96,7 @@ def plot_functions(phi_orthonormalized_list, start_index, interval):
     ax.set_yticks([-1, 0, 1])
     ax.set_xlabel(r'$t$')
     ax.set_ylabel(r'$\phi_i^{\perp}(t)$')
-    ax.set_title('Orthogonal functions')
+    ax.set_title('Orthogonalized inverse-monomial functions')
     ax.grid(axis='y')
 
     # Get the root directory of the package (parent directory of this script)
@@ -113,8 +113,8 @@ def plot_functions(phi_orthonormalized_list, start_index, interval):
 
     # Save plot in both svg and pdf format
     if os.access(save_dir, os.W_OK):
-        save_fullename_svg = os.path.join(save_dir, 'OrthogonalFunctions.svg')
-        save_fullename_pdf = os.path.join(save_dir, 'OrthogonalFunctions.pdf')
+        save_fullename_svg = os.path.join(save_dir, 'orthogonal_functions.svg')
+        save_fullename_pdf = os.path.join(save_dir, 'orthogonal_functions.pdf')
         plt.savefig(save_fullename_svg, transparent=True, bbox_inches='tight')
         plt.savefig(save_fullename_pdf, transparent=True, bbox_inches='tight')
         print('')

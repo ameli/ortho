@@ -70,7 +70,8 @@ class OrthogonalFunctions(object):
     -----
 
     The orthogonal functions, :math:`\\phi_i^{\\perp}`, are generated based on
-    the set of non-orthonormal functions :math:`\\phi_i` defined by
+    the set of non-orthonormal functions :math:`\\phi_i` defined by the
+    inverse-monomials
 
     .. math::
 
