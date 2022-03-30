@@ -325,14 +325,14 @@ Output
 
 -  Plots the set of functions (using option ``-p``) and saves the plot in the current directory. An example of a generated plot is shown below.
 
-.. image:: https://raw.githubusercontent.com/ameli/ortho/main/docs/source/images/orthogona_functions.svg
+.. image:: https://raw.githubusercontent.com/ameli/ortho/main/docs/source/images/orthogonal_functions.svg
     :align: center
 
 --------
 Citation
 --------
 
-.. [1] Ameli, S., and Shadden. S. C. (2022). Interpolating the Trace of the Inverse of Matrix **A** + t **B**. [math.NA] |paper-doi|
+.. [1] Ameli, S., and Shadden. S. C. (2022). Interpolating Log-Determinant and Trace of the Powers of Matrix **A** + t **B**. |paper-doi|
 .. [2] Ameli, S. (2022). ameli/ortho: (v0.2.0). Zenodo. |code-doi|
 
 .. |travis-devel| image:: https://img.shields.io/travis/com/ameli/ortho

@@ -85,7 +85,7 @@ author = 'Siavash Ameli'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    # 'sphinx_math_dollar',
+    'sphinx_math_dollar',
     'sphinx.ext.mathjax',
     'sphinx.ext.graphviz', 'sphinx.ext.inheritance_diagram',
     'sphinx.ext.viewcode',
