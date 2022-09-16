@@ -23,8 +23,8 @@ jobs:
             # Build sphinx in /docs/build
             - name: Build Sphinx
               run: |
-                  apt-get update
-                  apt-get install graphviz -y
+                  sudo apt-get update
+                  sudo apt-get install graphviz -y
                   python -m pip install --upgrade pip
                   python -m pip install .[docs]
                   export PATH=$HOME/.local/bin:$PATH
