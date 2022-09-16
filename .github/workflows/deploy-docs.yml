@@ -13,23 +13,28 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
-            - name: Build and Deploy
-              uses: JacksonMaxfield/github-pages-deploy-action-python@master
-              env:
-                  ACCESS_TOKEN: ${{ secrets.ORTHO_DOCS }}
-                  BASE_BRANCH: main
-                  BRANCH: gh-pages
-                  FOLDER: docs/build/html
-                  BUILD_SCRIPT: |
-                      apt-get update
-                      apt-get install graphviz -y
-                      pip install --upgrade pip
-                      pip install .[docs]
-                      export PATH=$HOME/.local/bin:$PATH
-                      make html --directory=docs
-                      touch docs/build/html/.nojekyll
-                      echo 'Visit [Documentation](https://ameli.github.io/ortho/index.html).' > docs/build/html/README.md
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: '3.10'
 
+            # Build sphinx in /docs/build
+            - name: Build Sphinx
+              run: |
+                  apt-get update
+                  apt-get install graphviz -y
+                  python -m pip install --upgrade pip
+                  python -m pip install .[docs]
+                  export PATH=$HOME/.local/bin:$PATH
+                  make html --directory=docs
+                  touch docs/build/html/.nojekyll
+                  echo 'Visit [Documentation](https://ameli.github.io/ortho/index.html).' > docs/build/html/README.md
 
+            # Deploy to github pages
+            - name: Deploy
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                folder: docs/build/html
+                branch: gh-pages

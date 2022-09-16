@@ -12,6 +12,7 @@
 
 import os
 import sys
+from datetime import date
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -74,8 +75,8 @@ for build_subdirectory in build_subdirectories:
 # -- Project information -----------------------------------------------------
 
 project = 'ortho'
-copyright = '2022, Siavash Ameli'
 author = 'Siavash Ameli'
+copyright = f'{date.today().year}, ' + author
 
 
 # -- General configuration ---------------------------------------------------
