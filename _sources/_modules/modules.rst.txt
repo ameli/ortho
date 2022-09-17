@@ -1,7 +1,0 @@
-ortho
-=====
-
-.. toctree::
-   :maxdepth: 4
-
-   ortho
