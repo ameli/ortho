@@ -1,7 +1,7 @@
 sphinx
 sphinx-math-dollar
 sphinx-toggleprompt
-pydata_sphinx_theme
+pydata_sphinx_theme=0.9.0
 graphviz
 sphinx-automodapi
 numpydoc
