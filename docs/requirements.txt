@@ -5,3 +5,6 @@ pydata_sphinx_theme==0.9.0
 graphviz
 sphinx-automodapi
 numpydoc
+sphinx_design
+sphinx-prompt
+sphinx-copybutton
