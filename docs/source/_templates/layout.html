@@ -11,11 +11,12 @@ The Scientific-Python community is managing the account.
 
 {% extends "!layout.html" %}
 
+{# ================ #}
+{# Extending Header #}
+{# ================ #}
+
 {% block extrahead %}
     <script defer data-domain="docs.scipy.org" src="https://views.scientific-python.org/js/script.js"></script>
-
-    <!-- Adobe Embed API -->
-    <script src="https://documentcloud.adobe.com/view-sdk/viewer.js"></script>
 
     <!-- My custom JS -->
     <script type="text/javascript" src="../_static/js/custom-pydata.js"></script>
@@ -26,4 +27,16 @@ The Scientific-Python community is managing the account.
     <script src="https://cdn.jsdelivr.net/npm/prismjs-bibtex@2.0.1/prism-bibtex.min.js"></script>
 
     {{ super() }}
+{% endblock %}
+
+{# ================ #}
+{# Extending Footer #}
+{# ================ #}
+
+{% block footer %}
+
+    <!-- Adobe Embed API -->
+    {# <script src="https://documentcloud.adobe.com/view-sdk/viewer.js"></script> #}
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+
 {% endblock %}
