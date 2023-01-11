@@ -306,7 +306,7 @@
                 
   <section id="project-documentation">
 <h1><span class="synco">ortho</span> documentation<a class="headerlink" href="#project-documentation" title="Permalink to this heading">#</a></h1>
-<p><a class="reference external" href="https://opensource.org/licenses/BSD-3-Clause"><img alt="license" src="https://img.shields.io/github/license/ameli/ortho" /></a> <a class="reference external" href="https://github.com/ameli/ortho/actions?query=workflow%3Adeploy-docs"><img alt="deploy-docs" src="https://img.shields.io/github/workflow/status/ameli/ortho/deploy-docs?label=docs" /></a></p>
+<p><a class="reference external" href="https://opensource.org/licenses/BSD-3-Clause"><img alt="license" src="https://img.shields.io/github/license/ameli/ortho" /></a> <a class="reference external" href="https://github.com/ameli/ortho/actions?query=workflow%3Adeploy-docs"><img alt="deploy-docs" src="https://img.shields.io/github/actions/workflow/status/ameli/ortho/deploy-docs.yml?label=docs" /></a></p>
 <div class="toctree-wrapper compound">
 </div>
 <p>A python package to generate a set of orthogonal functions.</p>
@@ -373,11 +373,11 @@ API reference</div>
 <th class="head" rowspan="2"><p>Continuous
 Integration</p></th>
 </tr>
-<tr class="row-even"><th class="head"><p>3.6</p></th>
-<th class="head"><p>3.7</p></th>
+<tr class="row-even"><th class="head"><p>3.7</p></th>
 <th class="head"><p>3.8</p></th>
 <th class="head"><p>3.9</p></th>
 <th class="head"><p>3.10</p></th>
+<th class="head"><p>3.11</p></th>
 </tr>
 </thead>
 <tbody>
@@ -388,7 +388,7 @@ Integration</p></th>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
-<td><p><a class="reference external" href="https://github.com/ameli/imate/actions?query=workflow%3Abuild-linux"><img alt="build-linux" src="https://img.shields.io/github/workflow/status/ameli/imate/build-linux" /></a></p></td>
+<td><p><a class="reference external" href="https://github.com/ameli/imate/actions?query=workflow%3Abuild-linux"><img alt="build-linux" src="https://img.shields.io/github/actions/workflow/status/ameli/imate/build-linux.yml" /></a></p></td>
 </tr>
 <tr class="row-even"><td><p>macOS</p></td>
 <td><p>X86-64</p></td>
@@ -397,7 +397,7 @@ Integration</p></th>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
-<td><p><a class="reference external" href="https://github.com/ameli/imate/actions?query=workflow%3Abuild-macos"><img alt="build-macos" src="https://img.shields.io/github/workflow/status/ameli/imate/build-macos" /></a></p></td>
+<td><p><a class="reference external" href="https://github.com/ameli/imate/actions?query=workflow%3Abuild-macos"><img alt="build-macos" src="https://img.shields.io/github/actions/workflow/status/ameli/imate/build-macos.yml" /></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>Windows</p></td>
 <td><p>X86-64</p></td>
@@ -406,7 +406,7 @@ Integration</p></th>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
-<td><p><a class="reference external" href="https://github.com/ameli/imate/actions?query=workflow%3Abuild-windows"><img alt="build-windows" src="https://img.shields.io/github/workflow/status/ameli/imate/build-windows" /></a></p></td>
+<td><p><a class="reference external" href="https://github.com/ameli/imate/actions?query=workflow%3Abuild-windows"><img alt="build-windows" src="https://img.shields.io/github/actions/workflow/status/ameli/imate/build-windows.yml" /></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -422,20 +422,20 @@ Integration</p></th>
 span.prompt1:before {
   content: "$ ";
 }
-</style><span class="prompt1">pip install ortho</span>
+</style><span class="prompt1">pip<span class="w"> </span>install<span class="w"> </span>ortho</span>
 </pre></div></div></section>
 <section id="install-from-anaconda-cloud">
 <h3>2. Install from Anaconda Cloud<a class="headerlink" href="#install-from-anaconda-cloud" title="Permalink to this heading">#</a></h3>
 <p>Install using <a class="reference external" href="https://anaconda.org/s-ameli/traceinv">Anaconda cloud</a> by</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">conda install -c s-ameli ortho</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>s-ameli<span class="w"> </span>ortho</span>
 </pre></div></div></section>
 <section id="install-from-source-code">
 <h3>3. Install from Source Code<a class="headerlink" href="#install-from-source-code" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://github.com/ameli/ortho/releases/"><img alt="release" src="https://img.shields.io/github/v/tag/ameli/ortho" /></a></p>
 <p>Install directly from the source code by</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git clone https://github.com/ameli/ortho.git</span>
-<span class="prompt1"><span class="nb">cd</span> ortho</span>
-<span class="prompt1">pip install .</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ameli/ortho.git</span>
+<span class="prompt1"><span class="nb">cd</span><span class="w"> </span>ortho</span>
+<span class="prompt1">pip<span class="w"> </span>install<span class="w"> </span>.</span>
 </pre></div></div></section>
 </section>
 <section id="testing">
@@ -443,10 +443,10 @@ span.prompt1:before {
 <p>To test the package, download the source code and use one of the following methods in the directory of the source code:</p>
 <ul>
 <li><p><em>Method 1</em>: test locally by:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">python setup.py <span class="nb">test</span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">python<span class="w"> </span>setup.py<span class="w"> </span><span class="nb">test</span></span>
 </pre></div></div></li>
 <li><p><em>Method 2</em>: test in a virtual environment using <code class="docutils literal notranslate"><span class="pre">tox</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pip install tox</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">pip<span class="w"> </span>install<span class="w"> </span>tox</span>
 <span class="prompt1">tox</span>
 </pre></div></div></li>
 </ul>
@@ -498,18 +498,18 @@ span.prompt1:before {
 <p>The standalone application can be executed in the terminal in two ways:</p>
 <ol class="arabic">
 <li><p>If you have installed the package, call <code class="docutils literal notranslate"><span class="pre">ortho</span></code> executable in terminal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho <span class="o">[</span>options<span class="o">]</span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho<span class="w"> </span><span class="o">[</span>options<span class="o">]</span></span>
 </pre></div></div><p>The optional argument <code class="docutils literal notranslate"><span class="pre">[options]</span></code> will be explained in the next section. When the package <em>ortho</em> is installed, the executable <code class="docutils literal notranslate"><span class="pre">ortho</span></code> is located in the <code class="docutils literal notranslate"><span class="pre">/bin</span></code> directory of the python.</p>
 </li>
 <li><p>Without installing the package, the main script of the package can be executed directly from the source code by</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1"><span class="c1"># Download the package</span></span>
-<span class="prompt1">git clone https://github.com/ameli/ortho.git</span>
+<span class="prompt1">git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ameli/ortho.git</span>
 <span class="prompt1"></span>
 <span class="prompt1"><span class="c1"># Go to the package source directory</span></span>
-<span class="prompt1"><span class="nb">cd</span> ortho</span>
+<span class="prompt1"><span class="nb">cd</span><span class="w"> </span>ortho</span>
 <span class="prompt1"></span>
 <span class="prompt1"><span class="c1"># Execute the main script of the package</span></span>
-<span class="prompt1">python -m ortho <span class="o">[</span>options<span class="o">]</span></span>
+<span class="prompt1">python<span class="w"> </span>-m<span class="w"> </span>ortho<span class="w"> </span><span class="o">[</span>options<span class="o">]</span></span>
 </pre></div></div></li>
 </ol>
 </section>
@@ -583,19 +583,19 @@ span.prompt1:before {
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho</span>
 </pre></div></div></li>
 <li><p>Generate eight orthogonal functions from index 1 to 8</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho -n <span class="m">8</span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho<span class="w"> </span>-n<span class="w"> </span><span class="m">8</span></span>
 </pre></div></div></li>
 <li><p>Generate nine orthogonal functions from index 0 to 8</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho -s <span class="m">0</span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho<span class="w"> </span>-s<span class="w"> </span><span class="m">0</span></span>
 </pre></div></div></li>
 <li><p>Generate nine orthogonal functions that are orthonormal in the interval [0,10]</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho -e <span class="m">10</span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho<span class="w"> </span>-e<span class="w"> </span><span class="m">10</span></span>
 </pre></div></div></li>
 <li><p>Check orthogonality of each two functions, plot the orthonormal functions and save the plot to pdf</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho -c -p</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho<span class="w"> </span>-c<span class="w"> </span>-p</span>
 </pre></div></div></li>
 <li><p>A complete example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho -n <span class="m">9</span> -s <span class="m">1</span> -e <span class="m">1</span> -c -p</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">ortho<span class="w"> </span>-n<span class="w"> </span><span class="m">9</span><span class="w"> </span>-s<span class="w"> </span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span><span class="m">1</span><span class="w"> </span>-c<span class="w"> </span>-p</span>
 </pre></div></div></li>
 </ol>
 </section>

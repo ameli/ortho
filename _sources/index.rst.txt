@@ -82,7 +82,7 @@ Build and Test Status
 +----------+--------+-------+-------+-------+-------+-------+-----------------+
 | Platform | Arch   | Python Version                        | Continuous      |
 +          |        +-------+-------+-------+-------+-------+ Integration     +
-|          |        |  3.6  |  3.7  |  3.8  |  3.9  |  3.10 |                 |
+|          |        |  3.7  |  3.8  |  3.9  |  3.10 |  3.11 |                 |
 +==========+========+=======+=======+=======+=======+=======+=================+
 | Linux    | X86-64 |  |y|  |  |y|  |  |y|  |  |y|  |  |y|  | |build-linux|   |
 +----------+--------+-------+-------+-------+-------+-------+-----------------+
@@ -91,11 +91,11 @@ Build and Test Status
 | Windows  | X86-64 |  |y|  |  |y|  |  |y|  |  |y|  |  |y|  | |build-windows| |
 +----------+--------+-------+-------+-------+-------+-------+-----------------+
 
-.. |build-linux| image:: https://img.shields.io/github/workflow/status/ameli/imate/build-linux
+.. |build-linux| image:: https://img.shields.io/github/actions/workflow/status/ameli/imate/build-linux.yml
    :target: https://github.com/ameli/imate/actions?query=workflow%3Abuild-linux 
-.. |build-macos| image:: https://img.shields.io/github/workflow/status/ameli/imate/build-macos
+.. |build-macos| image:: https://img.shields.io/github/actions/workflow/status/ameli/imate/build-macos.yml
    :target: https://github.com/ameli/imate/actions?query=workflow%3Abuild-macos
-.. |build-windows| image:: https://img.shields.io/github/workflow/status/ameli/imate/build-windows
+.. |build-windows| image:: https://img.shields.io/github/actions/workflow/status/ameli/imate/build-windows.yml
    :target: https://github.com/ameli/imate/actions?query=workflow%3Abuild-windows
 
 Install
@@ -358,7 +358,7 @@ Output
 
 .. include:: cite.rst
 
-.. |deploy-docs| image:: https://img.shields.io/github/workflow/status/ameli/ortho/deploy-docs?label=docs
+.. |deploy-docs| image:: https://img.shields.io/github/actions/workflow/status/ameli/ortho/deploy-docs.yml?label=docs
    :target: https://github.com/ameli/ortho/actions?query=workflow%3Adeploy-docs
 .. |codecov-devel| image:: https://img.shields.io/codecov/c/github/ameli/ortho
    :target: https://codecov.io/gh/ameli/ortho
