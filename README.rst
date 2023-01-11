@@ -377,7 +377,7 @@ Citation
    :target: https://anaconda.org/s-ameli/ortho
 .. |code-doi| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.6395268.svg
    :target: https://doi.org/10.5281/zenodo.6395268
-.. |paper-doi| image:: https://img.shields.io/badge/doi-10.1007/s11222-022-10173-4-%23B31B1B
+.. |paper-doi| image:: https://img.shields.io/badge/doi-10.1007%2Fs11222--022--10173--4-green
    :target: https://doi.org/10.1007/s11222-022-10173-4
 .. |paper-arxiv| image:: https://img.shields.io/badge/arXiv-2009.07385 [math.NA]-%23B31B1B
    :target: https://doi.org/10.48550/arXiv.2009.07385
