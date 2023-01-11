@@ -48,13 +48,27 @@ Build and Test Status
 
 |codecov-devel| 
 
-==============  ==================  ===============
-Platform        Python versions     Build status
-==============  ==================  ===============
-Linux (Ubuntu)  3.6, 3.7, 3.8, 3.9  |build-linux|
-macOS           3.6, 3.7, 3.8, 3.9  |build-macos|
-Windows         3.6, 3.7, 3.8, 3.9  |build-windows|
-==============  ==================  ===============
+.. |y| unicode:: U+2714
+.. |n| unicode:: U+2716
+
++----------+--------+-------+-------+-------+-------+-------+-----------------+
+| Platform | Arch   | Python Version                        | Continuous      |
++          |        +-------+-------+-------+-------+-------+ Integration     +
+|          |        |  3.7  |  3.8  |  3.9  |  3.10 |  3.11 |                 |
++==========+========+=======+=======+=======+=======+=======+=================+
+| Linux    | X86-64 |  |y|  |  |y|  |  |y|  |  |y|  |  |y|  | |build-linux|   |
++----------+--------+-------+-------+-------+-------+-------+-----------------+
+| macOS    | X86-64 |  |y|  |  |y|  |  |y|  |  |y|  |  |y|  | |build-macos|   |
++----------+--------+-------+-------+-------+-------+-------+-----------------+
+| Windows  | X86-64 |  |y|  |  |y|  |  |y|  |  |y|  |  |y|  | |build-windows| |
++----------+--------+-------+-------+-------+-------+-------+-----------------+
+
+.. |build-linux| image:: https://img.shields.io/github/actions/workflow/status/ameli/ortho/build-linux.yml
+   :target: https://github.com/ameli/ortho/actions?query=workflow%3Abuild-linux 
+.. |build-macos| image:: https://img.shields.io/github/actions/workflow/status/ameli/ortho/build-macos.yml
+   :target: https://github.com/ameli/ortho/actions?query=workflow%3Abuild-macos
+.. |build-windows| image:: https://img.shields.io/github/actions/workflow/status/ameli/ortho/build-windows.yml
+   :target: https://github.com/ameli/ortho/actions?query=workflow%3Abuild-windows
 
 -------
 Install
@@ -332,7 +346,7 @@ Output
 Citation
 --------
 
-.. [1] Ameli, S., and Shadden. S. C. (2022). Interpolating Log-Determinant and Trace of the Powers of Matrix **A** + t **B**. |paper-doi|
+.. [1] Ameli, S., and Shadden. S. C. (2022). Interpolating Log-Determinant and Trace of the Powers of Matrix **A** + t **B**. *Statistics and Computing* 32, 108. |paper-doi| |paper-arxiv|
 .. [2] Ameli, S. (2022). ameli/ortho: (v0.2.0). Zenodo. |code-doi|
 
 .. |travis-devel| image:: https://img.shields.io/travis/com/ameli/ortho
@@ -351,12 +365,6 @@ Citation
 .. |pyversions| image:: https://img.shields.io/pypi/pyversions/ortho
 .. |format| image:: https://img.shields.io/pypi/format/ortho
 .. |pypi| image:: https://img.shields.io/pypi/v/ortho
-.. |build-linux| image:: https://github.com/ameli/ortho/workflows/build-linux/badge.svg
-   :target: https://github.com/ameli/ortho/actions?query=workflow%3Abuild-linux 
-.. |build-macos| image:: https://github.com/ameli/ortho/workflows/build-macos/badge.svg
-   :target: https://github.com/ameli/ortho/actions?query=workflow%3Abuild-macos
-.. |build-windows| image:: https://github.com/ameli/ortho/workflows/build-windows/badge.svg
-   :target: https://github.com/ameli/ortho/actions?query=workflow%3Abuild-windows
 .. |conda| image:: https://anaconda.org/s-ameli/ortho/badges/installer/conda.svg
    :target: https://anaconda.org/s-ameli/ortho
 .. |platforms| image:: https://img.shields.io/conda/pn/s-ameli/ortho?color=orange?label=platforms
@@ -369,5 +377,7 @@ Citation
    :target: https://anaconda.org/s-ameli/ortho
 .. |code-doi| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.6395268.svg
    :target: https://doi.org/10.5281/zenodo.6395268
-.. |paper-doi| image:: https://img.shields.io/badge/math.NA-arXiv.2009.07385-%23B31B1B
+.. |paper-doi| image:: https://img.shields.io/badge/doi-10.1007/s11222-022-10173-4-%23B31B1B
+   :target: https://doi.org/10.1007/s11222-022-10173-4
+.. |paper-arxiv| image:: https://img.shields.io/badge/arXiv-2009.07385 [math.NA]-%23B31B1B
    :target: https://doi.org/10.48550/arXiv.2009.07385

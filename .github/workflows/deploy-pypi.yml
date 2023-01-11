@@ -1,9 +1,9 @@
 name: deploy-pypi
 
 on:
-    # push:
-    #     branches:
-    #         - main
+    push:
+        branches:
+            - main
     release:
         types:
             - published
@@ -19,7 +19,7 @@ jobs:
             - name: Setup Python
               uses: actions/setup-python@v4
               with:
-                python-version: '3.10'
+                python-version: '3.11'
 
             - name: Install twine and wheel
               run: |
