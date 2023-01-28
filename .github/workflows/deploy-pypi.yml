@@ -1,9 +1,9 @@
 name: deploy-pypi
 
 on:
-    push:
-        branches:
-            - main
+    # push:
+    #     branches:
+    #         - main
     release:
         types:
             - published
@@ -36,5 +36,6 @@ jobs:
             - name: Publish to PyPi
               uses: pypa/gh-action-pypi-publish@release/v1
               with:
+                  verbose: true
                   user: __token__
                   password: ${{ secrets.pypi_password }}
