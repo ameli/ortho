@@ -40,6 +40,7 @@ jobs:
             - name: Setup Miniconda
               uses: conda-incubator/setup-miniconda@v2
               with:
+                  miniconda-version: "latest"
                   auto-update-conda: true
 
             - name: Build and upload package
