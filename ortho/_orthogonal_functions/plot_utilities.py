@@ -14,7 +14,7 @@
 import os
 import sympy
 import numpy
-from distutils.spawn import find_executable
+import shutil
 import matplotlib
 import matplotlib.pyplot as plt
 from .declarations import t
@@ -37,7 +37,7 @@ def plot_settings():
     sns.set(font_scale=1.2)
 
     # LaTeX
-    if find_executable('latex'):
+    if shutil.which('latex'):
         plt.rc('text', usetex=True)
 
     # Style sheet
