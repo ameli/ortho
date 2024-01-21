@@ -50,6 +50,6 @@ jobs:
                   conda config --set anaconda_upload yes
                   export PATH=$(conda info --root):$PATH
                   export PATH=$(conda info --root)/bin:$PATH
-                  conda-build --output-folder . .
+                  conda build --output-folder conda-bld .
               env:
                   ANACONDA_API_TOKEN: ${{ secrets.ANACONDA_TOKEN }}

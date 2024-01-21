@@ -114,7 +114,7 @@ def main(argv):
     version = version_dummy['__version__']
     del version_dummy
 
-    # author
+    # Author
     author = open(os.path.join(directory, 'AUTHORS.txt'), 'r').read().rstrip()
 
     # Requirements
@@ -153,13 +153,14 @@ def main(argv):
             'tests.*',
             'tests',
             'examples.*',
-            'examples']
+            'examples',
+            'docs.*',
+            'docs']
         ),
         install_requires=requirements,
         python_requires='>=3.9',
         setup_requires=[
-            'setuptools',
-            'pytest-runner'],
+            'setuptools'],
         tests_require=[
             'pytest',
             'pytest-cov'],

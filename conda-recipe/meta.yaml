@@ -26,7 +26,6 @@ requirements:
         - numpy
         - sympy
         - matplotlib
-        - seaborn
 
 test:
     imports:

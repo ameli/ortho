@@ -20,9 +20,9 @@ ortho
 
 A python package to generate a set of orthogonal functions.
 
-* `Documentation <https://ameli.github.io/ortho/index.html>`_
-* `API Reference <https://ameli.github.io/ortho/api.html>`_
-* `Github <https://ameli.github.io/ortho>`_
+* `Documentation <https://ameli.github.io/ortho/index.html>`__
+* `API Reference <https://ameli.github.io/ortho/api.html>`__
+* `Github <https://ameli.github.io/ortho>`__
 
 -----------
 Description
@@ -100,7 +100,7 @@ Install using the package available on `PyPi <https://pypi.org/project/ortho>`__
 
 |conda-version| |conda-platform|
 
-Install using `Anaconda cloud <https://anaconda.org/s-ameli/traceinv>`_ by
+Install using `Anaconda cloud <https://anaconda.org/s-ameli/traceinv>`__ by
 
 ::
 

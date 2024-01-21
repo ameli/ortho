@@ -16,7 +16,7 @@ from .orthogonalization_utilities import print_coeffs_of_functions
 from .orthogonalization_utilities import check_mutual_orthonormality
 from .orthogonalization_utilities import get_symbolic_coeffs
 from .orthogonalization_utilities import get_numeric_coeffs
-from .plot_utilities import plot_functions
+from .plot_functions import plot_functions
 
 
 # ====================

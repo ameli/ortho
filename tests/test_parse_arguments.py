@@ -15,6 +15,10 @@
 
 from ortho._parse_arguments import parse_arguments
 
+import warnings
+warnings.resetwarnings()
+warnings.filterwarnings("error")
+
 
 # ====================
 # Test Parse arguments

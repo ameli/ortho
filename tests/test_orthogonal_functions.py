@@ -14,10 +14,28 @@
 # =======
 
 # matplotlib without display
+import os
 import matplotlib
 matplotlib.use('Agg')
 
 from ortho import OrthogonalFunctions                              # noqa: E402
+
+import warnings
+warnings.resetwarnings()
+warnings.filterwarnings("error")
+
+
+# ===========
+# remove file
+# ===========
+
+def remove_file(filename):
+    """
+    Remove file.
+    """
+
+    if os.path.exists(filename):
+        os.remove(filename)
 
 
 # =========================
@@ -43,6 +61,10 @@ def test_orthogonal_functions():
 
     # Plot the results
     OF.plot()
+
+    # Remove saved plots
+    remove_file('orthogonal_functions.svg')
+    remove_file('orthogonal_functions.pdf')
 
 
 # ===========
