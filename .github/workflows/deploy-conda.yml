@@ -9,20 +9,6 @@ on:
             - published
 
 jobs:
-    # publish:
-    #     runs-on: ubuntu-latest
-    #     name: Publish to Conda
-    #     steps:
-    #         - name: Checkout
-    #           uses: actions/checkout@v2
-    #
-    #         - name: publish-to-conda
-    #           uses: fcakyon/conda-publish-action@v1.3
-    #           with:
-    #               subdir: 'conda-recipe'
-    #               anacondatoken: ${{ secrets.ANACONDA_TOKEN }}
-    #               platforms: 'win osx linux'
-
     build_conda:
         runs-on: ubuntu-latest
         name: Publish to Conda
@@ -38,7 +24,7 @@ jobs:
               uses: actions/checkout@v3
 
             - name: Setup Miniconda
-              uses: conda-incubator/setup-miniconda@v2
+              uses: conda-incubator/setup-miniconda@v3
               with:
                   miniconda-version: "latest"
                   auto-update-conda: true
