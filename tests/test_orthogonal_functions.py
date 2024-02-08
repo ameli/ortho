@@ -20,7 +20,7 @@ matplotlib.use('Agg')
 
 from ortho import OrthogonalFunctions                              # noqa: E402
 
-import warnings
+import warnings                                                    # noqa: E402
 warnings.resetwarnings()
 warnings.filterwarnings("error")
 
@@ -60,7 +60,7 @@ def test_orthogonal_functions():
     OF.check(verbose=True)
 
     # Plot the results
-    OF.plot()
+    OF.plot(filename='orthogonal_functions')
 
     # Remove saved plots
     remove_file('orthogonal_functions.svg')

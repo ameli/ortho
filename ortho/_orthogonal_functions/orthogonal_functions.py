@@ -249,7 +249,7 @@ class OrthogonalFunctions(object):
     # Plot
     # ----
 
-    def plot(self):
+    def plot(self, filename=None):
         """
         Plot the generated functions.
         """
@@ -261,4 +261,5 @@ class OrthogonalFunctions(object):
         plot_functions(
                 self._phi_orthonormalized_list,
                 self.start_index,
-                self._interval)
+                self._interval,
+                filename=filename)

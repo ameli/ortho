@@ -14,7 +14,7 @@
 import numpy
 import sympy
 import os
-from .plot_utilities import plt, matplotlib, get_custom_theme, save_plot
+from .plot_utilities import plt, matplotlib, get_theme, show_or_save_plot
 from .declarations import t
 
 __all__ = ['plot_functions']
@@ -24,8 +24,12 @@ __all__ = ['plot_functions']
 # Plot Functions
 # ==============
 
-@matplotlib.rc_context(get_custom_theme(font_scale=1.2))
-def plot_functions(phi_orthonormalized_list, start_index, interval):
+@matplotlib.rc_context(get_theme(font_scale=1.2))
+def plot_functions(
+        phi_orthonormalized_list,
+        start_index,
+        interval,
+        filename=None):
     """
     Plots the generated functions, also saves the plots as both ``svg`` and
     ``pdf`` format.
@@ -40,6 +44,9 @@ def plot_functions(phi_orthonormalized_list, start_index, interval):
     :param Interval: The right side of the interval of the domain of the
         functions.
     :param Interval: float
+
+    :param: filename: Name of file to save the plot. If `None`, plot is shown
+        but not saved. If string, plot is not shown, rather, saved.
     """
 
     # Axis
@@ -81,13 +88,6 @@ def plot_functions(phi_orthonormalized_list, start_index, interval):
         save_dir = os.getcwd()
 
     # Save plot in both svg and pdf format
-    if os.access(save_dir, os.W_OK):
-        save_filename = 'orthogonal_functions'
-        save_plot(plt, save_filename, save_dir=save_dir,
-                  transparent_background=True)
-    else:
-        print('Cannot save plot to %s. Directory is not writable.' % save_dir)
-
-    # If no display backend is enabled, do not plot in the interactive mode
-    if matplotlib.get_backend() != 'agg':
-        plt.show()
+    show_or_save_plot(plt, filename=filename,
+                      default_filename='orthogonal_functions',
+                      transparent_background=True)

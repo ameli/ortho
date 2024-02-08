@@ -47,7 +47,7 @@ def main(args=None):
 
     # Plot results
     if arguments['plot_flag']:
-        OF.plot()
+        OF.plot(filename='orthogonal_functions')
 
 
 # ===========
